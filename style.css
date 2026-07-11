@@ -359,7 +359,6 @@ td input:focus,.cell-input:focus{outline:none;border-color:var(--accent);backgro
 .month-block.open .month-body{max-height:2000px;}
 .month-block.open .chev{transform:rotate(180deg);}
 .task-row{display:grid;grid-template-columns:auto 1fr 140px 130px 34px;gap:12px;align-items:center;padding:10px 20px;border-top:1px solid var(--border);}
-@media(max-width:700px){.task-row{grid-template-columns:auto 1fr;row-gap:6px;}.task-row .pic-field,.task-row .status-field{grid-column:2/3;}}
 .task-check{width:19px;height:19px;accent-color:var(--success);cursor:pointer;}
 .task-row input.tugas{border:none;background:transparent;font-size:13.5px;padding:6px 4px;border-radius:6px;}
 .task-row input.tugas:hover{background:var(--surface-alt);}
@@ -406,7 +405,82 @@ td input:focus,.cell-input:focus{outline:none;border-color:var(--accent);backgro
   .hero-top{flex-direction:column;}
   .countdown{width:100%;}
   .page-head h1{font-size:24px;}
+  .vendor-edit-row{grid-template-columns:repeat(2,1fr);}
 }
-@media(max-width:480px){
-  table{min-width:480px;}
+
+/* ---- small screens: phones ---- */
+@media(max-width:700px){
+  .content{padding:18px 14px 60px;}
+  .card{padding:16px;}
+  .card.tight{padding:14px;}
+  .hero{padding:24px 18px;border-radius:16px;}
+  .hero h1{font-size:21px;}
+  .hero-eyebrow{font-size:10.5px;letter-spacing:2px;}
+  .venue-line{font-size:15px;}
+  .countdown{padding:14px 20px;}
+  .countdown .num{font-size:34px;}
+  .stat-card .value{font-size:19px;word-break:break-word;}
+  .stat-card .label{font-size:10px;}
+  .section-title{font-size:16px;margin:24px 0 12px;}
+
+  /* page header: stack title and action button */
+  .page-head{flex-direction:column;align-items:stretch;gap:10px;}
+  .page-head h1{font-size:21px;}
+  .page-head .btn.primary{width:100%;justify-content:center;}
+  .page-head p.desc{max-width:none;}
+
+  /* vendor cards */
+  .vendor-card{padding:16px;}
+  .vendor-nama{font-size:16px;}
+  .vendor-edit-row{grid-template-columns:1fr;gap:12px;margin-top:16px;}
+  .vendor-head{flex-direction:column;}
+  .vendor-head > div:last-child{align-self:flex-start;}
+
+  /* timeline */
+  .month-header{padding:14px 16px;}
+  .month-name{font-size:15px;}
+  .month-progress{max-width:none;width:100%;order:3;}
+  .task-row{
+    display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;
+    padding:12px 16px;grid-template-columns:unset;
+  }
+  .task-row .task-check{order:1;}
+  .task-row .tugas{order:2;flex:1 1 auto;min-width:0;}
+  .task-row .pic-field{order:4;flex:1 1 calc(50% - 5px);border:1px solid var(--border);}
+  .task-row .status-field{order:5;flex:1 1 calc(50% - 5px);border:1px solid var(--border);}
+  .task-row [data-del-task]{order:3;margin-left:auto;}
+
+  /* guest toolbar */
+  .guest-toolbar{flex-direction:column;align-items:stretch;}
+  .search-box{max-width:none;}
+  .guest-summary{gap:14px;}
+
+  /* ---- tables become stacked cards ---- */
+  .table-wrap{border:none;background:transparent;box-shadow:none;overflow:visible;}
+  table{min-width:0;width:100%;}
+  thead{display:none;}
+  tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    box-shadow:var(--shadow);margin-bottom:12px;padding:6px 4px;overflow:hidden;
+  }
+  tbody tr.total-row{background:var(--surface-alt);border-color:var(--accent-soft);}
+  tbody tr:last-child{margin-bottom:0;}
+  tbody td{
+    border-bottom:1px dashed var(--border);padding:9px 14px;
+  }
+  tbody tr td:last-child{border-bottom:none;}
+  td[data-label]::before{
+    content:attr(data-label);display:block;font-size:10px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.6px;color:var(--text-muted);margin-bottom:3px;
+  }
+  td.col-actions{
+    border-bottom:none;padding:2px 10px 8px;display:flex;justify-content:flex-end;
+  }
+  td .cell-input{padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;}
+  td input:hover,td .cell-input:hover{border-color:var(--border);}
+  td select.cell-input{width:100%;}
+}
+@media(max-width:400px){
+  .task-row .pic-field,.task-row .status-field{flex:1 1 100%;}
 }

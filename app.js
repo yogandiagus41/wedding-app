@@ -194,7 +194,7 @@ function renderDashboard(){
       <table><thead><tr><th>Tugas</th><th>PIC</th><th>Status</th></tr></thead>
       <tbody>
         ${monthBlock && monthBlock.tasks.length ? monthBlock.tasks.map(t=>`
-          <tr><td>${escapeHtml(t.tugas)}</td><td>${escapeHtml(t.pic)}</td><td><span class="badge ${statusClass(t.status)}"><span class="badge-dot"></span>${escapeHtml(t.status)}</span></td></tr>
+          <tr><td data-label="Tugas">${escapeHtml(t.tugas)}</td><td data-label="PIC">${escapeHtml(t.pic)}</td><td data-label="Status"><span class="badge ${statusClass(t.status)}"><span class="badge-dot"></span>${escapeHtml(t.status)}</span></td></tr>
         `).join("") : `<tr><td colspan="3" style="color:var(--text-muted);text-align:center;padding:24px;">Belum ada tugas bulan ini</td></tr>`}
       </tbody></table>
     </div>
@@ -203,7 +203,7 @@ function renderDashboard(){
       <div>
         <div class="section-title first"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l2-5h14l2 5M3 9v9a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18"/></svg>Ringkasan Vendor</div>
         <div class="table-wrap"><table><thead><tr><th>Kategori</th><th>Vendor</th><th>Status</th></tr></thead><tbody>
-          ${DATA.vendor.map(v=>`<tr><td>${escapeHtml(v.kategori)}</td><td>${escapeHtml(v.namaVendor||"-")}</td><td>${v.status?`<span class="badge ${statusClass(v.status)}"><span class="badge-dot"></span>${escapeHtml(v.status)}</span>`:"-"}</td></tr>`).join("")}
+          ${DATA.vendor.map(v=>`<tr><td data-label="Kategori">${escapeHtml(v.kategori)}</td><td data-label="Vendor">${escapeHtml(v.namaVendor||"-")}</td><td data-label="Status">${v.status?`<span class="badge ${statusClass(v.status)}"><span class="badge-dot"></span>${escapeHtml(v.status)}</span>`:"-"}</td></tr>`).join("")}
         </tbody></table></div>
       </div>
       <div>
@@ -235,20 +235,20 @@ function renderBudget(){
         ${DATA.budget.map((b,i)=>{
           const selisih = num(b.estimasi)-num(b.realisasi);
           return `<tr data-i="${i}">
-            <td><input class="cell-input" data-f="kategori" value="${escapeHtml(b.kategori)}" placeholder="Nama kategori"></td>
-            <td><input class="cell-input" data-f="volume" value="${escapeHtml(b.volume)}" placeholder="-"></td>
-            <td><input class="cell-input" data-f="estimasi" type="number" value="${b.estimasi||0}"></td>
-            <td><input class="cell-input" data-f="realisasi" type="number" value="${b.realisasi||0}"></td>
-            <td style="color:${selisih<0?'var(--danger)':'var(--text-muted)'};font-weight:500;">${rupiah(selisih)}</td>
-            <td class="col-actions"><button class="icon-btn" data-del="${i}" title="Hapus">${iconTrash()}</button></td>
+            <td data-label="Kategori"><input class="cell-input" data-f="kategori" value="${escapeHtml(b.kategori)}" placeholder="Nama kategori"></td>
+            <td data-label="Volume"><input class="cell-input" data-f="volume" value="${escapeHtml(b.volume)}" placeholder="-"></td>
+            <td data-label="Estimasi"><input class="cell-input" data-f="estimasi" type="number" value="${b.estimasi||0}"></td>
+            <td data-label="Realisasi"><input class="cell-input" data-f="realisasi" type="number" value="${b.realisasi||0}"></td>
+            <td data-label="Selisih" style="color:${selisih<0?'var(--danger)':'var(--text-muted)'};font-weight:500;">${rupiah(selisih)}</td>
+            <td class="col-actions no-label"><button class="icon-btn" data-del="${i}" title="Hapus">${iconTrash()}</button></td>
           </tr>`;
         }).join("")}
         <tr class="total-row">
-          <td colspan="2">Total</td>
-          <td>${rupiah(bt.estimasi)}</td>
-          <td>${rupiah(bt.realisasi)}</td>
-          <td style="color:${bt.selisih<0?'var(--danger)':'var(--success)'}">${rupiah(bt.selisih)}</td>
-          <td></td>
+          <td colspan="2" data-label="Kategori">Total</td>
+          <td data-label="Estimasi">${rupiah(bt.estimasi)}</td>
+          <td data-label="Realisasi">${rupiah(bt.realisasi)}</td>
+          <td data-label="Selisih" style="color:${bt.selisih<0?'var(--danger)':'var(--success)'}">${rupiah(bt.selisih)}</td>
+          <td class="no-label"></td>
         </tr>
       </tbody>
     </table></div>
@@ -476,11 +476,11 @@ function renderGuests(){
       <tbody>
         ${list.length? list.map(g=>`
           <tr data-i="${g._i}">
-            <td><input class="cell-input" data-f="nama" value="${escapeHtml(g.nama)}"></td>
-            <td><input class="cell-input" data-f="pihak" value="${escapeHtml(g.pihak)}"></td>
-            <td><input class="cell-input" data-f="noHp" value="${escapeHtml(g.noHp)}" placeholder="-"></td>
-            <td><input class="cell-input" data-f="catatan" value="${escapeHtml(g.catatan)}" placeholder="-"></td>
-            <td class="col-actions"><button class="icon-btn" data-del="${g._i}">${iconTrash()}</button></td>
+            <td data-label="Nama"><input class="cell-input" data-f="nama" value="${escapeHtml(g.nama)}"></td>
+            <td data-label="Pihak"><input class="cell-input" data-f="pihak" value="${escapeHtml(g.pihak)}"></td>
+            <td data-label="No HP"><input class="cell-input" data-f="noHp" value="${escapeHtml(g.noHp)}" placeholder="-"></td>
+            <td data-label="Catatan"><input class="cell-input" data-f="catatan" value="${escapeHtml(g.catatan)}" placeholder="-"></td>
+            <td class="col-actions no-label"><button class="icon-btn" data-del="${g._i}">${iconTrash()}</button></td>
           </tr>
         `).join("") : `<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:24px;">Tidak ada tamu yang cocok</td></tr>`}
       </tbody>
@@ -534,19 +534,19 @@ function renderPayment(){
         ${DATA.payment.map((p,i)=>{
           const sisa = num(p.total)-num(p.dp);
           return `<tr data-i="${i}">
-            <td><input class="cell-input" data-f="vendor" value="${escapeHtml(p.vendor)}"></td>
-            <td><input class="cell-input" data-f="total" type="number" value="${p.total||0}"></td>
-            <td><input class="cell-input" data-f="dp" type="number" value="${p.dp||0}"></td>
-            <td style="color:var(--text-muted);">${rupiah(sisa)}</td>
-            <td><input class="cell-input" data-f="jatuhTempo" type="date" value="${p.jatuhTempo||""}"></td>
-            <td><select class="cell-input" data-f="status" style="border:1px solid var(--border);">
+            <td data-label="Vendor"><input class="cell-input" data-f="vendor" value="${escapeHtml(p.vendor)}"></td>
+            <td data-label="Total"><input class="cell-input" data-f="total" type="number" value="${p.total||0}"></td>
+            <td data-label="DP"><input class="cell-input" data-f="dp" type="number" value="${p.dp||0}"></td>
+            <td data-label="Sisa" style="color:var(--text-muted);">${rupiah(sisa)}</td>
+            <td data-label="Jatuh Tempo"><input class="cell-input" data-f="jatuhTempo" type="date" value="${p.jatuhTempo||""}"></td>
+            <td data-label="Status"><select class="cell-input" data-f="status" style="border:1px solid var(--border);">
               ${["Belum Bayar","DP","Lunas"].map(s=>`<option ${s===p.status?"selected":""}>${s}</option>`).join("")}
             </select></td>
-            <td class="col-actions"><button class="icon-btn" data-del="${i}">${iconTrash()}</button></td>
+            <td class="col-actions no-label"><button class="icon-btn" data-del="${i}">${iconTrash()}</button></td>
           </tr>`;
         }).join("")}
         <tr class="total-row">
-          <td>Total</td><td>${rupiah(totalAll)}</td><td>${rupiah(dpAll)}</td><td>${rupiah(totalAll-dpAll)}</td><td></td><td></td><td></td>
+          <td data-label="Vendor">Total</td><td data-label="Total">${rupiah(totalAll)}</td><td data-label="DP">${rupiah(dpAll)}</td><td data-label="Sisa">${rupiah(totalAll-dpAll)}</td><td class="no-label"></td><td class="no-label"></td><td class="no-label"></td>
         </tr>
       </tbody>
     </table></div>

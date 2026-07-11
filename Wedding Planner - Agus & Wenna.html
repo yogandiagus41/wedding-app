@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agus &amp; Wenna — Wedding Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF7F0;
+  --surface:#FFFFFF;
+  --surface-alt:#F3EEE1;
+  --primary:#1E3D2F;
+  --primary-light:#2F5942;
+  --primary-dark:#122820;
+  --accent:#C6A15B;
+  --accent-soft:#EDE1C3;
+  --rose:#A9525F;
+  --rose-soft:#F1DEE1;
+  --text:#24291F;
+  --text-muted:#767C6B;
+  --border:#E4DDC9;
+  --success:#4C7A5A;
+  --success-soft:#DEE9E0;
+  --warning:#C08A34;
+  --warning-soft:#F3E6CD;
+  --danger:#B25454;
+  --danger-soft:#F2DFDD;
+  --radius:14px;
+  --shadow:0 4px 24px rgba(30,61,47,0.08);
+  --font-display:'Playfair Display', serif;
+  --font-script:'Cormorant Garamond', serif;
+  --font-body:'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent-soft);}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+input,textarea,select{font-family:inherit;color:inherit;}
+
+/* ---------- Layout ---------- */
+.app{
+  display:flex;
+  min-height:100vh;
+}
+.sidebar{
+  width:264px;
+  flex-shrink:0;
+  background:linear-gradient(180deg,var(--primary-dark),var(--primary));
+  color:#F4EFE2;
+  display:flex;
+  flex-direction:column;
+  padding:32px 22px;
+  position:sticky;
+  top:0;
+  height:100vh;
+  z-index:50;
+}
+.brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding-bottom:22px;
+  border-bottom:1px solid rgba(244,239,226,0.16);
+  margin-bottom:22px;
+}
+.monogram{
+  font-family:var(--font-display);
+  font-size:30px;
+  letter-spacing:2px;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.monogram svg{width:16px;height:16px;flex-shrink:0;}
+.brand .sub{
+  font-family:var(--font-script);
+  font-style:italic;
+  font-size:15px;
+  color:#CBD3C4;
+  margin-top:6px;
+  letter-spacing:0.5px;
+}
+.brand .venue{
+  font-size:11px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:#8FA095;
+  margin-top:10px;
+}
+.nav{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  flex:1;
+}
+.nav-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px 14px;
+  border-radius:10px;
+  font-size:14px;
+  letter-spacing:0.3px;
+  color:#D7DCCC;
+  background:transparent;
+  border:none;
+  width:100%;
+  text-align:left;
+  transition:background .15s ease, color .15s ease;
+}
+.nav-item svg{width:17px;height:17px;flex-shrink:0;opacity:0.85;}
+.nav-item:hover{background:rgba(244,239,226,0.08);color:#fff;}
+.nav-item.active{background:var(--accent);color:var(--primary-dark);font-weight:600;}
+.nav-item.active svg{opacity:1;}
+.sidebar-foot{
+  padding-top:18px;
+  border-top:1px solid rgba(244,239,226,0.14);
+  font-size:11px;
+  color:#8FA095;
+  line-height:1.6;
+}
+.sidebar-foot .count{
+  font-family:var(--font-display);
+  font-size:26px;
+  color:var(--accent);
+  line-height:1;
+}
+.sidebar-close{display:none;}
+
+.topbar{
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px;
+  background:var(--primary-dark);
+  color:#F4EFE2;
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+.hamburger{
+  background:none;border:none;color:#F4EFE2;
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;
+}
+.hamburger svg{width:22px;height:22px;}
+.topbar-title{font-family:var(--font-display);font-size:16px;letter-spacing:0.5px;}
+.overlay{
+  display:none;
+  position:fixed;inset:0;background:rgba(18,40,32,0.45);z-index:45;
+}
+.overlay.show{display:block;}
+
+.content{
+  flex:1;
+  min-width:0;
+  padding:36px 42px 80px;
+}
+.view{display:none;animation:fadein .35s ease;}
+.view.active{display:block;}
+@keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.page-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:26px;
+}
+.page-head h1{
+  font-family:var(--font-display);
+  font-size:30px;
+  color:var(--primary);
+  font-weight:600;
+}
+.page-head .eyebrow{
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:6px;
+}
+.page-head p.desc{color:var(--text-muted);font-size:13.5px;margin-top:4px;max-width:520px;}
+
+/* divider */
+.divider{
+  display:flex;align-items:center;gap:14px;
+  color:var(--accent);
+  margin:8px 0 24px;
+  opacity:0.85;
+}
+.divider .line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+.divider svg{width:18px;height:18px;}
+
+/* ---------- Cards / grid ---------- */
+.grid{display:grid;gap:18px;}
+.grid.cols-4{grid-template-columns:repeat(4,1fr);}
+.grid.cols-3{grid-template-columns:repeat(3,1fr);}
+.grid.cols-2{grid-template-columns:repeat(2,1fr);}
+@media(max-width:1100px){.grid.cols-4{grid-template-columns:repeat(2,1fr);}.grid.cols-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.grid.cols-4,.grid.cols-3,.grid.cols-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.card.tight{padding:18px;}
+.stat-card .label{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--text-muted);font-weight:600;}
+.stat-card .value{font-family:var(--font-display);font-size:24px;color:var(--primary);margin-top:8px;}
+.stat-card .value small{font-family:var(--font-body);font-size:12px;color:var(--text-muted);}
+.stat-card.accent{background:var(--primary);color:#F4EFE2;}
+.stat-card.accent .label{color:#B9C4B0;}
+.stat-card.accent .value{color:var(--accent);}
+
+/* hero */
+.hero{
+  background:radial-gradient(circle at 15% 20%, rgba(198,161,91,0.16), transparent 55%), linear-gradient(135deg,var(--primary-dark),var(--primary));
+  border-radius:20px;
+  padding:44px 40px;
+  color:#F4EFE2;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:28px;
+}
+.hero .leaf{position:absolute;opacity:0.13;color:var(--accent);}
+.hero .leaf.l1{top:-30px;right:-20px;width:220px;height:220px;}
+.hero .leaf.l2{bottom:-40px;left:-30px;width:180px;height:180px;transform:rotate(200deg);}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;position:relative;z-index:2;}
+.hero-eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.hero h1{font-family:var(--font-display);font-size:34px;margin-top:10px;line-height:1.25;}
+.hero .venue-line{font-family:var(--font-script);font-style:italic;font-size:18px;color:#D3DACA;margin-top:8px;}
+.countdown{
+  text-align:center;
+  background:rgba(244,239,226,0.08);
+  border:1px solid rgba(244,239,226,0.2);
+  border-radius:16px;
+  padding:18px 30px;
+  min-width:160px;
+}
+.countdown .num{font-family:var(--font-display);font-size:44px;color:var(--accent);line-height:1;}
+.countdown .lbl{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#C8D0BC;margin-top:6px;}
+.hero-progress{margin-top:26px;position:relative;z-index:2;}
+.hero-progress-row{display:flex;justify-content:space-between;font-size:12px;color:#C8D0BC;margin-bottom:6px;}
+.bar{height:8px;border-radius:6px;background:rgba(244,239,226,0.14);overflow:hidden;}
+.bar > div{height:100%;background:linear-gradient(90deg,var(--accent),#E4C888);border-radius:6px;transition:width .4s ease;}
+
+/* section title */
+.section-title{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--font-display);
+  font-size:19px;color:var(--primary);
+  margin:30px 0 14px;
+}
+.section-title svg{width:18px;height:18px;color:var(--accent);}
+.section-title.first{margin-top:0;}
+
+/* badges */
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 11px;border-radius:99px;
+  font-size:11.5px;font-weight:600;letter-spacing:0.3px;
+  white-space:nowrap;
+}
+.badge.selesai,.badge.lunas,.badge.fix{background:var(--success-soft);color:var(--success);}
+.badge.proses,.badge.negosiasi,.badge.dp{background:var(--warning-soft);color:var(--warning);}
+.badge.belum,.badge.survey,.badge.belum-bayar{background:var(--danger-soft);color:var(--danger);}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 16px;border-radius:9px;border:1px solid var(--border);
+  background:var(--surface);color:var(--text);font-size:13px;font-weight:500;
+  transition:all .15s ease;
+}
+.btn svg{width:14px;height:14px;}
+.btn:hover{border-color:var(--accent);color:var(--primary);}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:#F4EFE2;}
+.btn.primary:hover{background:var(--primary-light);}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--text-muted);}
+.btn.ghost:hover{color:var(--danger);}
+.btn.sm{padding:6px 11px;font-size:12px;}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+
+/* table */
+.table-wrap{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  overflow-x:auto;box-shadow:var(--shadow);
+}
+table{width:100%;border-collapse:collapse;min-width:560px;}
+thead th{
+  text-align:left;font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;padding:13px 16px;
+  background:var(--surface-alt);border-bottom:1px solid var(--border);position:sticky;top:0;
+}
+tbody td{padding:11px 16px;border-bottom:1px solid var(--border);font-size:13.5px;vertical-align:middle;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:#FBF9F3;}
+tbody tr.total-row{background:var(--surface-alt);font-weight:600;}
+tbody tr.total-row td{border-top:2px solid var(--accent-soft);}
+td input, td select, .cell-input{
+  border:1px solid transparent;background:transparent;padding:6px 8px;border-radius:7px;
+  font-size:13.5px;width:100%;color:var(--text);
+}
+td input:hover,.cell-input:hover{border-color:var(--border);}
+td input:focus,.cell-input:focus{outline:none;border-color:var(--accent);background:#fff;}
+.col-actions{width:40px;text-align:right;}
+.icon-btn{
+  background:none;border:none;color:var(--text-muted);padding:6px;border-radius:7px;display:inline-flex;
+}
+.icon-btn:hover{color:var(--danger);background:var(--danger-soft);}
+.icon-btn svg{width:15px;height:15px;}
+
+/* forms */
+.form-row{display:flex;flex-direction:column;gap:5px;}
+.form-row label{font-size:11px;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-muted);font-weight:600;}
+.form-row input,.form-row select{
+  border:1px solid var(--border);border-radius:9px;padding:10px 12px;font-size:13.5px;background:#fff;
+}
+.form-row input:focus,.form-row select:focus{outline:none;border-color:var(--accent);}
+
+/* vendor cards */
+.vendor-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-bottom:16px;}
+.vendor-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;}
+.vendor-kat{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.vendor-nama{font-family:var(--font-display);font-size:19px;color:var(--primary);margin-top:3px;}
+.vendor-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--text-muted);}
+.vendor-meta b{color:var(--text);font-weight:600;}
+.vendor-items{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);}
+.vendor-items ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:6px 18px;}
+@media(max-width:640px){.vendor-items ul{grid-template-columns:1fr;}}
+.vendor-items li{font-size:13px;color:var(--text);display:flex;gap:8px;}
+.vendor-items li:before{content:"✦";color:var(--accent);font-size:10px;margin-top:3px;}
+.vendor-edit-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+@media(max-width:900px){.vendor-edit-row{grid-template-columns:repeat(2,1fr);}}
+.vendor-edit-row textarea{
+  grid-column:1/-1;border:1px solid var(--border);border-radius:9px;padding:10px 12px;font-size:13px;
+  min-height:90px;resize:vertical;font-family:inherit;
+}
+
+/* timeline accordion */
+.month-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);}
+.month-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;gap:14px;flex-wrap:wrap;}
+.month-name{font-family:var(--font-display);font-size:18px;color:var(--primary);display:flex;align-items:center;gap:10px;}
+.month-name .idx{width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;font-family:var(--font-body);}
+.month-progress{display:flex;align-items:center;gap:10px;flex:1;max-width:260px;min-width:140px;}
+.month-progress .bar{flex:1;background:var(--surface-alt);}
+.month-progress .bar>div{background:linear-gradient(90deg,var(--success),#7CAE8A);}
+.month-progress span{font-size:12px;color:var(--text-muted);white-space:nowrap;}
+.chev{transition:transform .2s ease;color:var(--text-muted);}
+.month-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.month-block.open .month-body{max-height:2000px;}
+.month-block.open .chev{transform:rotate(180deg);}
+.task-row{display:grid;grid-template-columns:auto 1fr 140px 130px 34px;gap:12px;align-items:center;padding:10px 20px;border-top:1px solid var(--border);}
+.task-check{width:19px;height:19px;accent-color:var(--success);cursor:pointer;}
+.task-row input.tugas{border:none;background:transparent;font-size:13.5px;padding:6px 4px;border-radius:6px;}
+.task-row input.tugas:hover{background:var(--surface-alt);}
+.task-row input.tugas:focus{outline:none;background:#fff;border:1px solid var(--accent);}
+.task-row.done .tugas{text-decoration:line-through;color:var(--text-muted);}
+.month-add{padding:12px 20px;border-top:1px solid var(--border);}
+
+/* guests */
+.guest-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.search-box{position:relative;flex:1;min-width:200px;max-width:320px;}
+.search-box svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--text-muted);}
+.search-box input{width:100%;padding:10px 12px 10px 34px;border:1px solid var(--border);border-radius:9px;font-size:13.5px;background:#fff;}
+.search-box input:focus{outline:none;border-color:var(--accent);}
+.pihak-pill{padding:5px 12px;border-radius:99px;font-size:11.5px;font-weight:600;background:var(--surface-alt);color:var(--primary);border:1px solid var(--border);}
+.guest-summary{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:16px;}
+.guest-summary .item{font-size:13px;color:var(--text-muted);}
+.guest-summary .item b{color:var(--primary);font-family:var(--font-display);font-size:17px;margin-right:4px;}
+
+/* footer */
+.data-actions{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--border);
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+}
+.data-actions p{font-size:12px;color:var(--text-muted);max-width:420px;}
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--primary-dark);color:#F4EFE2;padding:11px 22px;border-radius:99px;font-size:13px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.2);opacity:0;pointer-events:none;transition:all .25s ease;z-index:100;
+  display:flex;align-items:center;gap:8px;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast svg{width:15px;height:15px;color:var(--accent);}
+
+/* mobile */
+@media(max-width:900px){
+  .sidebar{position:fixed;left:0;top:0;transform:translateX(-100%);transition:transform .25s ease;box-shadow:0 0 40px rgba(0,0,0,0.3);}
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-close{display:block;position:absolute;top:16px;right:16px;background:none;border:none;color:#F4EFE2;}
+  .sidebar-close svg{width:20px;height:20px;}
+  .topbar{display:flex;}
+  .content{padding:22px 16px 60px;}
+  .hero{padding:28px 22px;}
+  .hero h1{font-size:24px;}
+  .hero-top{flex-direction:column;}
+  .countdown{width:100%;}
+  .page-head h1{font-size:24px;}
+  .vendor-edit-row{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ---- small screens: phones ---- */
+@media(max-width:700px){
+  .content{padding:18px 14px 60px;}
+  .card{padding:16px;}
+  .card.tight{padding:14px;}
+  .hero{padding:24px 18px;border-radius:16px;}
+  .hero h1{font-size:21px;}
+  .hero-eyebrow{font-size:10.5px;letter-spacing:2px;}
+  .venue-line{font-size:15px;}
+  .countdown{padding:14px 20px;}
+  .countdown .num{font-size:34px;}
+  .stat-card .value{font-size:19px;word-break:break-word;}
+  .stat-card .label{font-size:10px;}
+  .section-title{font-size:16px;margin:24px 0 12px;}
+
+  /* page header: stack title and action button */
+  .page-head{flex-direction:column;align-items:stretch;gap:10px;}
+  .page-head h1{font-size:21px;}
+  .page-head .btn.primary{width:100%;justify-content:center;}
+  .page-head p.desc{max-width:none;}
+
+  /* vendor cards */
+  .vendor-card{padding:16px;}
+  .vendor-nama{font-size:16px;}
+  .vendor-edit-row{grid-template-columns:1fr;gap:12px;margin-top:16px;}
+  .vendor-head{flex-direction:column;}
+  .vendor-head > div:last-child{align-self:flex-start;}
+
+  /* timeline */
+  .month-header{padding:14px 16px;}
+  .month-name{font-size:15px;}
+  .month-progress{max-width:none;width:100%;order:3;}
+  .task-row{
+    display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;
+    padding:12px 16px;grid-template-columns:unset;
+  }
+  .task-row .task-check{order:1;}
+  .task-row .tugas{order:2;flex:1 1 auto;min-width:0;}
+  .task-row .pic-field{order:4;flex:1 1 calc(50% - 5px);border:1px solid var(--border);}
+  .task-row .status-field{order:5;flex:1 1 calc(50% - 5px);border:1px solid var(--border);}
+  .task-row [data-del-task]{order:3;margin-left:auto;}
+
+  /* guest toolbar */
+  .guest-toolbar{flex-direction:column;align-items:stretch;}
+  .search-box{max-width:none;}
+  .guest-summary{gap:14px;}
+
+  /* ---- tables become stacked cards ---- */
+  .table-wrap{border:none;background:transparent;box-shadow:none;overflow:visible;}
+  table{min-width:0;width:100%;}
+  thead{display:none;}
+  tbody, tr, td{display:block;width:100%;}
+  tbody tr{
+    background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    box-shadow:var(--shadow);margin-bottom:12px;padding:6px 4px;overflow:hidden;
+  }
+  tbody tr.total-row{background:var(--surface-alt);border-color:var(--accent-soft);}
+  tbody tr:last-child{margin-bottom:0;}
+  tbody td{
+    border-bottom:1px dashed var(--border);padding:9px 14px;
+  }
+  tbody tr td:last-child{border-bottom:none;}
+  td[data-label]::before{
+    content:attr(data-label);display:block;font-size:10px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.6px;color:var(--text-muted);margin-bottom:3px;
+  }
+  td.col-actions{
+    border-bottom:none;padding:2px 10px 8px;display:flex;justify-content:flex-end;
+  }
+  td .cell-input{padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;}
+  td input:hover,td .cell-input:hover{border-color:var(--border);}
+  td select.cell-input{width:100%;}
+}
+@media(max-width:400px){
+  .task-row .pic-field,.task-row .status-field{flex:1 1 100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="brand">
+      <div class="monogram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C0.3 7.9 2.5 4 6.2 4c2 0 3.5 1 4.8 2.7C12.3 5 13.8 4 15.8 4c3.7 0 5.9 3.9 4.2 7.7C19.5 16.4 12 21 12 21z"/></svg>
+        Agus &amp; Wenna
+      </div>
+      <div class="sub">Menuju Hari Bahagia</div>
+      <div class="venue" id="brandVenue">Graha Yapin Jatimulya</div>
+    </div>
+    <nav class="nav" id="navList">
+      <button class="nav-item" data-view="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</button>
+      <button class="nav-item" data-view="budget"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .8 3 2-1.3 1.7-3 2-3 .8-3 2 1.3 2 3 2 3-.7 3-2"/></svg>Budget</button>
+      <button class="nav-item" data-view="vendor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l2-5h14l2 5M3 9v9a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 13a3 3 0 006 0"/></svg>Vendor</button>
+      <button class="nav-item" data-view="timeline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Timeline</button>
+      <button class="nav-item" data-view="guests"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M16 8.3a3 3 0 110 5.9M21.5 20c0-3-2-5.2-4.8-5.8"/></svg>Tamu Undangan</button>
+      <button class="nav-item" data-view="payment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10.5h20M6 15h4"/></svg>Pembayaran</button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="count" id="sideCountdown">—</div>
+      hari lagi menuju resepsi<br>
+      <span id="sideDate">05 Desember 2026</span>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- MAIN -->
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column;">
+    <header class="topbar">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <div class="topbar-title" id="topbarTitle">Dashboard</div>
+      <div style="width:36px;"></div>
+    </header>
+
+    <main class="content">
+
+      <!-- ================= DASHBOARD ================= -->
+      <section class="view active" id="view-dashboard"></section>
+
+      <!-- ================= BUDGET ================= -->
+      <section class="view" id="view-budget"></section>
+
+      <!-- ================= VENDOR ================= -->
+      <section class="view" id="view-vendor"></section>
+
+      <!-- ================= TIMELINE ================= -->
+      <section class="view" id="view-timeline"></section>
+
+      <!-- ================= GUESTS ================= -->
+      <section class="view" id="view-guests"></section>
+
+      <!-- ================= PAYMENT ================= -->
+      <section class="view" id="view-payment"></section>
+
+      <div class="data-actions">
+        <p>Semua data tersimpan otomatis di browser ini (localStorage). Gunakan Export untuk membuat cadangan, atau Import untuk memuat cadangan di perangkat lain.</p>
+        <div class="toolbar">
+          <button class="btn sm" id="btnExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>Export</button>
+          <button class="btn sm" id="btnImport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21V9m0 0l-4 4m4-4l4 4M4 7V4a1 1 0 011-1h14a1 1 0 011 1v3"/></svg>Import</button>
+          <input type="file" id="fileImport" accept="application/json" style="display:none;">
+          <button class="btn sm" id="btnReset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v6h6M20 20v-6h-6M4.5 15a8 8 0 0014.9 2.5M19.5 9A8 8 0 004.6 6.5"/></svg>Reset ke data awal</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span id="toastMsg">Tersimpan</span></div>
+
+<script>
+// ============================================================
+// DATA AWAL — diambil dari Wedding_Plan.xlsx
+// Data ini hanya dipakai SEKALI saat pertama kali dibuka
+// (belum ada data tersimpan di browser). Setelah itu semua
+// perubahan disimpan otomatis ke localStorage.
+// ============================================================
+const DEFAULT_DATA = {
+  meta: {
+    coupleA: "Agus",
+    coupleB: "Wenna",
+    venue: "Graha Yapin Jatimulya",
+    tanggalAkad: "2026-12-05",
+    tanggalResepsi: "2026-12-05",
+    totalBudget: 60000000
+  },
+
+  budget: [
+    { kategori: "Venue", volume: "1", estimasi: 26000000, realisasi: 0 },
+    { kategori: "Dekorasi", volume: "", estimasi: 0, realisasi: 0 },
+    { kategori: "Entertain", volume: "", estimasi: 0, realisasi: 0 },
+    { kategori: "Katering + Baso 200 Pax", volume: "600 Pax", estimasi: 11000000, realisasi: 0 },
+    { kategori: "Petugas Cuci Piring", volume: "2 Orang", estimasi: 500000, realisasi: 0 },
+    { kategori: "Buah", volume: "2 Jenis", estimasi: 1000000, realisasi: 0 },
+    { kategori: "Minuman Segar", volume: "2 Jenis", estimasi: 300000, realisasi: 0 },
+    { kategori: "Eskrim", volume: "1 Ember", estimasi: 300000, realisasi: 0 },
+    { kategori: "Kue Basah", volume: "3 Tampah", estimasi: 1000000, realisasi: 0 },
+    { kategori: "MUA & Attire", volume: "1 Set", estimasi: 9000000, realisasi: 0 },
+    { kategori: "FG & VG Akad & Resepsi", volume: "1 Set", estimasi: 3000000, realisasi: 0 },
+    { kategori: "FG & VG Prewed", volume: "1 Set", estimasi: 1000000, realisasi: 0 },
+    { kategori: "Undangan", volume: "300", estimasi: 500000, realisasi: 0 },
+    { kategori: "Souvenir", volume: "300", estimasi: 700000, realisasi: 0 },
+    { kategori: "MC Akad & Resepsi", volume: "1 Orang", estimasi: 1000000, realisasi: 0 },
+    { kategori: "Buku Tamu", volume: "1 Pcs", estimasi: 50000, realisasi: 0 },
+    { kategori: "Seragam L", volume: "20 Pcs", estimasi: 2000000, realisasi: 0 },
+    { kategori: "Seragam P", volume: "20 Pcs", estimasi: 1000000, realisasi: 0 },
+    { kategori: "Urus KUA", volume: "1 Set", estimasi: 1000000, realisasi: 0 },
+    { kategori: "Lainnya", volume: "", estimasi: 3000000, realisasi: 0 }
+  ],
+
+  vendor: [
+    { kategori: "Venue", namaVendor: "Graha Yapin Jatimulya", picDana: "Pria", status: "Survey", kontak: "", catatan: "", items: [] },
+    { kategori: "Dekorasi", namaVendor: "Paket Pelangi Dekor", picDana: "Pria", status: "Negosiasi", kontak: "", catatan: "", items: [
+      "Pelaminan 6-8 meter","Pergola pintu masuk","Bunga jalan 3 pasang (menyesuaikan panjang)","Set meja akad nikah","Mini garden",
+      "Kotak amplop 2","Janur 1 pasang","Standing lampu 1 pasang","Karpet jalan","Rolltop 5","Alat makan 300 set","Blower 3 pcs",
+      "AC portable 1 pk 1 pcs","Meja kotak dan bulet untuk prasmanan","Meja gubukan 3 set","Juicer 2","Bangku plastik + cover 100 pcs",
+      "Tenda set tirai 4x8","Buket bunga","Wellcome sign (foto 3 lembar)","Wellcome board (kaca)"
+    ]},
+    { kategori: "MUA & Attire", namaVendor: "Maulina", picDana: "Wanita", status: "Survey", kontak: "", catatan: "", items: [
+      "Makeup akad nikah + retouch resepsi 1x","1 pasang busana akad nikah","1 pasang busana resepsi","2 busana ibu pengantin + makeup",
+      "2 busana bapak pengantin","4 busana penerima tamu + makeup","Free sepasang melati premium","Free adat (sunda / jawa non paes / betawi) — pilih salah 1",
+      "Free henna white + nail art","Free softlens normal"
+    ]},
+    { kategori: "Catering", namaVendor: "Masak (600 Pax)", picDana: "Pria", status: "Survey", kontak: "", catatan: "", items: [
+      "Nasi","Sambel ati kentang","Ayam teriyaki / ayam asam manis","Bihun / karedok","Sop","Kerupuk","Buah","Minuman rasa (sirup)",
+      "Eskrim","Baso","Dimsum","Aqua gelas"
+    ]},
+    { kategori: "FG & VG Akad & Resepsi", namaVendor: "Kanta Production", picDana: "Wanita", status: "Survey", kontak: "", catatan: "", items: [
+      "1 FG & 1 VG (8 jam unlimited shoot)","250 edit foto (google drive files)","Cinematic video 3 menit","Teaser video 1 menit"
+    ]},
+    { kategori: "FG & VG Prewed", namaVendor: "Kanta Production", picDana: "", status: "", kontak: "", catatan: "", items: [
+      "1 FG (include VG)","Unlimited foto","1 menit video cinematic","2 jam"
+    ]},
+    { kategori: "Entertain", namaVendor: "Pelangi decor", picDana: "Pria", status: "Negosiasi", kontak: "", catatan: "", items: [
+      "1 pemain keyboard (organ)","2 penyanyi","1 sound sistem","1 MC"
+    ]},
+    { kategori: "Undangan", namaVendor: "Online", picDana: "Wanita", status: "Survey", kontak: "", catatan: "", items: [] },
+    { kategori: "MC Akad dan Resepsi", namaVendor: "", picDana: "Wanita", status: "Survey", kontak: "", catatan: "", items: [] },
+    { kategori: "Buku Tamu", namaVendor: "Online", picDana: "Wanita", status: "Survey", kontak: "", catatan: "", items: [] },
+    { kategori: "Souvenir", namaVendor: "Online", picDana: "Wanita", status: "Survey", kontak: "", catatan: "", items: [] },
+    { kategori: "Seragam keluarga", namaVendor: "Online", picDana: "Wanita", status: "Survey", kontak: "", catatan: "", items: [] }
+  ],
+
+  timeline: [
+    { bulan: "Juli", tasks: [
+      { tugas: "Fixasi & Booking Vendor Dekorasi", pic: "Agus", status: "Proses" },
+      { tugas: "Fixasi & Booking Vendor MUA & Attrire", pic: "Wenna", status: "Belum" },
+      { tugas: "Fixasi, Survey & Booking Venue", pic: "Agus", status: "Proses" },
+      { tugas: "Fixasi & Booking Entertain", pic: "Agus", status: "Proses" },
+      { tugas: "Fixasi & Booking FG & VG Akad & Resepsi", pic: "Agus", status: "Proses" },
+      { tugas: "Fixasi & Booking FG & VG Prewed", pic: "Agus", status: "Proses" },
+      { tugas: "Fixasi & Booking MC Akad & Resepsi", pic: "Wenna", status: "Belum" },
+      { tugas: "Fixasi & Booking Stall Tambahan", pic: "Wenna", status: "Belum" },
+      { tugas: "Fixasi Souvenir", pic: "Wenna", status: "Belum" },
+      { tugas: "Fixasi Design Seragam", pic: "Wenna", status: "Belum" }
+    ]},
+    { bulan: "Agustus", tasks: [
+      { tugas: "List Undangan Sementara", pic: "All", status: "Proses" },
+      { tugas: "Fixasi List Seragam Keluarga", pic: "All", status: "Belum" },
+      { tugas: "Urus berkas KUA/Catatan Sipil", pic: "All", status: "Belum" },
+      { tugas: "Tentukan Design Undangan Fisik & Online", pic: "All", status: "Belum" }
+    ]},
+    { bulan: "September", tasks: [
+      { tugas: "Fixasi List Undangan", pic: "All", status: "Belum" },
+      { tugas: "Order Undangan", pic: "Wenna", status: "Belum" },
+      { tugas: "Order Souvenir", pic: "Wenna", status: "Belum" },
+      { tugas: "Meet Bareng MC & All Vendor", pic: "All", status: "Belum" },
+      { tugas: "Buat Rundown Acara", pic: "All", status: "Belum" }
+    ]},
+    { bulan: "Oktober", tasks: [] },
+    { bulan: "November", tasks: [
+      { tugas: "Foto Prewed", pic: "All", status: "Belum" },
+      { tugas: "Fitting Baju", pic: "All", status: "Belum" },
+      { tugas: "Pelunasan Semua Vendor", pic: "All", status: "Belum" },
+      { tugas: "Dekorasi Seserahan", pic: "All", status: "Belum" }
+    ]},
+    { bulan: "Desember", tasks: [] }
+  ],
+
+  guests: [
+    ["Maman","Agus","","Rumah"],["Aja","Agus","","Rumah"],["Degol","Agus","",""],["Apri","Agus","",""],["Kebo","Agus","",""],
+    ["Adang","Agus","",""],["Ebot","Agus","",""],["Arif","Agus","",""],["Bayu","Agus","",""],["Tebe","Agus","",""],
+    ["Reza Afriansyah","Agus","",""],["Bayu Kurniadi","Agus","",""],["Sigma Trio","Agus","",""],["Vishal Darmawan","Agus","",""],["Rosiangga","Agus","",""],
+    ["Ciko","Agus","",""],["Aditya Welly","Agus","",""],["Gilang","Agus","",""],["Haickal","Agus","",""],["Rifki","Agus","",""],
+    ["Theo","Agus","",""],["Wildan","Agus","",""],["Dimas","Agus","",""],["Azmi","Agus","",""],["Hakim","Agus","",""],
+    ["Wahab","Agus","",""],["Rama","Agus","",""],["Rozaan","Agus","",""],["Oki","Agus","",""],["Dimas","Agus","",""],
+    ["Rafilio","Agus","",""],["Prio","Agus","",""],["Doni","Agus","",""],["Chandra","Agus","",""],["Damar","Agus","",""],
+    ["Muadz","Agus","",""],["Kumis","Agus","",""],["Nova","Agus","",""],["Bang Andi W","Agus","",""],["Bang Kukuh","Agus","",""],
+    ["Inas","Agus","",""],["Pak Nas","Agus","",""],["Mas Tri","Agus","",""],["Pak Al","Agus","",""],["Aji","Agus","",""],
+    ["Riyadi","Agus","",""],["Eric","Agus","",""],["Andi K","Agus","",""],["Diffa","Agus","",""],["Kiki","Agus","",""],
+    ["Rafael","Agus","",""],["Bang Idris","Agus","",""],["Bang Diwan","Agus","",""],["Bang Dudung","Agus","",""],["Bang Hardi","Agus","",""],
+    ["Bu Anti","Agus","",""],["Mba Lilis","Agus","",""],["Mba Anggi","Agus","",""],["Isna","Agus","",""],["Bu Yiyik","Agus","",""],
+    ["Pak Roy","Agus","",""],["Pak Awan","Agus","",""],["Pak Naim","Agus","",""],["Pak Yuli","Agus","",""],["Pak Djas","Agus","",""],
+    ["Mba Thira","Agus","",""],["Mba Tia","Agus","",""],["Abel","Agus","",""],["Tulus","Agus","",""],["Rama","Agus","",""],
+    ["Fadli","Agus","",""],["Ridwan","Agus","",""],["Fifi","Agus","",""],["Mas Andri","Agus","",""],["Mba Karin","Agus","",""],
+    ["Andini","Agus","",""],["Bu Maria","Agus","",""],["Bu Porih","Agus","",""],["Bu Laurent","Agus","",""],["Bang Ihsan","Agus","",""],
+    ["Putra","Agus","",""],["Hafiz","Agus","",""],["Bu Hermita","Agus","",""],["Pak Abdul","Agus","",""],["Jihan","Agus","",""],
+    ["Bu Felicia","Agus","",""],["Fitri","Agus","",""],["Pak Indra","Agus","",""],["Gorgom","Agus","",""],["Bang Jek","Agus","",""],
+    ["Belo","Agus","",""],["Komenk","Agus","",""],["Tori","Agus","",""],["Ayah Baim","Agus","",""],["Dekok","Agus","",""],
+    ["Midun","Agus","",""],["Pak Syaiful","Agus","",""],["Teh Ela","Agus","",""],["Pak Beny","Agus","",""]
+  ].map(g => ({ nama: g[0], pihak: g[1], noHp: g[2], catatan: g[3] })),
+
+  payment: [
+    { vendor: "Venue", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Dekorasi", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Entertain", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Katering", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "MUA", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "FG & VG Akad & Resepsi", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "FG & VG Prewed", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Undangan", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Souvenir", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "MC Akad & Resepsi", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Buku Tamu", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Seragam L", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" },
+    { vendor: "Seragam P", total: 0, dp: 0, jatuhTempo: "", status: "Belum Bayar" }
+  ]
+};
+
+</script>
+<script>
+// ============================================================
+// Wedding Planner — App Logic
+// Semua data disimpan di localStorage (bertahan walau refresh
+// atau browser ditutup), murni JS tanpa server/hosting.
+// ============================================================
+(function(){
+"use strict";
+
+const STORE_KEY = "weddingPlannerData_v1";
+const MONTHS_ID = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
+function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
+
+function loadData(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      if(parsed && parsed.meta && parsed.budget) return parsed;
+    }
+  }catch(e){ console.warn("Gagal memuat data tersimpan, memakai data awal.", e); }
+  return deepClone(DEFAULT_DATA);
+}
+
+let DATA = loadData();
+let currentView = "dashboard";
+let guestFilter = { search: "", pihak: "Semua" };
+
+function saveData(silent){
+  try{
+    localStorage.setItem(STORE_KEY, JSON.stringify(DATA));
+    if(!silent) showToast("Tersimpan");
+  }catch(e){
+    showToast("Gagal menyimpan (storage penuh?)");
+  }
+}
+
+// ---------- helpers ----------
+function rupiah(n){
+  n = Number(n)||0;
+  return "Rp " + n.toLocaleString("id-ID");
+}
+function num(v){ const n = Number(v); return isNaN(n) ? 0 : n; }
+function escapeHtml(s){
+  return String(s==null?"":s).replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
+function statusClass(status){
+  const s = (status||"").toLowerCase();
+  if(["selesai","lunas","fix"].includes(s)) return "selesai";
+  if(["proses","negosiasi","dp"].includes(s)) return "proses";
+  return "belum";
+}
+function formatDateLong(dateStr){
+  if(!dateStr) return "-";
+  const d = new Date(dateStr+"T00:00:00");
+  if(isNaN(d)) return dateStr;
+  return d.toLocaleDateString("id-ID",{day:"2-digit",month:"long",year:"numeric"});
+}
+function daysUntil(dateStr){
+  if(!dateStr) return null;
+  const target = new Date(dateStr+"T00:00:00");
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.ceil((target-today)/86400000);
+}
+function showToast(msg){
+  const t = document.getElementById("toast");
+  document.getElementById("toastMsg").textContent = msg;
+  t.classList.add("show");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(()=>t.classList.remove("show"), 1800);
+}
+function iconTrash(){
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2m2 0l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6h14z"/></svg>';
+}
+function iconPlus(){
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>';
+}
+
+// ============================================================
+// DERIVED / COMPUTED DATA
+// ============================================================
+function budgetTotals(){
+  let estimasi=0, realisasi=0;
+  DATA.budget.forEach(b=>{ estimasi+=num(b.estimasi); realisasi+=num(b.realisasi); });
+  return { estimasi, realisasi, selisih: estimasi-realisasi };
+}
+function timelineStats(){
+  let total=0, selesai=0, proses=0, belum=0;
+  DATA.timeline.forEach(m=>m.tasks.forEach(t=>{
+    total++;
+    const s=(t.status||"").toLowerCase();
+    if(s==="selesai") selesai++; else if(s==="proses") proses++; else belum++;
+  }));
+  return { total, selesai, proses, belum, pct: total? Math.round(selesai/total*100):0 };
+}
+function paymentStats(){
+  let lunas=0, dp=0, belum=0;
+  DATA.payment.forEach(p=>{
+    const s=(p.status||"").toLowerCase();
+    if(s==="lunas") lunas++; else if(s==="dp") dp++; else belum++;
+  });
+  return { lunas, dp, belum, total: DATA.payment.length };
+}
+function currentMonthBlock(){
+  const now = new Date();
+  const name = MONTHS_ID[now.getMonth()];
+  let m = DATA.timeline.find(mm=>mm.bulan.toLowerCase()===name.toLowerCase());
+  if(m) return m;
+  m = DATA.timeline.find(mm=>mm.tasks.some(t=>(t.status||"").toLowerCase()!=="selesai"));
+  return m || DATA.timeline[0];
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+const VIEW_TITLES = {
+  dashboard:"Dashboard", budget:"Budget", vendor:"Vendor", timeline:"Timeline",
+  guests:"Tamu Undangan", payment:"Pembayaran"
+};
+function setView(view){
+  currentView = view;
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  document.getElementById("view-"+view).classList.add("active");
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active", n.dataset.view===view));
+  document.getElementById("topbarTitle").textContent = VIEW_TITLES[view];
+  closeSidebar();
+  window.scrollTo({top:0,behavior:"smooth"});
+  renderCurrentView();
+}
+function renderCurrentView(){
+  ({dashboard:renderDashboard, budget:renderBudget, vendor:renderVendor,
+    timeline:renderTimeline, guests:renderGuests, payment:renderPayment}[currentView])();
+}
+function renderAll(){
+  renderDashboard(); renderBudget(); renderVendor(); renderTimeline(); renderGuests(); renderPayment();
+  document.getElementById("brandVenue").textContent = DATA.meta.venue || "";
+  const d = daysUntil(DATA.meta.tanggalResepsi);
+  document.getElementById("sideCountdown").textContent = d!=null ? Math.max(d,0) : "—";
+  document.getElementById("sideDate").textContent = formatDateLong(DATA.meta.tanggalResepsi);
+}
+
+function openSidebar(){ document.getElementById("sidebar").classList.add("open"); document.getElementById("overlay").classList.add("show"); }
+function closeSidebar(){ document.getElementById("sidebar").classList.remove("open"); document.getElementById("overlay").classList.remove("show"); }
+
+// ============================================================
+// DASHBOARD
+// ============================================================
+function renderDashboard(){
+  const el = document.getElementById("view-dashboard");
+  const bt = budgetTotals();
+  const ts = timelineStats();
+  const ps = paymentStats();
+  const sisa = num(DATA.meta.totalBudget) - bt.realisasi;
+  const d = daysUntil(DATA.meta.tanggalResepsi);
+  const monthBlock = currentMonthBlock();
+
+  el.innerHTML = `
+    <div class="hero">
+      <svg class="leaf l1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7 4 3 9 3 14c0 4 3 8 9 8s9-4 9-8c0-5-4-10-9-12z"/></svg>
+      <svg class="leaf l2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7 4 3 9 3 14c0 4 3 8 9 8s9-4 9-8c0-5-4-10-9-12z"/></svg>
+      <div class="hero-top">
+        <div>
+          <div class="hero-eyebrow">Menuju Hari Bahagia</div>
+          <h1>${escapeHtml(DATA.meta.coupleA)} &amp; ${escapeHtml(DATA.meta.coupleB)}</h1>
+          <div class="venue-line">${escapeHtml(DATA.meta.venue)} · ${formatDateLong(DATA.meta.tanggalResepsi)}</div>
+        </div>
+        <div class="countdown">
+          <div class="num">${d!=null?Math.max(d,0):"—"}</div>
+          <div class="lbl">Hari Lagi</div>
+        </div>
+      </div>
+      <div class="hero-progress">
+        <div class="hero-progress-row"><span>Progress Persiapan</span><span>${ts.pct}% selesai</span></div>
+        <div class="bar"><div style="width:${ts.pct}%"></div></div>
+      </div>
+    </div>
+
+    <div class="grid cols-4">
+      <div class="card stat-card accent"><div class="label">Total Budget</div><div class="value">${rupiah(DATA.meta.totalBudget)}</div></div>
+      <div class="card stat-card"><div class="label">Total Estimasi</div><div class="value">${rupiah(bt.estimasi)}</div></div>
+      <div class="card stat-card"><div class="label">Total Realisasi</div><div class="value">${rupiah(bt.realisasi)}</div></div>
+      <div class="card stat-card"><div class="label">Sisa Budget</div><div class="value" style="color:${sisa<0?'var(--danger)':'var(--success)'}">${rupiah(sisa)}</div></div>
+    </div>
+
+    <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>Informasi Acara</div>
+    <div class="grid cols-3">
+      <div class="card tight"><div class="label" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;">💒 Tanggal Akad</div><div style="font-family:var(--font-display);font-size:17px;color:var(--primary);margin-top:6px;">${formatDateLong(DATA.meta.tanggalAkad)}</div></div>
+      <div class="card tight"><div class="label" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;">🎉 Tanggal Resepsi</div><div style="font-family:var(--font-display);font-size:17px;color:var(--primary);margin-top:6px;">${formatDateLong(DATA.meta.tanggalResepsi)}</div></div>
+      <div class="card tight"><div class="label" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;">🏛️ Venue</div><div style="font-family:var(--font-display);font-size:17px;color:var(--primary);margin-top:6px;">${escapeHtml(DATA.meta.venue)}</div></div>
+    </div>
+
+    <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Tugas Bulan ${monthBlock?escapeHtml(monthBlock.bulan):"-"}</div>
+    <div class="table-wrap">
+      <table><thead><tr><th>Tugas</th><th>PIC</th><th>Status</th></tr></thead>
+      <tbody>
+        ${monthBlock && monthBlock.tasks.length ? monthBlock.tasks.map(t=>`
+          <tr><td data-label="Tugas">${escapeHtml(t.tugas)}</td><td data-label="PIC">${escapeHtml(t.pic)}</td><td data-label="Status"><span class="badge ${statusClass(t.status)}"><span class="badge-dot"></span>${escapeHtml(t.status)}</span></td></tr>
+        `).join("") : `<tr><td colspan="3" style="color:var(--text-muted);text-align:center;padding:24px;">Belum ada tugas bulan ini</td></tr>`}
+      </tbody></table>
+    </div>
+
+    <div class="grid cols-2" style="margin-top:26px;">
+      <div>
+        <div class="section-title first"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l2-5h14l2 5M3 9v9a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18"/></svg>Ringkasan Vendor</div>
+        <div class="table-wrap"><table><thead><tr><th>Kategori</th><th>Vendor</th><th>Status</th></tr></thead><tbody>
+          ${DATA.vendor.map(v=>`<tr><td data-label="Kategori">${escapeHtml(v.kategori)}</td><td data-label="Vendor">${escapeHtml(v.namaVendor||"-")}</td><td data-label="Status">${v.status?`<span class="badge ${statusClass(v.status)}"><span class="badge-dot"></span>${escapeHtml(v.status)}</span>`:"-"}</td></tr>`).join("")}
+        </tbody></table></div>
+      </div>
+      <div>
+        <div class="section-title first"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10.5h20"/></svg>Status Pembayaran</div>
+        <div class="grid cols-3" style="margin-bottom:14px;">
+          <div class="card tight" style="text-align:center;"><div class="value" style="font-family:var(--font-display);font-size:22px;color:var(--success);">${ps.lunas}</div><div style="font-size:11px;color:var(--text-muted);">Lunas</div></div>
+          <div class="card tight" style="text-align:center;"><div class="value" style="font-family:var(--font-display);font-size:22px;color:var(--warning);">${ps.dp}</div><div style="font-size:11px;color:var(--text-muted);">DP</div></div>
+          <div class="card tight" style="text-align:center;"><div class="value" style="font-family:var(--font-display);font-size:22px;color:var(--danger);">${ps.belum}</div><div style="font-size:11px;color:var(--text-muted);">Belum Bayar</div></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
+// BUDGET
+// ============================================================
+function renderBudget(){
+  const el = document.getElementById("view-budget");
+  const bt = budgetTotals();
+  el.innerHTML = `
+    <div class="page-head">
+      <div><div class="eyebrow">Rincian Anggaran</div><h1>Budget</h1><p class="desc">Estimasi vs realisasi biaya untuk setiap kebutuhan pernikahan. Klik sel angka untuk mengubah.</p></div>
+      <button class="btn primary" id="addBudgetRow">${iconPlus()} Tambah Kategori</button>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th style="width:26%">Kategori</th><th style="width:14%">Volume</th><th>Estimasi</th><th>Realisasi</th><th>Selisih</th><th class="col-actions"></th></tr></thead>
+      <tbody>
+        ${DATA.budget.map((b,i)=>{
+          const selisih = num(b.estimasi)-num(b.realisasi);
+          return `<tr data-i="${i}">
+            <td data-label="Kategori"><input class="cell-input" data-f="kategori" value="${escapeHtml(b.kategori)}" placeholder="Nama kategori"></td>
+            <td data-label="Volume"><input class="cell-input" data-f="volume" value="${escapeHtml(b.volume)}" placeholder="-"></td>
+            <td data-label="Estimasi"><input class="cell-input" data-f="estimasi" type="number" value="${b.estimasi||0}"></td>
+            <td data-label="Realisasi"><input class="cell-input" data-f="realisasi" type="number" value="${b.realisasi||0}"></td>
+            <td data-label="Selisih" style="color:${selisih<0?'var(--danger)':'var(--text-muted)'};font-weight:500;">${rupiah(selisih)}</td>
+            <td class="col-actions no-label"><button class="icon-btn" data-del="${i}" title="Hapus">${iconTrash()}</button></td>
+          </tr>`;
+        }).join("")}
+        <tr class="total-row">
+          <td colspan="2" data-label="Kategori">Total</td>
+          <td data-label="Estimasi">${rupiah(bt.estimasi)}</td>
+          <td data-label="Realisasi">${rupiah(bt.realisasi)}</td>
+          <td data-label="Selisih" style="color:${bt.selisih<0?'var(--danger)':'var(--success)'}">${rupiah(bt.selisih)}</td>
+          <td class="no-label"></td>
+        </tr>
+      </tbody>
+    </table></div>
+    <div class="card tight" style="margin-top:18px;max-width:340px;">
+      <label style="font-size:11px;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-muted);font-weight:600;">Target Total Budget (Dashboard)</label>
+      <input class="cell-input" id="metaTotalBudget" type="number" value="${DATA.meta.totalBudget||0}" style="border:1px solid var(--border);margin-top:6px;">
+    </div>
+  `;
+
+  el.querySelectorAll("tbody tr[data-i] input").forEach(inp=>{
+    inp.addEventListener("change", e=>{
+      const tr = e.target.closest("tr");
+      const i = Number(tr.dataset.i);
+      const f = e.target.dataset.f;
+      DATA.budget[i][f] = (f==="estimasi"||f==="realisasi") ? num(e.target.value) : e.target.value;
+      saveData(true);
+      renderBudget(); renderDashboard();
+    });
+  });
+  el.querySelectorAll("[data-del]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      DATA.budget.splice(Number(btn.dataset.del),1);
+      saveData(true); renderBudget(); renderDashboard();
+    });
+  });
+  document.getElementById("addBudgetRow").addEventListener("click", ()=>{
+    DATA.budget.push({kategori:"Kategori Baru", volume:"", estimasi:0, realisasi:0});
+    saveData(true); renderBudget();
+  });
+  document.getElementById("metaTotalBudget").addEventListener("change", e=>{
+    DATA.meta.totalBudget = num(e.target.value);
+    saveData(true); renderDashboard();
+  });
+}
+
+// ============================================================
+// VENDOR
+// ============================================================
+function renderVendor(){
+  const el = document.getElementById("view-vendor");
+  el.innerHTML = `
+    <div class="page-head">
+      <div><div class="eyebrow">Daftar Rekanan</div><h1>Vendor</h1><p class="desc">Detail setiap vendor beserta item yang disepakati. Klik "Tambah Vendor" untuk kategori baru.</p></div>
+      <button class="btn primary" id="addVendor">${iconPlus()} Tambah Vendor</button>
+    </div>
+    ${DATA.vendor.map((v,i)=>`
+      <div class="vendor-card" data-i="${i}">
+        <div class="vendor-head">
+          <div>
+            <div class="vendor-kat">${escapeHtml(v.kategori)}</div>
+            <div class="vendor-nama">${escapeHtml(v.namaVendor||"Belum ditentukan")}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            ${v.status?`<span class="badge ${statusClass(v.status)}"><span class="badge-dot"></span>${escapeHtml(v.status)}</span>`:""}
+            <button class="icon-btn" data-del-vendor="${i}" title="Hapus vendor">${iconTrash()}</button>
+          </div>
+        </div>
+        <div class="vendor-meta">
+          ${v.picDana?`<span>PIC Dana: <b>${escapeHtml(v.picDana)}</b></span>`:""}
+          ${v.kontak?`<span>Kontak: <b>${escapeHtml(v.kontak)}</b></span>`:""}
+        </div>
+        ${v.items && v.items.length ? `<div class="vendor-items"><ul>${v.items.map(it=>`<li>${escapeHtml(it)}</li>`).join("")}</ul></div>`:""}
+        <div class="vendor-edit-row">
+          <div class="form-row"><label>Kategori</label><input data-f="kategori" value="${escapeHtml(v.kategori)}"></div>
+          <div class="form-row"><label>Nama Vendor</label><input data-f="namaVendor" value="${escapeHtml(v.namaVendor)}"></div>
+          <div class="form-row"><label>PIC Dana</label><input data-f="picDana" value="${escapeHtml(v.picDana)}"></div>
+          <div class="form-row"><label>Status</label>
+            <select data-f="status">
+              ${["","Survey","Negosiasi","Fix"].map(s=>`<option value="${s}" ${v.status===s?"selected":""}>${s||"- Pilih -"}</option>`).join("")}
+            </select>
+          </div>
+          <div class="form-row"><label>Kontak</label><input data-f="kontak" value="${escapeHtml(v.kontak)}"></div>
+          <div class="form-row"><label>Catatan</label><input data-f="catatan" value="${escapeHtml(v.catatan)}"></div>
+          <textarea data-f="items" placeholder="Satu item per baris...">${(v.items||[]).map(escapeHtml).join("\n")}</textarea>
+        </div>
+      </div>
+    `).join("")}
+  `;
+
+  el.querySelectorAll(".vendor-card").forEach(card=>{
+    const i = Number(card.dataset.i);
+    card.querySelectorAll("[data-f]").forEach(field=>{
+      field.addEventListener("change", e=>{
+        const f = e.target.dataset.f;
+        if(f==="items"){
+          DATA.vendor[i].items = e.target.value.split("\n").map(s=>s.trim()).filter(Boolean);
+        } else {
+          DATA.vendor[i][f] = e.target.value;
+        }
+        saveData(true); renderVendor(); renderDashboard();
+      });
+    });
+  });
+  el.querySelectorAll("[data-del-vendor]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      DATA.vendor.splice(Number(btn.dataset.delVendor),1);
+      saveData(true); renderVendor(); renderDashboard();
+    });
+  });
+  document.getElementById("addVendor").addEventListener("click", ()=>{
+    DATA.vendor.push({kategori:"Kategori Baru", namaVendor:"", picDana:"", status:"", kontak:"", catatan:"", items:[]});
+    saveData(true); renderVendor();
+  });
+}
+
+// ============================================================
+// TIMELINE
+// ============================================================
+function renderTimeline(){
+  const el = document.getElementById("view-timeline");
+  el.innerHTML = `
+    <div class="page-head">
+      <div><div class="eyebrow">Rencana Persiapan</div><h1>Timeline</h1><p class="desc">Susunan tugas per bulan. Centang untuk menandai selesai.</p></div>
+      <button class="btn primary" id="addMonth">${iconPlus()} Tambah Bulan</button>
+    </div>
+    ${DATA.timeline.map((m,mi)=>{
+      const total = m.tasks.length;
+      const selesai = m.tasks.filter(t=>(t.status||"").toLowerCase()==="selesai").length;
+      const pct = total? Math.round(selesai/total*100):0;
+      return `
+      <div class="month-block" data-mi="${mi}">
+        <div class="month-header" data-toggle>
+          <div class="month-name"><span class="idx">${mi+1}</span>${escapeHtml(m.bulan)}</div>
+          <div class="month-progress"><div class="bar"><div style="width:${pct}%"></div></div><span>${selesai}/${total} selesai</span></div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <button class="icon-btn" data-del-month="${mi}" title="Hapus bulan">${iconTrash()}</button>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="month-body">
+          ${m.tasks.map((t,ti)=>`
+            <div class="task-row ${((t.status||"").toLowerCase()==="selesai")?"done":""}" data-ti="${ti}">
+              <input type="checkbox" class="task-check" ${((t.status||"").toLowerCase()==="selesai")?"checked":""} data-f="done">
+              <input class="tugas" data-f="tugas" value="${escapeHtml(t.tugas)}" placeholder="Nama tugas">
+              <input class="cell-input pic-field" data-f="pic" value="${escapeHtml(t.pic)}" placeholder="PIC" style="border:1px solid var(--border);">
+              <select class="cell-input status-field" data-f="status" style="border:1px solid var(--border);">
+                ${["Belum","Proses","Selesai"].map(s=>`<option ${s===t.status?"selected":""}>${s}</option>`).join("")}
+              </select>
+              <button class="icon-btn" data-del-task="${ti}" title="Hapus tugas">${iconTrash()}</button>
+            </div>
+          `).join("")}
+          <div class="month-add"><button class="btn sm" data-add-task>${iconPlus()} Tambah Tugas</button></div>
+        </div>
+      </div>`;
+    }).join("")}
+  `;
+
+  el.querySelectorAll(".month-block").forEach(block=>{
+    const mi = Number(block.dataset.mi);
+    block.querySelector("[data-toggle]").addEventListener("click", e=>{
+      if(e.target.closest("[data-del-month]")) return;
+      block.classList.toggle("open");
+    });
+    block.querySelectorAll(".task-row").forEach(row=>{
+      const ti = Number(row.dataset.ti);
+      row.querySelectorAll("[data-f]").forEach(field=>{
+        const ev = field.type==="checkbox" ? "change" : (field.tagName==="SELECT" ? "change" : "change");
+        field.addEventListener(ev, e=>{
+          const f = e.target.dataset.f;
+          if(f==="done"){
+            DATA.timeline[mi].tasks[ti].status = e.target.checked ? "Selesai" : "Proses";
+          } else {
+            DATA.timeline[mi].tasks[ti][f] = e.target.value;
+          }
+          saveData(true); renderTimeline(); renderDashboard();
+          document.querySelectorAll(".month-block")[mi].classList.add("open");
+        });
+      });
+      row.querySelector("[data-del-task]").addEventListener("click", ()=>{
+        DATA.timeline[mi].tasks.splice(ti,1);
+        saveData(true); renderTimeline(); renderDashboard();
+        document.querySelectorAll(".month-block")[mi].classList.add("open");
+      });
+    });
+    block.querySelector("[data-add-task]").addEventListener("click", ()=>{
+      DATA.timeline[mi].tasks.push({tugas:"Tugas baru", pic:"", status:"Belum"});
+      saveData(true); renderTimeline();
+      document.querySelectorAll(".month-block")[mi].classList.add("open");
+    });
+    block.querySelector("[data-del-month]").addEventListener("click", ()=>{
+      DATA.timeline.splice(mi,1);
+      saveData(true); renderTimeline(); renderDashboard();
+    });
+  });
+  document.getElementById("addMonth").addEventListener("click", ()=>{
+    DATA.timeline.push({bulan:"Bulan Baru", tasks:[]});
+    saveData(true); renderTimeline();
+  });
+}
+
+// ============================================================
+// GUESTS
+// ============================================================
+function renderGuests(){
+  const el = document.getElementById("view-guests");
+  const pihakSet = Array.from(new Set(DATA.guests.map(g=>g.pihak).filter(Boolean)));
+  let list = DATA.guests.map((g,i)=>({...g, _i:i}));
+  if(guestFilter.pihak!=="Semua") list = list.filter(g=>g.pihak===guestFilter.pihak);
+  if(guestFilter.search){
+    const q = guestFilter.search.toLowerCase();
+    list = list.filter(g=>(g.nama||"").toLowerCase().includes(q) || (g.catatan||"").toLowerCase().includes(q));
+  }
+
+  el.innerHTML = `
+    <div class="page-head">
+      <div><div class="eyebrow">Daftar Undangan</div><h1>Tamu Undangan</h1><p class="desc">Kelola daftar tamu dari kedua pihak keluarga.</p></div>
+      <button class="btn primary" id="addGuest">${iconPlus()} Tambah Tamu</button>
+    </div>
+    <div class="guest-summary">
+      <div class="item"><b>${DATA.guests.length}</b>Total Tamu</div>
+      ${pihakSet.map(p=>`<div class="item"><b>${DATA.guests.filter(g=>g.pihak===p).length}</b>Pihak ${escapeHtml(p)}</div>`).join("")}
+    </div>
+    <div class="guest-toolbar">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="guestSearch" placeholder="Cari nama atau catatan..." value="${escapeHtml(guestFilter.search)}">
+      </div>
+      <div class="toolbar" id="pihakFilters">
+        <button class="pihak-pill" data-pihak="Semua" style="${guestFilter.pihak==='Semua'?'background:var(--primary);color:#fff;border-color:var(--primary);':''}">Semua</button>
+        ${pihakSet.map(p=>`<button class="pihak-pill" data-pihak="${escapeHtml(p)}" style="${guestFilter.pihak===p?'background:var(--primary);color:#fff;border-color:var(--primary);':''}">${escapeHtml(p)}</button>`).join("")}
+      </div>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th style="width:28%">Nama</th><th style="width:16%">Pihak</th><th style="width:20%">No HP</th><th>Catatan</th><th class="col-actions"></th></tr></thead>
+      <tbody>
+        ${list.length? list.map(g=>`
+          <tr data-i="${g._i}">
+            <td data-label="Nama"><input class="cell-input" data-f="nama" value="${escapeHtml(g.nama)}"></td>
+            <td data-label="Pihak"><input class="cell-input" data-f="pihak" value="${escapeHtml(g.pihak)}"></td>
+            <td data-label="No HP"><input class="cell-input" data-f="noHp" value="${escapeHtml(g.noHp)}" placeholder="-"></td>
+            <td data-label="Catatan"><input class="cell-input" data-f="catatan" value="${escapeHtml(g.catatan)}" placeholder="-"></td>
+            <td class="col-actions no-label"><button class="icon-btn" data-del="${g._i}">${iconTrash()}</button></td>
+          </tr>
+        `).join("") : `<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:24px;">Tidak ada tamu yang cocok</td></tr>`}
+      </tbody>
+    </table></div>
+  `;
+
+  el.querySelectorAll("tbody input").forEach(inp=>{
+    inp.addEventListener("change", e=>{
+      const i = Number(e.target.closest("tr").dataset.i);
+      DATA.guests[i][e.target.dataset.f] = e.target.value;
+      saveData(true); renderGuests();
+    });
+  });
+  el.querySelectorAll("[data-del]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      DATA.guests.splice(Number(btn.dataset.del),1);
+      saveData(true); renderGuests();
+    });
+  });
+  document.getElementById("addGuest").addEventListener("click", ()=>{
+    DATA.guests.unshift({nama:"", pihak: pihakSet[0]||"", noHp:"", catatan:""});
+    saveData(true); renderGuests();
+    const first = el.querySelector("tbody input");
+    if(first) first.focus();
+  });
+  document.getElementById("guestSearch").addEventListener("input", e=>{
+    guestFilter.search = e.target.value; renderGuests();
+    const inp = document.getElementById("guestSearch");
+    inp.focus(); inp.selectionStart = inp.selectionEnd = inp.value.length;
+  });
+  el.querySelectorAll("[data-pihak]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{ guestFilter.pihak = btn.dataset.pihak; renderGuests(); });
+  });
+}
+
+// ============================================================
+// PAYMENT
+// ============================================================
+function renderPayment(){
+  const el = document.getElementById("view-payment");
+  let totalAll=0, dpAll=0;
+  DATA.payment.forEach(p=>{ totalAll+=num(p.total); dpAll+=num(p.dp); });
+  el.innerHTML = `
+    <div class="page-head">
+      <div><div class="eyebrow">Cicilan &amp; Pelunasan</div><h1>Pembayaran</h1><p class="desc">Pantau DP, sisa tagihan, dan jatuh tempo tiap vendor.</p></div>
+      <button class="btn primary" id="addPayment">${iconPlus()} Tambah Vendor</button>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th style="width:20%">Vendor</th><th>Total</th><th>DP</th><th>Sisa</th><th style="width:15%">Jatuh Tempo</th><th style="width:14%">Status</th><th class="col-actions"></th></tr></thead>
+      <tbody>
+        ${DATA.payment.map((p,i)=>{
+          const sisa = num(p.total)-num(p.dp);
+          return `<tr data-i="${i}">
+            <td data-label="Vendor"><input class="cell-input" data-f="vendor" value="${escapeHtml(p.vendor)}"></td>
+            <td data-label="Total"><input class="cell-input" data-f="total" type="number" value="${p.total||0}"></td>
+            <td data-label="DP"><input class="cell-input" data-f="dp" type="number" value="${p.dp||0}"></td>
+            <td data-label="Sisa" style="color:var(--text-muted);">${rupiah(sisa)}</td>
+            <td data-label="Jatuh Tempo"><input class="cell-input" data-f="jatuhTempo" type="date" value="${p.jatuhTempo||""}"></td>
+            <td data-label="Status"><select class="cell-input" data-f="status" style="border:1px solid var(--border);">
+              ${["Belum Bayar","DP","Lunas"].map(s=>`<option ${s===p.status?"selected":""}>${s}</option>`).join("")}
+            </select></td>
+            <td class="col-actions no-label"><button class="icon-btn" data-del="${i}">${iconTrash()}</button></td>
+          </tr>`;
+        }).join("")}
+        <tr class="total-row">
+          <td data-label="Vendor">Total</td><td data-label="Total">${rupiah(totalAll)}</td><td data-label="DP">${rupiah(dpAll)}</td><td data-label="Sisa">${rupiah(totalAll-dpAll)}</td><td class="no-label"></td><td class="no-label"></td><td class="no-label"></td>
+        </tr>
+      </tbody>
+    </table></div>
+  `;
+  el.querySelectorAll("tbody tr[data-i] [data-f]").forEach(inp=>{
+    inp.addEventListener("change", e=>{
+      const i = Number(e.target.closest("tr").dataset.i);
+      const f = e.target.dataset.f;
+      DATA.payment[i][f] = (f==="total"||f==="dp") ? num(e.target.value) : e.target.value;
+      saveData(true); renderPayment(); renderDashboard();
+    });
+  });
+  el.querySelectorAll("[data-del]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      DATA.payment.splice(Number(btn.dataset.del),1);
+      saveData(true); renderPayment(); renderDashboard();
+    });
+  });
+  document.getElementById("addPayment").addEventListener("click", ()=>{
+    DATA.payment.push({vendor:"Vendor Baru", total:0, dp:0, jatuhTempo:"", status:"Belum Bayar"});
+    saveData(true); renderPayment();
+  });
+}
+
+// ============================================================
+// INIT / GLOBAL EVENTS
+// ============================================================
+function init(){
+  document.querySelectorAll(".nav-item").forEach(btn=>{
+    btn.addEventListener("click", ()=>setView(btn.dataset.view));
+  });
+  document.getElementById("hamburgerBtn").addEventListener("click", openSidebar);
+  document.getElementById("sidebarClose").addEventListener("click", closeSidebar);
+  document.getElementById("overlay").addEventListener("click", closeSidebar);
+
+  document.getElementById("btnExport").addEventListener("click", ()=>{
+    const blob = new Blob([JSON.stringify(DATA,null,2)], {type:"application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "wedding-plan-backup.json"; a.click();
+    URL.revokeObjectURL(url);
+    showToast("File cadangan diunduh");
+  });
+  document.getElementById("btnImport").addEventListener("click", ()=>document.getElementById("fileImport").click());
+  document.getElementById("fileImport").addEventListener("change", e=>{
+    const file = e.target.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      try{
+        const parsed = JSON.parse(reader.result);
+        if(!parsed.meta || !parsed.budget) throw new Error("format tidak valid");
+        DATA = parsed; saveData(true); renderAll(); setView(currentView);
+        showToast("Data berhasil diimport");
+      }catch(err){ showToast("File tidak valid"); }
+    };
+    reader.readAsText(file);
+    e.target.value = "";
+  });
+  document.getElementById("btnReset").addEventListener("click", ()=>{
+    if(confirm("Kembalikan semua data ke data awal dari Excel? Perubahan yang belum di-export akan hilang.")){
+      DATA = deepClone(DEFAULT_DATA);
+      saveData(true); renderAll(); setView(currentView);
+      showToast("Data direset");
+    }
+  });
+
+  renderAll();
+  setView("dashboard");
+  // buka bulan berjalan otomatis di timeline saat pertama render
+}
+
+document.addEventListener("DOMContentLoaded", init);
+})();
+
+</script>
+</body>
+</html>
