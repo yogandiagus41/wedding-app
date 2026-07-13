@@ -18,11 +18,13 @@ function loadData(){
       const parsed = JSON.parse(raw);
       if(parsed && parsed.meta && parsed.budget) return parsed;
     }
-  }catch(e){ console.warn("Gagal memuat data tersimpan, memakai data awal.", e); }
-  return deepClone(DEFAULT_DATA);
+  }catch(e){ console.warn("Gagal memuat data tersimpan.", e); }
+  return null; // belum pernah ada data -> tampilkan pilihan onboarding
 }
 
 let DATA = loadData();
+let isFirstLoad = (DATA === null);
+if(isFirstLoad) DATA = deepClone(EMPTY_DATA);
 let currentView = "dashboard";
 let guestFilter = { search: "", pihak: "Semua" };
 
@@ -114,7 +116,7 @@ function currentMonthBlock(){
 // NAVIGATION
 // ============================================================
 const VIEW_TITLES = {
-  dashboard:"Dashboard", budget:"Budget", vendor:"Vendor", timeline:"Timeline",
+  dashboard:"Dashboard", settings:"Info Acara", budget:"Budget", vendor:"Vendor", timeline:"Timeline",
   guests:"Tamu Undangan", payment:"Pembayaran"
 };
 function setView(view){
@@ -128,15 +130,19 @@ function setView(view){
   renderCurrentView();
 }
 function renderCurrentView(){
-  ({dashboard:renderDashboard, budget:renderBudget, vendor:renderVendor,
+  ({dashboard:renderDashboard, settings:renderSettings, budget:renderBudget, vendor:renderVendor,
     timeline:renderTimeline, guests:renderGuests, payment:renderPayment}[currentView])();
 }
 function renderAll(){
-  renderDashboard(); renderBudget(); renderVendor(); renderTimeline(); renderGuests(); renderPayment();
-  document.getElementById("brandVenue").textContent = DATA.meta.venue || "";
+  renderDashboard(); renderSettings(); renderBudget(); renderVendor(); renderTimeline(); renderGuests(); renderPayment();
+  const a = DATA.meta.coupleA, b = DATA.meta.coupleB;
+  const coupleLabel = (a || b) ? `${a||"?"} &amp; ${b||"?"}` : "Wedding Planner";
+  document.getElementById("brandCouple").innerHTML = coupleLabel;
+  document.title = (a || b) ? `${a||"?"} & ${b||"?"} — Wedding Planner` : "Wedding Planner";
+  document.getElementById("brandVenue").textContent = DATA.meta.venue || "Atur di menu Info Acara";
   const d = daysUntil(DATA.meta.tanggalResepsi);
   document.getElementById("sideCountdown").textContent = d!=null ? Math.max(d,0) : "—";
-  document.getElementById("sideDate").textContent = formatDateLong(DATA.meta.tanggalResepsi);
+  document.getElementById("sideDate").textContent = DATA.meta.tanggalResepsi ? formatDateLong(DATA.meta.tanggalResepsi) : "Tanggal belum diatur";
 }
 
 function openSidebar(){ document.getElementById("sidebar").classList.add("open"); document.getElementById("overlay").classList.add("show"); }
@@ -203,7 +209,7 @@ function renderDashboard(){
       <div>
         <div class="section-title first"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l2-5h14l2 5M3 9v9a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18"/></svg>Ringkasan Vendor</div>
         <div class="table-wrap"><table><thead><tr><th>Kategori</th><th>Vendor</th><th>Status</th></tr></thead><tbody>
-          ${DATA.vendor.map(v=>`<tr><td data-label="Kategori">${escapeHtml(v.kategori)}</td><td data-label="Vendor">${escapeHtml(v.namaVendor||"-")}</td><td data-label="Status">${v.status?`<span class="badge ${statusClass(v.status)}"><span class="badge-dot"></span>${escapeHtml(v.status)}</span>`:"-"}</td></tr>`).join("")}
+          ${DATA.vendor.length ? DATA.vendor.map(v=>`<tr><td data-label="Kategori">${escapeHtml(v.kategori)}</td><td data-label="Vendor">${escapeHtml(v.namaVendor||"-")}</td><td data-label="Status">${v.status?`<span class="badge ${statusClass(v.status)}"><span class="badge-dot"></span>${escapeHtml(v.status)}</span>`:"-"}</td></tr>`).join("") : `<tr><td colspan="3" style="color:var(--text-muted);text-align:center;padding:20px;">Belum ada vendor</td></tr>`}
         </tbody></table></div>
       </div>
       <div>
@@ -219,8 +225,36 @@ function renderDashboard(){
 }
 
 // ============================================================
-// BUDGET
+// SETTINGS / INFO ACARA
 // ============================================================
+function renderSettings(){
+  const el = document.getElementById("view-settings");
+  const m = DATA.meta;
+  el.innerHTML = `
+    <div class="page-head">
+      <div><div class="eyebrow">Pengaturan Dasar</div><h1>Info Acara</h1><p class="desc">Nama mempelai, lokasi, tanggal, dan target budget. Data ini dipakai di Dashboard, judul website, dan hitung mundur.</p></div>
+    </div>
+    <div class="card" style="max-width:680px;">
+      <div class="grid cols-2">
+        <div class="form-row"><label>Nama Mempelai Pria</label><input id="setCoupleA" value="${escapeHtml(m.coupleA)}" placeholder="Contoh: Raka"></div>
+        <div class="form-row"><label>Nama Mempelai Wanita</label><input id="setCoupleB" value="${escapeHtml(m.coupleB)}" placeholder="Contoh: Salsa"></div>
+        <div class="form-row" style="grid-column:1/-1;"><label>Lokasi / Venue</label><input id="setVenue" value="${escapeHtml(m.venue)}" placeholder="Nama gedung / alamat"></div>
+        <div class="form-row"><label>Tanggal Akad</label><input id="setAkad" type="date" value="${m.tanggalAkad||''}"></div>
+        <div class="form-row"><label>Tanggal Resepsi</label><input id="setResepsi" type="date" value="${m.tanggalResepsi||''}"></div>
+        <div class="form-row" style="grid-column:1/-1;"><label>Target Total Budget</label><input id="setBudget" type="number" value="${m.totalBudget||0}"></div>
+      </div>
+    </div>
+  `;
+  const bind = (id, field, isNumber) => {
+    document.getElementById(id).addEventListener("change", e=>{
+      DATA.meta[field] = isNumber ? num(e.target.value) : e.target.value;
+      saveData(true); renderAll();
+    });
+  };
+  bind("setCoupleA","coupleA"); bind("setCoupleB","coupleB"); bind("setVenue","venue");
+  bind("setAkad","tanggalAkad"); bind("setResepsi","tanggalResepsi"); bind("setBudget","totalBudget",true);
+}
+
 function renderBudget(){
   const el = document.getElementById("view-budget");
   const bt = budgetTotals();
@@ -232,7 +266,7 @@ function renderBudget(){
     <div class="table-wrap"><table>
       <thead><tr><th style="width:26%">Kategori</th><th style="width:14%">Volume</th><th>Estimasi</th><th>Realisasi</th><th>Selisih</th><th class="col-actions"></th></tr></thead>
       <tbody>
-        ${DATA.budget.map((b,i)=>{
+        ${DATA.budget.length ? DATA.budget.map((b,i)=>{
           const selisih = num(b.estimasi)-num(b.realisasi);
           return `<tr data-i="${i}">
             <td data-label="Kategori"><input class="cell-input" data-f="kategori" value="${escapeHtml(b.kategori)}" placeholder="Nama kategori"></td>
@@ -242,7 +276,7 @@ function renderBudget(){
             <td data-label="Selisih" style="color:${selisih<0?'var(--danger)':'var(--text-muted)'};font-weight:500;">${rupiah(selisih)}</td>
             <td class="col-actions no-label"><button class="icon-btn" data-del="${i}" title="Hapus">${iconTrash()}</button></td>
           </tr>`;
-        }).join("")}
+        }).join("") : `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:24px;">Belum ada kategori budget</td></tr>`}
         <tr class="total-row">
           <td colspan="2" data-label="Kategori">Total</td>
           <td data-label="Estimasi">${rupiah(bt.estimasi)}</td>
@@ -252,10 +286,7 @@ function renderBudget(){
         </tr>
       </tbody>
     </table></div>
-    <div class="card tight" style="margin-top:18px;max-width:340px;">
-      <label style="font-size:11px;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-muted);font-weight:600;">Target Total Budget (Dashboard)</label>
-      <input class="cell-input" id="metaTotalBudget" type="number" value="${DATA.meta.totalBudget||0}" style="border:1px solid var(--border);margin-top:6px;">
-    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:14px;">Target total budget diatur di menu <b>Info Acara</b>.</p>
   `;
 
   el.querySelectorAll("tbody tr[data-i] input").forEach(inp=>{
@@ -278,10 +309,6 @@ function renderBudget(){
     DATA.budget.push({kategori:"Kategori Baru", volume:"", estimasi:0, realisasi:0});
     saveData(true); renderBudget();
   });
-  document.getElementById("metaTotalBudget").addEventListener("change", e=>{
-    DATA.meta.totalBudget = num(e.target.value);
-    saveData(true); renderDashboard();
-  });
 }
 
 // ============================================================
@@ -294,7 +321,7 @@ function renderVendor(){
       <div><div class="eyebrow">Daftar Rekanan</div><h1>Vendor</h1><p class="desc">Detail setiap vendor beserta item yang disepakati. Klik "Tambah Vendor" untuk kategori baru.</p></div>
       <button class="btn primary" id="addVendor">${iconPlus()} Tambah Vendor</button>
     </div>
-    ${DATA.vendor.map((v,i)=>`
+    ${DATA.vendor.length ? DATA.vendor.map((v,i)=>`
       <div class="vendor-card" data-i="${i}">
         <div class="vendor-head">
           <div>
@@ -325,7 +352,7 @@ function renderVendor(){
           <textarea data-f="items" placeholder="Satu item per baris...">${(v.items||[]).map(escapeHtml).join("\n")}</textarea>
         </div>
       </div>
-    `).join("")}
+    `).join("") : `<div class="card" style="text-align:center;color:var(--text-muted);padding:40px 20px;">Belum ada vendor. Klik "Tambah Vendor" untuk mulai menambahkan.</div>`}
   `;
 
   el.querySelectorAll(".vendor-card").forEach(card=>{
@@ -364,14 +391,14 @@ function renderTimeline(){
       <div><div class="eyebrow">Rencana Persiapan</div><h1>Timeline</h1><p class="desc">Susunan tugas per bulan. Centang untuk menandai selesai.</p></div>
       <button class="btn primary" id="addMonth">${iconPlus()} Tambah Bulan</button>
     </div>
-    ${DATA.timeline.map((m,mi)=>{
+    ${DATA.timeline.length ? DATA.timeline.map((m,mi)=>{
       const total = m.tasks.length;
       const selesai = m.tasks.filter(t=>(t.status||"").toLowerCase()==="selesai").length;
       const pct = total? Math.round(selesai/total*100):0;
       return `
       <div class="month-block" data-mi="${mi}">
         <div class="month-header" data-toggle>
-          <div class="month-name"><span class="idx">${mi+1}</span>${escapeHtml(m.bulan)}</div>
+          <div class="month-name"><span class="idx">${mi+1}</span><input class="month-name-input" data-f="bulan" value="${escapeHtml(m.bulan)}" placeholder="Nama bulan"></div>
           <div class="month-progress"><div class="bar"><div style="width:${pct}%"></div></div><span>${selesai}/${total} selesai</span></div>
           <div style="display:flex;align-items:center;gap:10px;">
             <button class="icon-btn" data-del-month="${mi}" title="Hapus bulan">${iconTrash()}</button>
@@ -393,14 +420,22 @@ function renderTimeline(){
           <div class="month-add"><button class="btn sm" data-add-task>${iconPlus()} Tambah Tugas</button></div>
         </div>
       </div>`;
-    }).join("")}
+    }).join("") : `<div class="card" style="text-align:center;color:var(--text-muted);padding:40px 20px;">Belum ada bulan. Klik "Tambah Bulan" untuk mulai menyusun timeline.</div>`}
   `;
 
   el.querySelectorAll(".month-block").forEach(block=>{
     const mi = Number(block.dataset.mi);
     block.querySelector("[data-toggle]").addEventListener("click", e=>{
       if(e.target.closest("[data-del-month]")) return;
+      if(e.target.closest(".month-name-input")) return;
       block.classList.toggle("open");
+    });
+    const nameInput = block.querySelector(".month-name-input");
+    nameInput.addEventListener("click", e=>e.stopPropagation());
+    nameInput.addEventListener("change", e=>{
+      DATA.timeline[mi].bulan = e.target.value || "Bulan Baru";
+      saveData(true); renderTimeline(); renderDashboard();
+      document.querySelectorAll(".month-block")[mi].classList.add("open");
     });
     block.querySelectorAll(".task-row").forEach(row=>{
       const ti = Number(row.dataset.ti);
@@ -531,7 +566,7 @@ function renderPayment(){
     <div class="table-wrap"><table>
       <thead><tr><th style="width:20%">Vendor</th><th>Total</th><th>DP</th><th>Sisa</th><th style="width:15%">Jatuh Tempo</th><th style="width:14%">Status</th><th class="col-actions"></th></tr></thead>
       <tbody>
-        ${DATA.payment.map((p,i)=>{
+        ${DATA.payment.length ? DATA.payment.map((p,i)=>{
           const sisa = num(p.total)-num(p.dp);
           return `<tr data-i="${i}">
             <td data-label="Vendor"><input class="cell-input" data-f="vendor" value="${escapeHtml(p.vendor)}"></td>
@@ -544,7 +579,7 @@ function renderPayment(){
             </select></td>
             <td class="col-actions no-label"><button class="icon-btn" data-del="${i}">${iconTrash()}</button></td>
           </tr>`;
-        }).join("")}
+        }).join("") : `<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:24px;">Belum ada data pembayaran</td></tr>`}
         <tr class="total-row">
           <td data-label="Vendor">Total</td><td data-label="Total">${rupiah(totalAll)}</td><td data-label="DP">${rupiah(dpAll)}</td><td data-label="Sisa">${rupiah(totalAll-dpAll)}</td><td class="no-label"></td><td class="no-label"></td><td class="no-label"></td>
         </tr>
@@ -606,16 +641,45 @@ function init(){
     e.target.value = "";
   });
   document.getElementById("btnReset").addEventListener("click", ()=>{
-    if(confirm("Kembalikan semua data ke data awal dari Excel? Perubahan yang belum di-export akan hilang.")){
-      DATA = deepClone(DEFAULT_DATA);
-      saveData(true); renderAll(); setView(currentView);
-      showToast("Data direset");
-    }
+    showWelcomeModal(true);
+  });
+
+  // ---- welcome / onboarding modal ----
+  document.getElementById("choiceDummyBtn").addEventListener("click", ()=>{
+    DATA = deepClone(DUMMY_DATA);
+    saveData(true); renderAll(); setView(currentView);
+    hideWelcomeModal();
+    showToast("Data contoh dimuat");
+  });
+  document.getElementById("choiceEmptyBtn").addEventListener("click", ()=>{
+    DATA = deepClone(EMPTY_DATA);
+    saveData(true); renderAll(); setView(currentView);
+    hideWelcomeModal();
+    showToast("Mulai dari data kosong");
+  });
+  document.getElementById("welcomeCloseBtn").addEventListener("click", hideWelcomeModal);
+  document.getElementById("welcomeOverlay").addEventListener("click", e=>{
+    if(e.target.id==="welcomeOverlay" && e.target.classList.contains("reset-mode")) hideWelcomeModal();
   });
 
   renderAll();
   setView("dashboard");
-  // buka bulan berjalan otomatis di timeline saat pertama render
+
+  if(isFirstLoad){
+    showWelcomeModal(false);
+  }
+}
+
+function showWelcomeModal(isReset){
+  const overlay = document.getElementById("welcomeOverlay");
+  overlay.classList.add("show");
+  overlay.classList.toggle("reset-mode", !!isReset);
+  document.getElementById("welcomeDesc").textContent = isReset
+    ? "Mau reset data website ini jadi apa?"
+    : "Website ini bisa dipakai untuk merencanakan pernikahan siapa saja. Mau mulai dari mana?";
+}
+function hideWelcomeModal(){
+  document.getElementById("welcomeOverlay").classList.remove("show");
 }
 
 document.addEventListener("DOMContentLoaded", init);
