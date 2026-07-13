@@ -1,0 +1,2170 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    color: #fff;
+
+    background: #09111f;
+
+    position: relative;
+
+}
+
+
+
+/* ==========================================================
+   ROOT
+========================================================== */
+
+:root {
+
+    --primary: #d4af37;
+    --white: #ffffff;
+
+    --glass: rgba(255, 255, 255, .08);
+
+    --border: rgba(255, 255, 255, .12);
+
+    --shadow:
+        0 25px 70px rgba(0, 0, 0, .45);
+
+    --radius: 30px;
+
+}
+
+
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(circle at top left,
+            rgba(255, 210, 120, .18),
+            transparent 40%),
+
+        radial-gradient(circle at bottom right,
+            rgba(90, 120, 255, .18),
+            transparent 40%),
+
+        linear-gradient(135deg,
+            #09111f,
+            #101d31,
+            #15263d);
+
+    z-index: -5;
+
+}
+
+
+
+/* ==========================================================
+   FLOATING LIGHT
+========================================================== */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .06);
+
+    filter: blur(120px);
+
+    right: -150px;
+
+    top: -120px;
+
+    animation: floatingLight 12s infinite ease-in-out;
+
+    z-index: -4;
+
+}
+
+@keyframes floatingLight {
+
+    0% {
+
+        transform:
+            translateY(0) translateX(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(80px) translateX(-90px);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0) translateX(0);
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+h1,
+h2,
+h3 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-weight: 700;
+
+}
+
+h1 {
+
+    font-size: 60px;
+
+    line-height: 1;
+
+}
+
+h2 {
+
+    font-size: 42px;
+
+    margin-bottom: 20px;
+
+}
+
+h3 {
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+
+}
+
+p {
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    opacity: .9;
+
+}
+
+.small {
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+/* ==========================================================
+   LOADER
+========================================================== */
+
+#loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #09111f;
+
+    z-index: 99999;
+
+    transition: 1s;
+
+}
+
+.loader-ring {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    border:
+
+        4px solid rgba(255, 255, 255, .15);
+
+    border-top:
+
+        4px solid var(--primary);
+
+    animation: spin .9s linear infinite;
+
+}
+
+@keyframes spin {
+
+    from {
+
+        transform: rotate(0);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   COVER
+========================================================== */
+
+#cover {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(rgba(0, 0, 0, .45),
+
+            rgba(0, 0, 0, .65)),
+
+        url("../assets/img/cover.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    z-index: 1000;
+
+    transition: 1s;
+
+}
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    backdrop-filter: blur(3px);
+
+}
+
+.cover-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    max-width: 420px;
+
+    text-align: center;
+
+}
+
+.cover-content h1 {
+
+    margin: 20px 0;
+
+}
+
+.cover-content p {
+
+    margin-bottom: 15px;
+
+}
+
+#openInvitation {
+
+    margin-top: 20px;
+
+    padding: 15px 38px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: var(--primary);
+
+    color: #111;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+    box-shadow:
+
+        0 15px 40px rgba(212, 175, 55, .35);
+
+}
+
+#openInvitation:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+/* ==========================================================
+   MAIN
+========================================================== */
+
+#main {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    transition: 1s;
+
+}
+
+
+
+/* ==========================================================
+   PROGRESS BAR
+========================================================== */
+
+#progressBar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 0;
+
+    height: 4px;
+
+    background: var(--primary);
+
+    z-index: 999;
+
+    transition: .2s;
+
+}
+
+/* ==========================================================
+   HORIZONTAL WRAPPER
+========================================================== */
+
+.horizontal-wrapper {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: stretch;
+
+    will-change: transform;
+
+    transition:
+        transform .8s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+
+
+/* ==========================================================
+   PANEL
+========================================================== */
+
+.panel {
+
+    position: relative;
+
+    flex: 0 0 100vw;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 32px;
+
+}
+
+.panel>* {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(circle at top,
+
+            rgba(255, 255, 255, .05),
+
+            transparent 65%);
+
+    pointer-events: none;
+
+}
+
+
+
+/* ==========================================================
+   ACTIVE PANEL
+========================================================== */
+
+.panel {
+
+    opacity: .35;
+
+    transform:
+
+        scale(.92);
+
+    transition:
+
+        opacity .55s ease,
+
+        transform .55s ease;
+
+}
+
+.panel.active {
+
+    opacity: 1;
+
+    transform:
+
+        scale(1);
+
+}
+
+
+
+/* ==========================================================
+   GLASS CARD
+========================================================== */
+
+.glass {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 35px;
+
+    border-radius: 32px;
+
+    background: rgba(255, 255, 255, .08);
+
+    border:
+
+        1px solid rgba(255, 255, 255, .15);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+
+        var(--shadow);
+
+}
+
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+
+    text-align: center;
+
+}
+
+.hero .glass {
+
+    animation:
+
+        floatingCard 5s ease-in-out infinite;
+
+}
+
+
+
+/* ==========================================================
+   FLOATING CARD
+========================================================== */
+
+@keyframes floatingCard {
+
+    0% {
+
+        transform:
+
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+
+            translateY(-12px);
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   BRIDE
+========================================================== */
+
+.bride {
+
+    background:
+
+        radial-gradient(circle at top left,
+
+            rgba(255, 182, 193, .08),
+
+            transparent 60%);
+
+}
+
+
+
+/* ==========================================================
+   GROOM
+========================================================== */
+
+.groom {
+
+    background:
+
+        radial-gradient(circle at bottom right,
+
+            rgba(255, 215, 0, .08),
+
+            transparent 60%);
+
+}
+
+
+
+/* ==========================================================
+   CARD 3D
+========================================================== */
+
+.card-3d {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 360px;
+
+    padding:
+
+        35px 25px 30px;
+
+    border-radius: 32px;
+
+    background:
+
+        rgba(255, 255, 255, .08);
+
+    border:
+
+        1px solid rgba(255, 255, 255, .15);
+
+    backdrop-filter:
+
+        blur(18px);
+
+    overflow: visible;
+
+    text-align: center;
+
+    transform-style:
+
+        preserve-3d;
+
+    transition:
+
+        .45s;
+
+    box-shadow:
+
+        var(--shadow);
+
+}
+
+
+
+/* ==========================================================
+   CARD BORDER
+========================================================== */
+
+.card-3d::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    padding: 1px;
+
+    border-radius: 32px;
+
+    background:
+
+        linear-gradient(135deg,
+
+            rgba(212, 175, 55, .9),
+
+            rgba(255, 255, 255, .2));
+
+    -webkit-mask:
+
+        linear-gradient(#fff 0 0) content-box,
+
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+}
+
+
+
+/* ==========================================================
+   PHOTO
+========================================================== */
+
+.card-3d img {
+
+    width: 210px;
+
+    height: 210px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-top: -90px;
+
+    border:
+
+        8px solid rgba(255, 255, 255, .15);
+
+    box-shadow:
+
+        0 25px 60px rgba(0, 0, 0, .4);
+
+    transition: .45s;
+
+    transform:
+
+        translateZ(60px);
+
+}
+
+
+
+/* ==========================================================
+   PHOTO HOVER
+========================================================== */
+
+.card-3d:hover img {
+
+    transform:
+
+        translateZ(80px) scale(1.05);
+
+}
+
+
+
+/* ==========================================================
+   NAME
+========================================================== */
+
+.card-3d h2 {
+
+    margin-top: 30px;
+
+    font-size: 44px;
+
+    color: var(--primary);
+
+    margin-bottom: 12px;
+
+}
+
+
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.card-3d p {
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    opacity: .85;
+
+}
+
+
+
+/* ==========================================================
+   GLOW
+========================================================== */
+
+.card-3d::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+
+    height: 140px;
+
+    right: -40px;
+
+    top: -40px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(rgba(212, 175, 55, .25),
+
+            transparent);
+
+    filter: blur(25px);
+
+}
+
+
+
+/* ==========================================================
+   CARD HOVER
+========================================================== */
+
+.card-3d:hover {
+
+    transform:
+
+        translateY(-8px) rotateX(4deg) rotateY(-6deg);
+
+    box-shadow:
+
+        0 35px 80px rgba(0, 0, 0, .45),
+
+        0 0 50px rgba(212, 175, 55, .18);
+
+}
+
+
+
+/* ==========================================================
+   FLOATING
+========================================================== */
+
+.card-3d {
+
+    animation:
+
+        cardFloat 6s ease-in-out infinite;
+
+}
+
+@keyframes cardFloat {
+
+    0% {
+
+        transform:
+
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+
+            translateY(-10px);
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   STORY
+========================================================== */
+
+.story {
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+#storyContainer {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+}
+
+.story-item {
+
+    position: relative;
+
+    padding: 20px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, .05);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    overflow: hidden;
+
+    transition: .35s;
+
+}
+
+.story-item:hover {
+
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, .08);
+
+}
+
+.story-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 4px;
+
+    height: 100%;
+
+    background: var(--primary);
+
+}
+
+.story-item h4 {
+
+    color: var(--primary);
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+
+}
+
+.story-item small {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    opacity: .7;
+
+}
+
+
+
+/* ==========================================================
+   COUNTDOWN
+========================================================== */
+
+.countdown {
+
+    text-align: center;
+
+}
+
+#countdown {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-top: 30px;
+
+}
+
+#countdown div {
+
+    padding: 22px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, .08);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition: .35s;
+
+}
+
+#countdown div:hover {
+
+    transform: translateY(-6px);
+
+}
+
+#countdown span {
+
+    display: block;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: var(--primary);
+
+    margin-bottom: 8px;
+
+}
+
+#countdown small {
+
+    letter-spacing: 2px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+/* ==========================================================
+   EVENT
+========================================================== */
+
+.akad,
+.resepsi {
+
+    text-align: center;
+
+}
+
+.akad h3,
+.resepsi h3 {
+
+    color: var(--primary);
+
+    margin-bottom: 15px;
+
+}
+
+.akad p,
+.resepsi p {
+
+    margin-bottom: 10px;
+
+}
+
+.akad .glass,
+.resepsi .glass {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.akad .glass::after,
+.resepsi .glass::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(rgba(212, 175, 55, .15),
+
+            transparent);
+
+    right: -70px;
+
+    bottom: -70px;
+
+    filter: blur(20px);
+
+}
+
+
+
+/* ==========================================================
+   GALLERY
+========================================================== */
+
+.gallery {
+
+    flex-direction: column;
+
+}
+
+#galleryGrid {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+}
+
+#galleryGrid img {
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+    box-shadow:
+
+        0 15px 30px rgba(0, 0, 0, .25);
+
+}
+
+#galleryGrid img:hover {
+
+    transform:
+
+        scale(1.05) rotate(1deg);
+
+}
+
+
+
+/* ==========================================================
+   LIGHTBOX
+========================================================== */
+
+#lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .9);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .35s;
+
+    z-index: 99999;
+
+}
+
+#lightbox.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+#lightbox img {
+
+    max-width: 90%;
+
+    max-height: 80%;
+
+    border-radius: 20px;
+
+}
+
+#closeLightbox {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: #111;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+/* ==========================================================
+   GIFT
+========================================================== */
+
+.gift {
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+#giftContainer {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+}
+
+.gift-card {
+
+    position: relative;
+
+    padding: 22px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, .06);
+
+    border: 1px solid rgba(255, 255, 255, .10);
+
+    overflow: hidden;
+
+    transition: .35s;
+
+}
+
+.gift-card:hover {
+
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, .08);
+
+}
+
+.gift-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(135deg,
+
+            rgba(255, 255, 255, .05),
+
+            transparent);
+
+    pointer-events: none;
+
+}
+
+.gift-card h3 {
+
+    color: var(--primary);
+
+    margin-bottom: 8px;
+
+}
+
+.gift-card p {
+
+    margin-bottom: 6px;
+
+}
+
+.copy-button {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: var(--primary);
+
+    color: #111;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+}
+
+.copy-button:hover {
+
+    transform: translateY(-4px);
+
+}
+
+
+
+/* ==========================================================
+   RSVP
+========================================================== */
+
+.rsvp {
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+#rsvpForm {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 20px;
+
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 18px;
+
+    padding: 16px 18px;
+
+    background: rgba(255, 255, 255, .08);
+
+    color: #fff;
+
+    font-size: 15px;
+
+}
+
+#rsvpForm textarea {
+
+    resize: none;
+
+    min-height: 130px;
+
+}
+
+#rsvpForm input::placeholder,
+#rsvpForm textarea::placeholder {
+
+    color: rgba(255, 255, 255, .6);
+
+}
+
+#rsvpForm select {
+
+    appearance: none;
+
+}
+
+#rsvpForm button {
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    padding: 16px;
+
+    background: var(--primary);
+
+    color: #111;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+}
+
+#rsvpForm button:hover {
+
+    transform: translateY(-4px);
+
+}
+
+
+
+/* ==========================================================
+   THANK YOU
+========================================================== */
+
+.thanks {
+
+    text-align: center;
+
+}
+
+.thanks .glass {
+
+    max-width: 500px;
+
+}
+
+.thanks h2 {
+
+    margin-bottom: 20px;
+
+}
+
+.thanks p {
+
+    font-size: 16px;
+
+}
+
+
+
+/* ==========================================================
+   PANEL DECORATION
+========================================================== */
+
+.panel::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    left: -100px;
+
+    bottom: -100px;
+
+    background:
+
+        radial-gradient(rgba(212, 175, 55, .12),
+
+            transparent);
+
+    filter: blur(30px);
+
+}
+
+
+
+/* ==========================================================
+   FADE ANIMATION
+========================================================== */
+
+.fade-up {
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition: 1s;
+
+}
+
+.fade-up.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+
+/* ==========================================================
+   SCALE ANIMATION
+========================================================== */
+
+.scale {
+
+    opacity: 0;
+
+    transform: scale(.85);
+
+    transition: 1s;
+
+}
+
+.scale.show {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+
+/* ==========================================================
+   ROTATE ANIMATION
+========================================================== */
+
+.rotate {
+
+    opacity: 0;
+
+    transform:
+
+        rotate(-5deg) scale(.9);
+
+    transition: 1s;
+
+}
+
+.rotate.show {
+
+    opacity: 1;
+
+    transform:
+
+        rotate(0) scale(1);
+
+}
+
+
+
+/* ==========================================================
+   SCROLL INDICATOR
+========================================================== */
+
+.scroll-indicator {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    z-index: 100;
+
+    opacity: .7;
+
+}
+
+.scroll-indicator span {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+.scroll-indicator i {
+
+    width: 18px;
+
+    height: 28px;
+
+    border: 2px solid rgba(255, 255, 255, .5);
+
+    border-radius: 20px;
+
+    position: relative;
+
+}
+
+.scroll-indicator i::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 5px;
+
+    width: 4px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    transform: translateX(-50%);
+
+    animation: scrollMouse 1.8s infinite;
+
+}
+
+@keyframes scrollMouse {
+
+    0% {
+
+        opacity: 1;
+
+        transform: translate(-50%, 0);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform: translate(-50%, 10px);
+
+    }
+
+}
+
+/* ==========================================================
+   FLOATING FLOWERS
+========================================================== */
+
+.flower {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    opacity: .15;
+
+    animation: flowerFloat linear infinite;
+
+}
+
+.flower img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+@keyframes flowerFloat {
+
+    from {
+
+        transform:
+            translateY(110vh) rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-120vh) rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   SHINE EFFECT
+========================================================== */
+
+.glass::before,
+.card-3d::before {
+
+    animation:
+
+        shineMove 7s linear infinite;
+
+}
+
+@keyframes shineMove {
+
+    0% {
+
+        background-position: -300px;
+
+    }
+
+    100% {
+
+        background-position: 500px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   PARALLAX
+========================================================== */
+
+.parallax {
+
+    transition:
+
+        transform .25s linear;
+
+    will-change: transform;
+
+}
+
+
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+button {
+
+    transition:
+
+        .35s;
+
+}
+
+button:active {
+
+    transform:
+
+        scale(.96);
+
+}
+
+
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border:
+
+        1px solid rgba(212, 175, 55, .5);
+
+    box-shadow:
+
+        0 0 20px rgba(212, 175, 55, .15);
+
+}
+
+
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+::selection {
+
+    background:
+
+        rgba(212, 175, 55, .4);
+
+    color: #fff;
+
+}
+
+
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background:
+
+        rgba(255, 255, 255, .25);
+
+    border-radius: 999px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: transparent;
+
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px) {
+
+    h1 {
+
+        font-size: 42px;
+
+    }
+
+    h2 {
+
+        font-size: 32px;
+
+    }
+
+    h3 {
+
+        font-size: 24px;
+
+    }
+
+    p {
+
+        font-size: 14px;
+
+    }
+
+    .panel {
+
+        padding: 24px;
+
+    }
+
+    .glass {
+
+        padding: 26px;
+
+        border-radius: 24px;
+
+    }
+
+    .card-3d {
+
+        max-width: 320px;
+
+        padding:
+
+            26px 20px;
+
+    }
+
+    .card-3d img {
+
+        width: 170px;
+
+        height: 170px;
+
+        margin-top: -80px;
+
+    }
+
+    .card-3d h2 {
+
+        font-size: 34px;
+
+    }
+
+    #countdown {
+
+        grid-template-columns:
+
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+    #countdown span {
+
+        font-size: 34px;
+
+    }
+
+    #galleryGrid {
+
+        grid-template-columns:
+
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+    #lightbox img {
+
+        max-width: 92%;
+
+        max-height: 70%;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media(max-width:420px) {
+
+    h1 {
+
+        font-size: 34px;
+
+    }
+
+    h2 {
+
+        font-size: 28px;
+
+    }
+
+    .glass {
+
+        padding: 20px;
+
+    }
+
+    .card-3d {
+
+        max-width: 290px;
+
+    }
+
+    .card-3d img {
+
+        width: 150px;
+
+        height: 150px;
+
+    }
+
+    #countdown span {
+
+        font-size: 28px;
+
+    }
+
+    #galleryGrid {
+
+        gap: 10px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   LARGE DESKTOP
+========================================================== */
+
+@media(min-width:1200px) {
+
+    .glass {
+
+        max-width: 520px;
+
+    }
+
+    .card-3d {
+
+        max-width: 400px;
+
+    }
+
+    .card-3d img {
+
+        width: 240px;
+
+        height: 240px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media(prefers-reduced-motion:reduce) {
+
+    * {
+
+        animation: none !important;
+
+        transition: none !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+.text-center {
+
+    text-align: center;
+
+}
+
+.mt-1 {
+
+    margin-top: 10px;
+
+}
+
+.mt-2 {
+
+    margin-top: 20px;
+
+}
+
+.mt-3 {
+
+    margin-top: 30px;
+
+}
+
+.mb-1 {
+
+    margin-bottom: 10px;
+
+}
+
+.mb-2 {
+
+    margin-bottom: 20px;
+
+}
+
+.mb-3 {
+
+    margin-bottom: 30px;
+
+}
+
+.w-100 {
+
+    width: 100%;
+
+}
