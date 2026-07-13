@@ -2,33 +2,24 @@
   "music": "assets/music/wedding.mp3",
 
   "event": {
-    "date": "Sabtu, 12 Desember 2026",
-    "datetime": "2026-12-12T09:00:00"
+    "date": "Sabtu, 5 Desember 2026",
+    "datetime": "2026-12-12T12:00:00"
   },
 
   "bride": {
-    "name": "Amanda Putri",
-    "parent": "Putri pertama dari Bapak Budi Santoso & Ibu Ratna Sari",
+    "name": "Wenna Olivia Shafa Ichramsyah",
+    "parent": "Putri pertama dari Bapak Budi dan Ibu ",
     "photo": "assets/img/bride.jpg"
   },
 
   "groom": {
-    "name": "Rizky Pratama",
-    "parent": "Putra pertama dari Bapak Hendra Wijaya & Ibu Sri Wahyuni",
+    "name": "Agus Yogandi",
+    "parent": "Putra pertama dari Bapak Mochamad Daelani & Ibu Armiyati",
     "photo": "assets/img/groom.jpg"
   },
 
   "story": [
-    {
-      "title": "Pertama Bertemu",
-      "date": "2019",
-      "description": "Kami pertama kali bertemu di sebuah acara kampus. Awalnya hanya berteman, kemudian saling mengenal lebih dekat."
-    },
-    {
-      "title": "Menjalin Hubungan",
-      "date": "2020",
-      "description": "Seiring berjalannya waktu kami mulai menjalani hubungan yang penuh cerita, pembelajaran, dan kebersamaan."
-    },
+    
     {
       "title": "Lamaran",
       "date": "2025",
@@ -42,13 +33,13 @@
   ],
 
   "akad": {
-    "date": "Sabtu, 12 Desember 2026",
+    "date": "Sabtu, 5 Desember 2026",
     "time": "09.00 WIB",
     "location": "Masjid Agung Jakarta"
   },
 
   "resepsi": {
-    "date": "Sabtu, 12 Desember 2026",
+    "date": "Sabtu, 5 Desember 2026",
     "time": "11.00 - 15.00 WIB",
     "location": "Grand Ballroom Hotel Indonesia"
   },

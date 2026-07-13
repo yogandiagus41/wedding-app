@@ -24,63 +24,7 @@ body {
 
 
 
-/* ==========================================================
-   SIDEBAR
-========================================================== */
 
-.sidebar {
-
-    width: 260px;
-
-    background: #111827;
-
-    color: #fff;
-
-    padding: 30px;
-
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-.sidebar h2 {
-
-    margin-bottom: 40px;
-
-    font-size: 24px;
-
-}
-
-.sidebar ul {
-
-    list-style: none;
-
-}
-
-.sidebar li {
-
-    padding: 15px 18px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    transition: .3s;
-
-}
-
-.sidebar li:hover {
-
-    background: #1f2937;
-
-}
-
-.sidebar .active {
-
-    background: #2563eb;
-
-}
 
 
 
