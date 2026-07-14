@@ -1,358 +1,82 @@
-<!DOCTYPE html>
-<html lang="id">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Wedding Invitation</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agus & Wenna Wedding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Sacramento&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- simplyCountDown -->
+
+    <script src="https://cdn.jsdelivr.net/npm/simplycountdown.js@1.7.0/dist/simplyCountdown.min.js"></script>
+    <link rel="stylesheet" href="assets/css/ct.css">
 </head>
 
 <body>
-
-    <div id="loader">
-        <div class="loader-ring"></div>
-    </div>
-
-    <audio id="music" loop></audio>
-
-    <!-- ================= COVER ================= -->
-
-    <section id="cover">
+    <section id="hero"
+        class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/img/vid1.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video.
+        </video>
 
         <div class="overlay"></div>
+        <main class="hero-content">
+            <h4>Kepada Yth. Bapak/Ibu/Saudara/i</h4>
+            <h1>Agus & Wenna</h1>
+            <p>Dengan segala hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.</p>
 
-        <div class="cover-content">
+            <div class="simply-countdown mb-2"></div>
+            <p>Hari Lagi</p>
 
-            <p class="small">THE WEDDING OF</p>
-
-            <h1 id="coverCouple">
-                Bride & Groom
-            </h1>
-
-            <p id="coverDate"></p>
-
-            <button id="openInvitation">
-                Buka Undangan
-            </button>
-
-        </div>
-
+            <a href="#undangan" id="openInvitation" class="btn btn-lg mt-4">Lihat Undangan</a>
+        </main>
     </section>
 
-    <!-- ================= MAIN ================= -->
-
-    <main id="main">
-
-        <div id="progressBar"></div>
-
-        <div class="horizontal-wrapper">
-
-            <!-- ================================================= -->
-            <!-- HERO -->
-            <!-- ================================================= -->
-
-            <section class="panel hero">
-
-                <div class="glass">
-
-                    <h2>Wedding Invitation</h2>
-
-                    <p>
-                        Dengan penuh rasa syukur kami mengundang
-                        Bapak / Ibu / Saudara/i
-                        untuk menghadiri hari bahagia kami.
-                    </p>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- BRIDE -->
-            <!-- ================================================= -->
-
-            <section class="panel bride">
-
-                <div class="card-3d">
-
-                    <img id="bridePhoto" src="" alt="Bride">
-
-                    <h2 id="brideName"></h2>
-
-                    <p id="brideDesc"></p>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- GROOM -->
-            <!-- ================================================= -->
-
-            <section class="panel groom">
-
-                <div class="card-3d">
-
-                    <img id="groomPhoto" src="" alt="Groom">
-
-                    <h2 id="groomName"></h2>
-
-                    <p id="groomDesc"></p>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- STORY -->
-            <!-- ================================================= -->
-
-            <section class="panel story">
-
-                <div class="glass">
-
-                    <h2>
-                        Our Story
-                    </h2>
-
-                    <div id="storyContainer">
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- COUNTDOWN -->
-            <!-- ================================================= -->
-
-            <section class="panel countdown">
-
-                <div class="glass">
-
-                    <h2>
-                        Countdown
-                    </h2>
-
-                    <div id="countdown">
-
-                        <div>
-
-                            <span id="days">
-                                00
-                            </span>
-
-                            <small>Hari</small>
-
-                        </div>
-
-                        <div>
-
-                            <span id="hours">
-                                00
-                            </span>
-
-                            <small>Jam</small>
-
-                        </div>
-
-                        <div>
-
-                            <span id="minutes">
-                                00
-                            </span>
-
-                            <small>Menit</small>
-
-                        </div>
-
-                        <div>
-
-                            <span id="seconds">
-                                00
-                            </span>
-
-                            <small>Detik</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- AKAD -->
-            <!-- ================================================= -->
-
-            <section class="panel akad">
-
-                <div class="glass">
-
-                    <h2>
-                        Akad Nikah
-                    </h2>
-
-                    <h3 id="akadDate"></h3>
-
-                    <p id="akadTime"></p>
-
-                    <p id="akadLocation"></p>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- RESEPSI -->
-            <!-- ================================================= -->
-
-            <section class="panel resepsi">
-
-                <div class="glass">
-
-                    <h2>
-                        Resepsi
-                    </h2>
-
-                    <h3 id="resepsiDate"></h3>
-
-                    <p id="resepsiTime"></p>
-
-                    <p id="resepsiLocation"></p>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- GALLERY -->
-            <!-- ================================================= -->
-
-            <section class="panel gallery">
-
-                <h2>
-                    Gallery
-                </h2>
-
-                <div id="galleryGrid">
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- GIFT -->
-            <!-- ================================================= -->
-
-            <section class="panel gift">
-
-                <div class="glass">
-
-                    <h2>
-                        Wedding Gift
-                    </h2>
-
-                    <div id="giftContainer">
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- RSVP -->
-            <!-- ================================================= -->
-
-            <section class="panel rsvp">
-
-                <div class="glass">
-
-                    <h2>
-                        RSVP
-                    </h2>
-
-                    <form id="rsvpForm">
-
-                        <input type="text" placeholder="Nama">
-
-                        <select>
-
-                            <option>Hadir</option>
-
-                            <option>Tidak Hadir</option>
-
-                        </select>
-
-                        <textarea placeholder="Ucapan"></textarea>
-
-                        <button type="submit">
-
-                            Kirim
-
-                        </button>
-
-                    </form>
-
-                </div>
-
-            </section>
-
-            <!-- ================================================= -->
-            <!-- THANK YOU -->
-            <!-- ================================================= -->
-
-            <section class="panel thanks">
-
-                <div class="glass">
-
-                    <h2>
-                        Terima Kasih
-                    </h2>
-
-                    <p>
-                        Merupakan suatu kehormatan bagi kami apabila
-                        Bapak / Ibu / Saudara/i
-                        berkenan hadir dan memberikan doa restu.
-                    </p>
-
-                </div>
-
-            </section>
-
-        </div>
-
-    </main>
-
-    <!-- ================= LIGHTBOX ================= -->
-
-    <div id="lightbox">
-
-        <button id="closeLightbox">
-
-            ✕
-
-        </button>
-
-        <img id="lightboxImage">
-
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p class="loading-text">Membuka Undangan</p>
     </div>
 
-    <script src="app.js"></script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+    <script>
+        simplyCountdown(".simply-countdown", {
+            year: 2026,
+            month: 12,
+            day: 5,
+        });
+
+        // Buka undangan: tampilkan loading spinner sebentar, lalu reveal konten
+        const openBtn = document.getElementById("openInvitation");
+        const overlay = document.getElementById("loadingOverlay");
+
+        openBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            overlay.classList.add("active");
+
+            setTimeout(function () {
+                overlay.classList.remove("active");
+                content.classList.add("visible");
+                content.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }, 1200);
+        });
+    </script>
 </body>
 
 </html>

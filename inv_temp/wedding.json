@@ -1,0 +1,68 @@
+{
+  "music": "assets/music/wedding.mp3",
+
+  "event": {
+    "date": "Sabtu, 5 Desember 2026",
+    "datetime": "2026-12-12T12:00:00"
+  },
+
+  "bride": {
+    "name": "Wenna Olivia Shafa Ichramsyah",
+    "parent": "Putri pertama dari Bapak Budi dan Ibu ",
+    "photo": "assets/img/bride.jpg"
+  },
+
+  "groom": {
+    "name": "Agus Yogandi",
+    "parent": "Putra pertama dari Bapak Mochamad Daelani & Ibu Armiyati",
+    "photo": "assets/img/groom.jpg"
+  },
+
+  "story": [
+    
+    {
+      "title": "Lamaran",
+      "date": "2025",
+      "description": "Dengan restu kedua orang tua dan keluarga besar kami memutuskan untuk melangkah ke jenjang yang lebih serius."
+    },
+    {
+      "title": "Hari Bahagia",
+      "date": "2026",
+      "description": "InsyaAllah kami akan melangsungkan akad dan resepsi pernikahan, serta berharap doa restu dari keluarga dan sahabat."
+    }
+  ],
+
+  "akad": {
+    "date": "Sabtu, 5 Desember 2026",
+    "time": "09.00 WIB",
+    "location": "Masjid Agung Jakarta"
+  },
+
+  "resepsi": {
+    "date": "Sabtu, 5 Desember 2026",
+    "time": "11.00 - 15.00 WIB",
+    "location": "Grand Ballroom Hotel Indonesia"
+  },
+
+  "gallery": [
+    "assets/img/gallery1.jpg",
+    "assets/img/gallery2.jpg",
+    "assets/img/gallery3.jpg",
+    "assets/img/gallery4.jpg",
+    "assets/img/gallery5.jpg",
+    "assets/img/gallery6.jpg"
+  ],
+
+  "gift": [
+    {
+      "bank": "Bank BCA",
+      "name": "Amanda Putri",
+      "number": "1234567890"
+    },
+    {
+      "bank": "Bank Mandiri",
+      "name": "Rizky Pratama",
+      "number": "9876543210"
+    }
+  ]
+}
