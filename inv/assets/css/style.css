@@ -7,7 +7,6 @@
 body {
     font-size: 1.2 rem;
     font-family: 'work sans', sans-serif;
-    min-height: 2000px;
     background: linear-gradient(180deg, #eaf3fb 0%, #ffffff 45%, #d6e2ec 100%);
     background-attachment: fixed;
 }
@@ -90,14 +89,14 @@ body {
 /* tab */
 @media (max-width: 768px) {
     html {
-        font-size: 80%;
+        font-size: 85%;
     }
 }
 
 /* mobile */
 @media (max-width: 576px) {
     html {
-        font-size: 70%;
+        font-size: 75%;
     }
 }
 
