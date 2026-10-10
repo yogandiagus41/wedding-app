@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agus & Wenna — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="locked">
+
+<!-- ========== COVER ========== -->
+<header id="cover">
+  <div class="cover-top">
+    <div>Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></div>
+    <div>Undangan<br>Pernikahan</div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="arch" role="img" aria-label="Tempat foto mempelai">A&amp;W</div>
+    <h1 class="names"><span>Agus</span><span class="amp">&amp;</span><span class="w">Wenna</span></h1>
+  </div>
+
+  <div class="cover-bot">
+    <div class="date-big">05.12.2026<small id="count">Menghitung hari…</small></div>
+    <button class="btn" id="open" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      Buka Undangan
+    </button>
+  </div>
+</header>
+
+<!-- ========== ISI ========== -->
+<main id="isi" hidden>
+
+  <section id="salam"><div class="wrap">
+    <p class="kicker">Assalamu'alaikum Wr. Wb.</p>
+    <h2>Kami akan menikah</h2>
+    <p class="lede">Dengan rahmat Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</p>
+    <blockquote class="verse" style="margin-inline:0">
+      Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram kepadanya.
+      <cite>QS. Ar-Rum: 21</cite>
+    </blockquote>
+  </div></section>
+
+  <section id="mempelai" class="alt"><div class="wrap">
+    <h2>Mempelai</h2>
+    <div class="person">
+      <div class="arch-s" role="img" aria-label="Foto Agus"></div>
+      <div>
+        <h3>Agus Yogandi</h3>
+        <!-- GANTI: nama orang tua -->
+        <p>Putra dari Bapak [Nama Ayah] dan Ibu [Nama Ibu]</p>
+      </div>
+    </div>
+    <div class="person r">
+      <div class="arch-s" role="img" aria-label="Foto Wenna"></div>
+      <div>
+        <!-- GANTI: nama lengkap -->
+        <h3>Wenna [Nama Lengkap]</h3>
+        <p>Putri dari Bapak [Nama Ayah] dan Ibu [Nama Ibu]</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="acara"><div class="wrap">
+    <p class="kicker">Simpan tanggalnya</p>
+    <p class="when">Sabtu, <span>5</span> Desember 2026</p>
+
+    <div class="row"><time>08.00</time><div><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></div></div>
+    <div class="row"><time>11.00</time><div><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></div></div>
+    <!-- GANTI: jam acara -->
+
+    <div class="place">
+      <strong>Graha Yapin Jatimulya</strong>
+      <span class="muted">Bekasi, Jawa Barat</span>
+    </div>
+    <div class="actions">
+      <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Graha+Yapin+Jatimulya+Bekasi">Buka di Google Maps</a>
+      <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Agus+%26+Wenna&dates=20261205T010000Z/20261205T070000Z&location=Graha+Yapin+Jatimulya,+Bekasi">Simpan ke kalender</a>
+    </div>
+  </div></section>
+
+  <section id="galeri" class="alt"><div class="wrap">
+    <h2>Galeri</h2>
+    <p class="muted">Beberapa potret perjalanan kami.</p>
+    <!-- GANTI: tiap <div> dengan <img src="foto.jpg" alt="..."> (style sama) -->
+    <div class="gal">
+      <div>Foto 1</div><div>Foto 2</div><div>Foto 3</div><div>Foto 4</div><div>Foto 5</div>
+    </div>
+  </div></section>
+
+  <section id="hadiah"><div class="wrap">
+    <h2>Tanda kasih</h2>
+    <p class="lede">Kehadiran dan doa Anda sudah cukup bagi kami. Jika ingin berbagi kebahagiaan, dapat melalui rekening berikut.</p>
+    <!-- GANTI: data rekening -->
+    <div class="card">
+      <b>Bank [Nama Bank]</b>
+      <p class="no" id="rek">0000000000</p>
+      <p class="muted">a.n. Agus Yogandi</p>
+      <button class="btn ghost" id="copy" type="button">Salin nomor</button>
+    </div>
+  </div></section>
+
+  <section id="rsvp" class="alt"><div class="wrap">
+    <h2>Konfirmasi kehadiran</h2>
+    <p class="muted">Kabari kami agar tempat Anda bisa kami siapkan.</p>
+    <form id="form">
+      <label>Nama<input id="nama" required></label>
+      <label>Kehadiran
+        <select id="hadir"><option>Insya Allah hadir</option><option>Mohon maaf, tidak bisa hadir</option></select>
+      </label>
+      <label>Jumlah tamu
+        <select id="jml"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+      </label>
+      <label>Ucapan dan doa<textarea id="pesan" rows="3"></textarea></label>
+      <button class="btn" type="submit">Kirim lewat WhatsApp</button>
+    </form>
+  </div></section>
+
+  <footer>
+    <div class="wrap">
+      <p class="names"><span>Agus</span><span class="amp">&amp;</span><span class="w">Wenna</span></p>
+      <p>Terima kasih atas doa dan kehadiran Anda. Wassalamu'alaikum Wr. Wb.</p>
+      <small>&copy; 2026 Agus &amp; Wenna</small>
+    </div>
+  </footer>
+</main>
+
+<script>
+// GANTI: nomor WhatsApp penerima RSVP (format 62..., tanpa +)
+var WA = "62XXXXXXXXXXX";
+var $ = function(id){ return document.getElementById(id); };
+
+// Nama tamu dari link: ?to=Budi+Santoso
+var to = new URLSearchParams(location.search).get("to");
+if (to) { $("guest").textContent = to; $("nama").value = to; }
+
+// Hitung mundur sederhana
+var target = new Date("2026-12-05T08:00:00+07:00");
+var days = Math.ceil((target - new Date()) / 86400000);
+$("count").textContent = days > 0 ? days + " hari lagi" : (days === 0 ? "Hari ini" : "Terima kasih telah hadir");
+
+// Buka undangan: cover naik, isi muncul
+$("open").addEventListener("click", function(){
+  $("isi").hidden = false;
+  document.body.classList.remove("locked");
+  $("cover").classList.add("gone");
+  setTimeout(function(){ $("cover").style.display = "none"; window.scrollTo(0, 0); }, 1050);
+});
+
+// Salin nomor rekening
+$("copy").addEventListener("click", function(){
+  var b = this, t = $("rek").textContent.trim();
+  var done = function(m){ b.textContent = m; setTimeout(function(){ b.textContent = "Salin nomor"; }, 2000); };
+  try { navigator.clipboard.writeText(t).then(function(){ done("Tersalin"); }, function(){ done("Salin manual"); }); }
+  catch (e) { done("Salin manual"); }
+});
+
+// RSVP ke WhatsApp
+$("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var teks = "Konfirmasi kehadiran pernikahan Agus & Wenna\nNama: " + $("nama").value +
+    "\nKehadiran: " + $("hadir").value + "\nJumlah tamu: " + $("jml").value +
+    ($("pesan").value ? "\nUcapan: " + $("pesan").value : "");
+  window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(teks), "_blank");
+});
+</script>
+</body>
+</html>
