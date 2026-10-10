@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d10">
+<title>Shania & Bayu — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style5.css">
+</head>
+<body class="locked">
+
+<!-- ================= COVER (halaman buku) ================= -->
+<div id="book" aria-label="Sampul undangan">
+  <div class="book-shade"></div>
+  <div class="page">
+    <div class="face front">
+      <img class="cover-img" src="assets/img/bayu/3.jpeg" alt="Siluet Shania dan Bayu" fetchpriority="high">
+      <div class="cover-veil"></div>
+      <div class="cover-in">
+        <p class="eyebrow">Undangan Pernikahan</p>
+        <h1 class="names">Shania <i>&amp;</i> Bayu</h1>
+        <p class="cover-date">Sabtu, 19 Desember 2026</p>
+        <p class="to">Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></p>
+        <button id="open" class="btn btn-pulse" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span>Buka Undangan</span>
+        </button>
+      </div>
+    </div>
+    <div class="face back" aria-hidden="true">
+      <div class="mono">S<i>&amp;</i>B</div>
+    </div>
+  </div>
+</div>
+
+<nav class="dots" id="dots" aria-label="Navigasi bagian" hidden></nav>
+
+<!-- ================= ISI ================= -->
+<main id="main" inert>
+
+  <!-- 1. Mempelai + Ar-Rum 21 (foto 10) -->
+  <section class="screen" id="s1" data-title="Pembuka">
+    <img class="bg-img" src="assets/img/bayu/10.jpeg" alt="" decoding="async">
+    <div class="veil"></div>
+    <div class="inner">
+      <p class="eyebrow rv">Assalamu'alaikum Wr. Wb.</p>
+      <h2 class="names rv" style="--d:.1s">Shania <i>&amp;</i> Bayu</h2>
+      <span class="rule rv" style="--d:.2s"></span>
+      <p class="verse rv" style="--d:.3s">
+        Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+        agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.
+        Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
+      </p>
+      <p class="cite rv" style="--d:.4s">QS. Ar-Rum: 21</p>
+      <div class="hint rv" style="--d:.6s" aria-hidden="true"><span>Geser ke bawah</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- 2. Mempelai wanita (foto 1) -->
+  <section class="screen" id="s2" data-title="Mempelai wanita">
+    <img class="bg-img" src="assets/img/bayu/1.jpeg" alt="" loading="lazy" decoding="async">
+    <div class="veil"></div>
+    <div class="inner">
+      <p class="eyebrow rv">Mempelai wanita</p>
+      <h2 class="name-lg rv" style="--d:.1s">Shania [Nama Lengkap]</h2>
+      <span class="rule rv" style="--d:.2s"></span>
+      <p class="parents rv" style="--d:.3s">Putri dari Bapak [Nama Ayah] dan Ibu [Nama Ibu]</p>
+      <p class="quote rv" style="--d:.4s">“Terima kasih telah menjadi rumah bagi doa-doa yang selama ini kupanjatkan dalam diam.”</p>
+    </div>
+  </section>
+
+  <!-- 3. Mempelai pria (foto 2) -->
+  <section class="screen" id="s3" data-title="Mempelai pria">
+    <img class="bg-img" src="assets/img/bayu/2.jpeg" alt="" loading="lazy" decoding="async">
+    <div class="veil"></div>
+    <div class="inner">
+      <p class="eyebrow rv">Mempelai pria</p>
+      <h2 class="name-lg rv" style="--d:.1s">Bayu [Nama Lengkap]</h2>
+      <span class="rule rv" style="--d:.2s"></span>
+      <p class="parents rv" style="--d:.3s">Putra dari Bapak [Nama Ayah] dan Ibu [Nama Ibu]</p>
+      <p class="quote rv" style="--d:.4s">“Setia bukan janji yang diucapkan sekali, melainkan pilihan yang kuulang setiap hari bersamamu.”</p>
+    </div>
+  </section>
+
+  <!-- 4. Our Love Story (foto 4) -->
+  <section class="screen" id="s4" data-title="Kisah kami">
+    <img class="bg-img" src="assets/img/bayu/4.jpeg" alt="" loading="lazy" decoding="async">
+    <div class="veil"></div>
+    <div class="inner glass">
+      <p class="eyebrow rv">Our Love Story</p>
+      <h2 class="title rv" style="--d:.1s">Kisah Kami</h2>
+      <!-- GANTI: tahun dan cerita -->
+      <ol class="story">
+        <li class="rv" style="--d:.2s"><time>2019</time><div><h3>Awal bertemu</h3><p>Dua orang asing yang dipertemukan oleh waktu yang tepat.</p></div></li>
+        <li class="rv" style="--d:.35s"><time>2022</time><div><h3>Saling memilih</h3><p>Dari obrolan panjang, tumbuh keyakinan untuk melangkah bersama.</p></div></li>
+        <li class="rv" style="--d:.5s"><time>2026</time><div><h3>Menuju halal</h3><p>Dengan restu keluarga, kami memutuskan untuk menikah.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. Save the Date (foto 5) -->
+  <section class="screen" id="s5" data-title="Save the date">
+    <img class="bg-img" src="assets/img/bayu/5.jpeg" alt="" loading="lazy" decoding="async">
+    <div class="veil"></div>
+    <div class="inner glass">
+      <p class="eyebrow rv">Save the Date</p>
+      <h2 class="title rv" style="--d:.1s">Sabtu, 19 Desember 2026</h2>
+
+      <div class="count rv" style="--d:.2s">
+        <div><b id="cd">00</b><span>hari</span></div>
+        <div><b id="ch">00</b><span>jam</span></div>
+        <div><b id="cm">00</b><span>menit</span></div>
+        <div><b id="cs">00</b><span>detik</span></div>
+      </div>
+
+      <!-- GANTI: jam dan lokasi (data dummy) -->
+      <div class="rows rv" style="--d:.3s">
+        <div class="row"><time>08.00</time><div><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></div></div>
+        <div class="row"><time>11.00</time><div><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></div></div>
+      </div>
+      <p class="place rv" style="--d:.4s"><strong>[Nama Gedung / Tempat]</strong>[Alamat lengkap, Kota]</p>
+
+      <div class="actions rv" style="--d:.5s">
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nama+Gedung+Kota">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Buka Lokasi</span>
+        </a>
+        <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Shania+%26+Bayu&dates=20261219T010000Z/20261219T070000Z">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <span>Simpan ke Kalender</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Galeri (semua foto) -->
+  <section class="screen center" id="s6" data-title="Galeri">
+    <img class="bg-img" src="assets/img/bayu/7.jpeg" alt="" loading="lazy" decoding="async" style="--b:.35;filter:blur(18px) brightness(.35)">
+    <div class="veil flat"></div>
+    <div class="inner wide">
+      <p class="eyebrow rv">Galeri</p>
+      <h2 class="title rv" style="--d:.1s">Potret Kami</h2>
+      <div class="gallery rv" id="gallery" style="--d:.2s"></div>
+    </div>
+  </section>
+
+  <!-- 7. Wedding Gift (foto 8, digelapkan) -->
+  <section class="screen dim" id="s7" data-title="Wedding gift">
+    <img class="bg-img" src="assets/img/bayu/8.jpeg" alt="" loading="lazy" decoding="async">
+    <div class="veil"></div>
+    <div class="inner glass">
+      <p class="eyebrow rv">Wedding Gift</p>
+      <h2 class="title rv" style="--d:.1s">Tanda Kasih</h2>
+      <p class="lede rv" style="--d:.2s">Doa restu Anda adalah hadiah terindah bagi kami. Bila ingin berbagi kebahagiaan, dapat melalui:</p>
+
+      <!-- GANTI: data rekening -->
+      <div class="bank rv" style="--d:.3s">
+        <p class="bank-name">Bank [Nama Bank]</p>
+        <p class="bank-no" id="rek1">0000000000</p>
+        <p class="bank-an">a.n. Shania [Nama Lengkap]</p>
+        <button class="btn btn-sm" type="button" data-copy="#rek1"><span>Salin nomor</span></button>
+      </div>
+      <div class="bank rv" style="--d:.45s">
+        <p class="bank-name">Bank [Nama Bank]</p>
+        <p class="bank-no" id="rek2">0000000000</p>
+        <p class="bank-an">a.n. Bayu [Nama Lengkap]</p>
+        <button class="btn btn-sm" type="button" data-copy="#rek2"><span>Salin nomor</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Penutup (foto 9, digelapkan) -->
+  <section class="screen dim" id="s8" data-title="Penutup">
+    <img class="bg-img" src="assets/img/bayu/9.jpeg" alt="" loading="lazy" decoding="async">
+    <div class="veil"></div>
+    <div class="inner">
+      <p class="eyebrow rv">Terima kasih</p>
+      <p class="lede rv" style="--d:.1s">Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+      <h2 class="names rv" style="--d:.25s">Shania <i>&amp;</i> Bayu</h2>
+      <span class="rule rv" style="--d:.35s"></span>
+      <p class="rv" style="--d:.45s">Wassalamu'alaikum Wr. Wb.</p>
+      <small class="rv" style="--d:.55s">&copy; 2026 Shania &amp; Bayu</small>
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox galeri -->
+<div id="lb" class="lb" hidden role="dialog" aria-modal="true" aria-label="Pratinjau foto">
+  <button class="lb-btn lb-close" type="button" aria-label="Tutup">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Foto sebelumnya">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m15 5-7 7 7 7"/></svg>
+  </button>
+  <img id="lbImg" alt="">
+  <button class="lb-btn lb-next" type="button" aria-label="Foto berikutnya">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m9 5 7 7-7 7"/></svg>
+  </button>
+  <span class="lb-count" id="lbCount"></span>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
