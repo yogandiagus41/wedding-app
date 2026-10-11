@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c0b0d">
+<title>Agus & Wenna — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style7.css">
+</head>
+<body>
+<canvas id="dust" aria-hidden="true"></canvas>
+<div class="frame" aria-hidden="true"></div>
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+
+<div class="viewport" id="viewport">
+  <div class="track" id="track">
+
+    <!-- 0. Cover -->
+    <section class="slide active" data-t="Sampul">
+      <div class="slide-in cover">
+        <div class="orbit" aria-hidden="true"><i></i><i></i></div>
+        <p class="eyebrow rv">Undangan Pernikahan</p>
+        <h1 class="names rv" style="--d:.15s">Agus <em>&amp;</em> Wenna</h1>
+        <p class="date rv" style="--d:.3s">Sabtu, 5 Desember 2026</p>
+        <p class="to rv" style="--d:.4s">Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></p>
+        <button class="btn rv" id="open" style="--d:.55s" type="button"><span>Buka Undangan</span></button>
+      </div>
+    </section>
+
+    <!-- 1. Pembuka -->
+    <section class="slide" data-t="Pembuka">
+      <span class="mark" aria-hidden="true">01</span>
+      <div class="slide-in">
+        <p class="eyebrow rv">Assalamu'alaikum Wr. Wb.</p>
+        <h2 class="rv" style="--d:.1s">Dua jiwa, satu doa</h2>
+        <span class="rule rv" style="--d:.2s"></span>
+        <p class="verse rv" style="--d:.3s">
+          Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+          agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.
+        </p>
+        <p class="cite rv" style="--d:.4s">QS. Ar-Rum: 21</p>
+      </div>
+    </section>
+
+    <!-- 2. Mempelai -->
+    <section class="slide" data-t="Mempelai">
+      <span class="mark" aria-hidden="true">02</span>
+      <div class="slide-in">
+        <p class="eyebrow rv">Mempelai</p>
+        <div class="duo">
+          <article class="who rv" style="--d:.1s">
+            <!-- GANTI: foto dengan <img> di dalam .disc -->
+            <div class="disc" role="img" aria-label="Foto Agus"><b>A</b></div>
+            <h3>Agus Yogandi</h3>
+            <p>Putra dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+          </article>
+          <span class="vline" aria-hidden="true"></span>
+          <article class="who rv" style="--d:.25s">
+            <div class="disc" role="img" aria-label="Foto Wenna"><b>W</b></div>
+            <h3>Wenna [Nama Lengkap]</h3>
+            <p>Putri dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Acara -->
+    <section class="slide" data-t="Acara">
+      <span class="mark" aria-hidden="true">03</span>
+      <div class="slide-in">
+        <p class="eyebrow rv">Save the date</p>
+        <div class="bigdate rv" style="--d:.1s"><b>05</b><span>Desember 2026<small>Sabtu</small></span></div>
+        <div class="count rv" style="--d:.2s">
+          <div><b id="cd">00</b><span>hari</span></div>
+          <div><b id="ch">00</b><span>jam</span></div>
+          <div><b id="cm">00</b><span>menit</span></div>
+          <div><b id="cs">00</b><span>detik</span></div>
+        </div>
+        <!-- GANTI: jam acara -->
+        <div class="rows rv" style="--d:.3s">
+          <div class="row"><time>08.00</time><div><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></div></div>
+          <div class="row"><time>11.00</time><div><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Lokasi -->
+    <section class="slide" data-t="Lokasi">
+      <span class="mark" aria-hidden="true">04</span>
+      <div class="slide-in">
+        <p class="eyebrow rv">Lokasi</p>
+        <h2 class="rv" style="--d:.1s">Graha Yapin Jatimulya</h2>
+        <p class="soft rv" style="--d:.15s">Bekasi, Jawa Barat</p>
+        <iframe class="map rv" style="--d:.2s" title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Graha+Yapin+Jatimulya+Bekasi&output=embed"></iframe>
+        <div class="actions rv" style="--d:.3s">
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Graha+Yapin+Jatimulya+Bekasi"><span>Buka Peta</span></a>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Agus+%26+Wenna&dates=20261205T010000Z/20261205T070000Z&location=Graha+Yapin+Jatimulya,+Bekasi"><span>Simpan Kalender</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Galeri -->
+    <section class="slide" data-t="Galeri">
+      <span class="mark" aria-hidden="true">05</span>
+      <div class="slide-in wide">
+        <p class="eyebrow rv">Galeri</p>
+        <h2 class="rv" style="--d:.1s">Potret kami</h2>
+        <!-- GANTI: tiap .tile dengan <img src="..." alt="..."> -->
+        <div class="reel rv" style="--d:.2s" aria-hidden="false">
+          <div class="strip"><div class="tile">1</div><div class="tile t2">2</div><div class="tile t3">3</div><div class="tile">4</div><div class="tile t2">5</div><div class="tile t3">6</div></div>
+        </div>
+        <div class="reel rv rev" style="--d:.3s">
+          <div class="strip"><div class="tile t3">7</div><div class="tile">8</div><div class="tile t2">9</div><div class="tile t3">10</div><div class="tile">11</div><div class="tile t2">12</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Hadiah -->
+    <section class="slide" data-t="Hadiah">
+      <span class="mark" aria-hidden="true">06</span>
+      <div class="slide-in">
+        <p class="eyebrow rv">Tanda kasih</p>
+        <h2 class="rv" style="--d:.1s">Wedding gift</h2>
+        <p class="soft rv" style="--d:.15s">Doa restu Anda adalah hadiah terindah. Bila ingin berbagi kebahagiaan, dapat melalui:</p>
+        <!-- GANTI: data rekening -->
+        <div class="bank rv" style="--d:.25s">
+          <p class="bank-name">Bank [Nama Bank]</p>
+          <p class="bank-no" id="rek">0000000000</p>
+          <p class="soft">a.n. Agus Yogandi</p>
+          <button class="btn ghost sm" id="copy" type="button"><span>Salin nomor</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RSVP -->
+    <section class="slide" data-t="RSVP">
+      <span class="mark" aria-hidden="true">07</span>
+      <div class="slide-in">
+        <p class="eyebrow rv">RSVP</p>
+        <h2 class="rv" style="--d:.1s">Konfirmasi kehadiran</h2>
+        <form id="form" class="rv" style="--d:.2s">
+          <label>Nama<input id="nama" required></label>
+          <div class="two">
+            <label>Kehadiran<select id="hadir"><option>Hadir</option><option>Tidak hadir</option></select></label>
+            <label>Jumlah<select id="jml"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+          </div>
+          <label>Ucapan dan doa<textarea id="pesan" rows="3"></textarea></label>
+          <button class="btn" type="submit"><span>Kirim lewat WhatsApp</span></button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 8. Penutup -->
+    <section class="slide" data-t="Penutup">
+      <span class="mark" aria-hidden="true">08</span>
+      <div class="slide-in">
+        <p class="eyebrow rv">Terima kasih</p>
+        <p class="soft rv" style="--d:.1s">Atas doa dan kehadiran Anda, kami ucapkan terima kasih.</p>
+        <h2 class="names rv" style="--d:.25s">Agus <em>&amp;</em> Wenna</h2>
+        <span class="rule rv" style="--d:.35s"></span>
+        <p class="soft rv" style="--d:.45s">Wassalamu'alaikum Wr. Wb.</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<nav class="hud" id="hud" aria-label="Navigasi slide" hidden>
+  <button class="nav" id="prev" type="button" aria-label="Sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m15 5-7 7 7 7"/></svg></button>
+  <div class="prog"><span id="num">01 / 09</span><i><b id="bar"></b></i><em id="ttl">Pembuka</em></div>
+  <button class="nav" id="next" type="button" aria-label="Berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m9 5 7 7-7 7"/></svg></button>
+</nav>
+
+<script>
+(function () {
+  "use strict";
+  var WA = "62XXXXXXXXXXX";                                   // GANTI: nomor WhatsApp (62..., tanpa +)
+  var TARGET = new Date("2026-12-05T08:00:00+07:00");
+  var $ = function (s) { return document.querySelector(s); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var track = $("#track"), slides = [].slice.call(document.querySelectorAll(".slide"));
+  var idx = 0, ready = false, busy = false;
+
+  var to = new URLSearchParams(location.search).get("to");
+  if (to) { $("#guest").textContent = to; $("#nama").value = to; }
+
+  // Hitung mundur
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var s = Math.max(0, Math.floor((TARGET - new Date()) / 1000));
+    $("#cd").textContent = pad(Math.floor(s / 86400));
+    $("#ch").textContent = pad(Math.floor(s % 86400 / 3600));
+    $("#cm").textContent = pad(Math.floor(s % 3600 / 60));
+    $("#cs").textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Navigasi slide horizontal
+  function go(n) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    if (n === idx || busy) return;
+    busy = true; setTimeout(function () { busy = false; }, reduce ? 50 : 850);
+    slides[idx].classList.remove("active");
+    idx = n;
+    track.style.transform = "translate3d(" + (-idx * 100) + "%,0,0)";
+    slides[idx].classList.add("active");
+    slides[idx].scrollTop = 0;
+    sync();
+    hud();
+  }
+  // hanya slide aktif yang bisa difokus (mencegah track bergeser saat Tab)
+  function sync() { slides.forEach(function (s, i) { s.inert = i !== idx; }); }
+  sync();
+  function hud() {
+    $("#num").textContent = pad(idx + 1) + " / " + pad(slides.length);
+    $("#bar").style.transform = "scaleX(" + (idx / (slides.length - 1)) + ")";
+    $("#ttl").textContent = slides[idx].dataset.t;
+    $("#prev").disabled = idx <= 1; $("#next").disabled = idx === slides.length - 1;
+  }
+  $("#prev").addEventListener("click", function () { go(idx - 1); });
+  $("#next").addEventListener("click", function () { go(idx + 1); });
+  document.addEventListener("keydown", function (e) {
+    if (!ready) return;
+    if (/^(ArrowRight|PageDown)$/.test(e.key)) go(idx + 1);
+    if (/^(ArrowLeft|PageUp)$/.test(e.key)) go(idx - 1);
+  });
+
+  // Roda mouse: pindah slide hanya bila isi slide sudah mentok
+  var wheelLock = false;
+  addEventListener("wheel", function (e) {
+    if (!ready || wheelLock) return;
+    var vert = Math.abs(e.deltaY) >= Math.abs(e.deltaX), d = vert ? e.deltaY : e.deltaX;
+    if (Math.abs(d) < 30) return;
+    var s = slides[idx];
+    if (vert) {
+      var can = d > 0 ? s.scrollTop + s.clientHeight < s.scrollHeight - 2 : s.scrollTop > 2;
+      if (can) return;
+    }
+    wheelLock = true; setTimeout(function () { wheelLock = false; }, 900);
+    go(idx + (d > 0 ? 1 : -1));
+  }, { passive: true });
+
+  // Geser jari (horizontal)
+  var sx = 0, sy = 0;
+  $("#viewport").addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  $("#viewport").addEventListener("touchend", function (e) {
+    if (!ready) return;
+    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) go(idx + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  // Buka undangan: garis emas menyapu layar lalu masuk ke slide 1
+  $("#open").addEventListener("click", function () {
+    if (ready) return;
+    ready = true;
+    if (reduce) { go(1); $("#hud").hidden = false; return; }
+    $("#wipe").classList.add("run");
+    setTimeout(function () { go(1); $("#hud").hidden = false; }, 560);
+    setTimeout(function () { $("#wipe").classList.remove("run"); }, 1400);
+  });
+  hud();
+
+  // Salin rekening
+  $("#copy").addEventListener("click", function () {
+    var b = this.querySelector("span"), t = $("#rek").textContent.trim();
+    var done = function (m) { b.textContent = m; setTimeout(function () { b.textContent = "Salin nomor"; }, 2000); };
+    try { navigator.clipboard.writeText(t).then(function () { done("Tersalin"); }, function () { done("Salin manual"); }); }
+    catch (e) { done("Salin manual"); }
+  });
+
+  // RSVP -> WhatsApp
+  $("#form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var teks = "Konfirmasi kehadiran pernikahan Agus & Wenna\nNama: " + $("#nama").value +
+      "\nKehadiran: " + $("#hadir").value + "\nJumlah tamu: " + $("#jml").value +
+      ($("#pesan").value ? "\nUcapan: " + $("#pesan").value : "");
+    open("https://wa.me/" + WA + "?text=" + encodeURIComponent(teks), "_blank");
+  });
+
+  // Galeri: gandakan isi strip agar berjalan tanpa putus
+  document.querySelectorAll(".strip").forEach(function (s) { s.innerHTML += s.innerHTML; });
+
+  // Debu emas melayang (kanvas)
+  var cv = $("#dust"), cx = cv.getContext("2d"), P = [], W, H;
+  function size() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
+  size(); addEventListener("resize", size);
+  if (!reduce) {
+    for (var i = 0; i < 46; i++) P.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.6 + .4, v: Math.random() * .00018 + .00006, a: Math.random() * .5 + .15, p: Math.random() * 6.28 });
+    (function loop(t) {
+      cx.clearRect(0, 0, W, H);
+      P.forEach(function (d) {
+        d.y -= d.v * 16; if (d.y < -.02) { d.y = 1.02; d.x = Math.random(); }
+        var x = (d.x + Math.sin(t / 2600 + d.p) * .012) * W, y = d.y * H;
+        cx.beginPath(); cx.arc(x, y, d.r, 0, 6.283);
+        cx.fillStyle = "rgba(226,178,155," + (d.a * (.6 + .4 * Math.sin(t / 900 + d.p))).toFixed(3) + ")"; cx.fill();
+      });
+      requestAnimationFrame(loop);
+    })(0);
+  }
+})();
+</script>
+</body>
+</html>

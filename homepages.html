@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f5f0" />
+  <title>Ruang Janji — Undangan Digital Elegan</title>
+  <meta name="description" content="Undangan digital elegan mulai Rp99.000, sudah termasuk wedding planner berbasis web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#f8f5f0;--paper:#fffdf9;--ink:#292720;--muted:#77736a;--olive:#68745b;--olive-dark:#4d5942;--rose:#d8aaa0;--line:#e8e1d7;--shadow:0 18px 55px rgba(57,47,35,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.container{width:min(1160px,calc(100% - 44px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(248,245,240,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,225,215,.8)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:11px;font-family:'Playfair Display',serif;font-size:25px;font-weight:600;white-space:nowrap}.brand-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--olive);color:white;font-family:serif;font-size:20px}.nav-links{display:flex;align-items:center;gap:30px;color:#5e5a52;font-size:13px}.nav-links a{transition:color .2s}.nav-links a:hover{color:var(--olive-dark)}.nav-cta,.btn-primary{border:0;background:var(--olive);color:#fff;border-radius:999px;padding:13px 21px;font-weight:600;font-size:13px;transition:transform .2s,background .2s}.nav-cta:hover,.btn-primary:hover{background:var(--olive-dark);transform:translateY(-2px)}.menu-toggle{display:none;background:transparent;border:1px solid var(--line);border-radius:50%;width:42px;height:42px;font-size:20px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--olive-dark);text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:700}.eyebrow:before{content:"";width:25px;height:1px;background:var(--rose)}h1,h2,h3,p{margin-top:0}h1,h2,.serif{font-family:'Playfair Display',serif;font-weight:500;letter-spacing:-.7px}h1{font-size:clamp(42px,6vw,75px);line-height:1.06;margin:22px 0}.hero{padding:70px 0 82px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:54px}.hero-copy p{max-width:470px;color:var(--muted);font-size:16px;line-height:1.85}.hero-actions{display:flex;align-items:center;gap:20px;margin-top:28px;flex-wrap:wrap}.text-link{font-size:13px;font-weight:700;border-bottom:1px solid #aaa38f;padding-bottom:5px}.trust-row{display:flex;gap:22px;margin-top:40px;flex-wrap:wrap;color:#77736a;font-size:11px}.trust-row span{display:flex;align-items:center;gap:7px}.trust-row b{color:var(--olive);font-size:15px}.hero-visual{min-height:510px;position:relative;display:grid;place-items:center}.visual-orbit{position:absolute;width:440px;height:440px;border:1px solid #e5d8c9;border-radius:50%;right:3%;top:5%}.visual-orbit:after{content:"";position:absolute;inset:26px;border:1px dashed #dfd2c3;border-radius:50%}.invite-card{position:relative;z-index:2;width:280px;height:390px;padding:28px 24px;background:#e7e2d6;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-5deg);border:7px solid #fffdf9;outline:1px solid #ddd1c1;background-image:linear-gradient(145deg,rgba(255,255,255,.12),rgba(92,99,69,.15)),url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85');background-size:cover;background-position:center;color:white}.invite-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,35,25,.08),rgba(27,35,25,.65))}.invite-inner{position:relative;text-shadow:0 2px 10px #333}.invite-small{font-size:9px;letter-spacing:3px;text-transform:uppercase}.invite-names{font:42px/1.05 'Playfair Display',serif;margin:23px 0}.invite-date{font-size:10px;letter-spacing:2px}.floating-note{position:absolute;z-index:3;background:var(--paper);padding:16px 18px;border-radius:12px;box-shadow:var(--shadow);font-size:12px}.floating-note strong{display:block;font-size:13px;margin-bottom:4px}.note-top{top:55px;right:-4px}.note-bottom{bottom:55px;left:0}.mini-icon{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#e9eee4;color:var(--olive);margin-right:7px}
+    section{padding:88px 0}.section-heading{text-align:center;max-width:630px;margin:0 auto 44px}.section-heading h2{font-size:clamp(32px,4vw,47px);line-height:1.15;margin:16px 0}.section-heading p{color:var(--muted);line-height:1.8;font-size:14px}.benefits{background:var(--paper)}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.benefit-card{padding:29px 26px;border:1px solid var(--line);border-radius:18px;background:#fffefa;transition:transform .25s,box-shadow .25s}.benefit-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.benefit-icon{display:grid;place-items:center;width:47px;height:47px;border-radius:15px;background:#edf0e8;color:var(--olive-dark);font-size:22px;margin-bottom:22px}.benefit-card h3{font:500 22px 'Playfair Display',serif;margin-bottom:10px}.benefit-card p{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:0}
+    .products-section{background:var(--cream)}.product-toolbar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:25px}.product-count{font-size:12px;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter-btn{border:1px solid var(--line);background:transparent;padding:9px 14px;border-radius:99px;font-size:11px;color:#6e6a61}.filter-btn.active,.filter-btn:hover{background:var(--olive);color:white;border-color:var(--olive)}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.product-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .25s,box-shadow .25s}.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.product-art{height:310px;position:relative;overflow:hidden;display:grid;place-items:center;background:#dce1d3}.product-art:before{content:"";position:absolute;width:220px;height:280px;border:1px solid rgba(255,255,255,.65);border-radius:120px 120px 5px 5px;top:28px}.product-art:after{content:"";position:absolute;width:180px;height:240px;border:1px solid rgba(255,255,255,.55);border-radius:100px 100px 0 0;top:48px}.art-paper{z-index:1;width:170px;height:225px;background:rgba(255,253,247,.9);box-shadow:0 15px 35px #0002;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;color:#4c5743;position:relative}.art-paper .art-kicker{font-size:7px;letter-spacing:2px;text-transform:uppercase}.art-paper .art-names{font:29px/1.05 'Playfair Display',serif;margin:16px 0}.art-paper .art-rule{height:1px;width:35px;background:#a3a88f;margin:4px}.art-paper .art-date{font-size:7px;letter-spacing:1px;margin-top:13px}.art-flower{position:absolute;top:15px;right:22px;font-size:35px;opacity:.65}.product-tag{position:absolute;top:15px;left:15px;background:rgba(255,253,249,.9);padding:7px 10px;border-radius:99px;font-size:9px;letter-spacing:.5px;z-index:3}.product-info{padding:20px}.product-top{display:flex;justify-content:space-between;align-items:start;gap:12px}.product-info h3{font:500 22px 'Playfair Display',serif;margin:0 0 7px}.product-code{font-size:10px;color:var(--muted);letter-spacing:.6px}.price{font-size:16px;font-weight:700;white-space:nowrap}.product-desc{font-size:12px;line-height:1.7;color:var(--muted);margin:14px 0 18px}.product-actions{display:flex;gap:9px}.product-actions .btn-primary{flex:1;padding:12px 10px}.detail-btn{border:1px solid var(--line);background:transparent;border-radius:99px;padding:0 14px;font-size:12px;color:#625e55}.product-note{text-align:center;color:var(--muted);font-size:11px;margin:27px 0 0}
+    .planner-band{padding:0 0 90px;background:var(--cream)}.planner-box{background:#e8e9df;border-radius:24px;padding:48px 54px;display:grid;grid-template-columns:1fr .7fr;align-items:center;gap:30px;overflow:hidden;position:relative}.planner-box:after{content:"";position:absolute;width:310px;height:310px;border:1px solid #c7cdbb;border-radius:50%;right:3%;top:-110px;box-shadow:0 0 0 24px #e8e9df,0 0 0 25px #c7cdbb,0 0 0 52px #e8e9df,0 0 0 53px #c7cdbb}.planner-box h2{font-size:clamp(30px,4vw,43px);line-height:1.15;margin:15px 0}.planner-box p{max-width:520px;color:#686b60;font-size:13px;line-height:1.8}.planner-points{display:flex;gap:15px;flex-wrap:wrap;margin:22px 0}.planner-points span{font-size:11px;color:#555c4b}.planner-mock{position:relative;z-index:2;margin-left:auto;width:210px;background:#fffdf8;border-radius:18px;padding:22px;box-shadow:0 20px 45px #5552;transform:rotate(4deg)}.mock-header{font:22px 'Playfair Display',serif;color:#4d5942}.mock-sub{font-size:9px;color:#888;margin:5px 0 18px}.mock-line{height:7px;border-radius:10px;background:#e9e8df;margin:10px 0}.mock-line.short{width:60%}.mock-pill{display:inline-block;border-radius:99px;padding:8px 12px;background:#68745b;color:white;font-size:9px;margin-top:8px}
+    .reseller{background:#fffdf9}.reseller-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}.reseller-copy h2{font-size:clamp(34px,4vw,48px);line-height:1.12;margin:17px 0}.reseller-copy p{font-size:14px;line-height:1.9;color:var(--muted)}.reseller-note{padding:16px;border-left:3px solid var(--rose);background:#faf4ef;font-size:12px;line-height:1.8;color:#6d625a;margin-top:22px}.steps{display:grid;gap:14px}.step-card{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:start;border:1px solid var(--line);border-radius:15px;padding:20px;background:#fffefa}.step-num{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#edf0e8;color:var(--olive-dark);font-family:'Playfair Display',serif;font-size:18px}.step-card h3{font:500 19px 'Playfair Display',serif;margin:2px 0 7px}.step-card p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}.step-label{font-size:10px;color:var(--olive-dark);background:#edf0e8;border-radius:99px;padding:7px 9px;white-space:nowrap}
+    .faq-section{background:var(--cream)}.faq-list{max-width:760px;margin:auto}.faq-item{border-bottom:1px solid var(--line)}.faq-question{display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;padding:21px 0;border:0;background:transparent;text-align:left;font:500 19px 'Playfair Display',serif;color:var(--ink)}.faq-question span:last-child{font:400 22px 'DM Sans',sans-serif;color:var(--olive)}.faq-answer{display:none;padding:0 30px 20px 0;color:var(--muted);font-size:13px;line-height:1.85}.faq-item.open .faq-answer{display:block}.faq-item.open .faq-question span:last-child{transform:rotate(45deg)}
+    footer{background:#2f332b;color:#f8f5f0;padding:52px 0 24px}.footer-main{display:flex;justify-content:space-between;gap:40px;align-items:start;padding-bottom:38px}.footer-brand .brand{margin-bottom:15px}.footer-brand p{max-width:320px;color:#c2c4b9;font-size:12px;line-height:1.8}.footer-links h4{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#c8cbbf;margin:5px 0 17px}.footer-links a{display:block;font-size:12px;color:#e0e1d8;margin:12px 0}.footer-bottom{border-top:1px solid #4b4f44;padding-top:20px;display:flex;justify-content:space-between;gap:15px;color:#b6b9ad;font-size:10px}.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:54px;height:54px;border-radius:50%;background:#287e56;color:white;display:grid;place-items:center;box-shadow:0 8px 25px #1e5e413d;font-size:23px;border:3px solid #f8f5f0}.mobile-nav{display:none}
+    .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#2f332b;color:#fff;padding:12px 18px;border-radius:99px;font-size:12px;z-index:100;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:900px){.nav-links{gap:16px}.hero-grid{gap:25px}.hero-visual{min-height:450px}.visual-orbit{width:360px;height:360px}.invite-card{width:245px;height:350px}.note-top{right:-5px}.benefit-grid{grid-template-columns:repeat(2,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}.product-art{height:280px}.reseller-grid{gap:30px}.planner-box{padding:38px}.planner-box:after{right:-100px}}
+    @media(max-width:680px){html{scroll-padding-top:20px}.container{width:min(100% - 32px,520px)}.topbar{position:sticky}.nav{height:65px}.brand{font-size:22px}.nav-links,.nav>.nav-cta{display:none}.menu-toggle{display:block}.nav-links.mobile-open{display:flex;position:absolute;top:64px;left:0;right:0;background:var(--paper);padding:18px 22px 22px;flex-direction:column;align-items:stretch;gap:0;border-bottom:1px solid var(--line);box-shadow:0 15px 25px #0000000a}.nav-links.mobile-open a{padding:13px 0;border-bottom:1px solid #f0ece5}.nav-links.mobile-open a:last-child{border-bottom:0}.hero{padding:46px 0 60px}.hero-grid{grid-template-columns:1fr;gap:12px}.hero-copy{text-align:center}.hero-copy .eyebrow{justify-content:center}.hero-copy p{margin-left:auto;margin-right:auto;font-size:14px}.hero h1{font-size:46px}.hero-actions{justify-content:center}.trust-row{justify-content:center;gap:13px;margin-top:27px}.hero-visual{min-height:405px}.visual-orbit{width:330px;height:330px;right:auto;top:6%}.invite-card{width:225px;height:320px}.invite-names{font-size:35px}.note-top{top:24px;right:0}.note-bottom{bottom:22px;left:0}section{padding:65px 0}.section-heading{margin-bottom:30px}.section-heading h2{font-size:35px}.benefit-grid{grid-template-columns:1fr;gap:12px}.benefit-card{padding:24px}.benefit-icon{margin-bottom:15px}.product-toolbar{align-items:flex-start;flex-direction:column}.filters{gap:6px}.filter-btn{padding:8px 11px}.product-grid{grid-template-columns:1fr;gap:16px}.product-art{height:320px}.product-info{padding:18px}.planner-band{padding-bottom:65px}.planner-box{grid-template-columns:1fr;padding:30px 24px;gap:24px}.planner-box:after{width:220px;height:220px;right:-115px;top:auto;bottom:-120px}.planner-box h2{font-size:34px}.planner-mock{margin:0 auto;width:190px}.reseller-grid{grid-template-columns:1fr;gap:30px}.reseller-copy h2{font-size:38px}.step-card{grid-template-columns:40px 1fr;gap:12px;padding:16px}.step-label{grid-column:2;justify-self:start}.faq-question{font-size:17px}.footer-main{flex-direction:column;gap:30px}.footer-links{display:flex;flex-wrap:wrap;gap:0 20px}.footer-links h4{width:100%}.footer-links a{margin:4px 15px 4px 0}.footer-bottom{flex-direction:column}.mobile-nav{position:fixed;display:flex;bottom:0;left:0;right:0;z-index:55;justify-content:space-around;padding:9px 5px calc(9px + env(safe-area-inset-bottom));background:rgba(255,253,249,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line)}.mobile-nav a{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9px;color:#77736a;min-width:45px}.mobile-nav a span:first-child{font-size:17px}.mobile-nav a.active{color:var(--olive-dark);font-weight:700}body{padding-bottom:68px}.wa-float{bottom:82px;right:16px;width:48px;height:48px}.toast{bottom:80px;max-width:calc(100% - 30px);text-align:center}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <!-- GANTI nomor WhatsApp pada variabel WHATSAPP_NUMBER di bagian JavaScript sebelum dipublikasikan. -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#beranda" aria-label="Ruang Janji, ke beranda"><span class="brand-mark">r.</span> ruangjanji<span style="color:var(--rose)">.</span></a>
+      <nav class="nav-links" id="desktopNav" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a><a href="#keunggulan">Kenapa Kami?</a><a href="#desain">Pilihan Desain</a><a href="#reseller">Reseller</a>
+      </nav>
+      <a class="nav-cta" href="#desain">Temukan Desain ↗</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Hari istimewa, cara yang istimewa</span>
+          <h1>Cerita cinta,<br><span style="color:var(--olive)">dikemas indah.</span></h1>
+          <p>Undangan digital yang elegan, praktis, dan mudah dibagikan. Setiap desain sudah termasuk akses <strong>wedding planner berbasis web</strong> untuk membantu persiapan hari bahagiamu.</p>
+          <div class="hero-actions"><a class="btn-primary" href="#desain">Jelajahi Desain <span aria-hidden="true">↗</span></a><a class="text-link" href="#keunggulan">Kenali keunggulan kami</a></div>
+          <div class="trust-row"><span><b>✦</b> Harga satu untuk semua</span><span><b>♡</b> Bisa dibagikan kapan saja</span><span><b>✓</b> Planner termasuk</span></div>
+        </div>
+        <div class="hero-visual" aria-label="Pratinjau undangan digital">
+          <div class="visual-orbit"></div>
+          <div class="invite-card"><div class="invite-inner"><div class="invite-small">The wedding of</div><div class="invite-names">Alya<br>&amp; Arka</div><div class="invite-date">21 · 11 · 2026</div><div style="font:italic 12px 'Playfair Display';margin-top:24px">A beautiful beginning</div></div></div>
+          <div class="floating-note note-top"><strong>✦ Desain berkelas</strong><span style="color:var(--muted)">Detail yang terasa personal</span></div>
+          <div class="floating-note note-bottom"><span class="mini-icon">♡</span><strong style="display:inline-block;vertical-align:middle">Wedding planner</strong><div style="margin-left:36px;color:var(--muted);font-size:11px">Bonus di setiap pembelian</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="keunggulan">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Kenapa Ruang Janji?</span><h2>Lebih dari sekadar<br>undangan digital.</h2><p>Kami ingin membantu pasangan menikmati persiapan pernikahan dengan pengalaman yang lebih praktis, cantik, dan terjangkau.</p></div>
+        <div class="benefit-grid">
+          <article class="benefit-card"><div class="benefit-icon">✧</div><h3>Desain yang berkesan</h3><p>Pilihan desain dengan tampilan modern dan elegan untuk merepresentasikan cerita kalian.</p></article>
+          <article class="benefit-card"><div class="benefit-icon">♡</div><h3>Wedding planner gratis</h3><p>Setiap pembelian Rp99.000 sudah termasuk akses web wedding planner yang kami siapkan.</p></article>
+          <article class="benefit-card"><div class="benefit-icon">↗</div><h3>Mudah dibagikan</h3><p>Bagikan undangan melalui WhatsApp atau media sosial tanpa harus mencetak undangan fisik.</p></article>
+          <article class="benefit-card"><div class="benefit-icon">₊</div><h3>Harga jelas</h3><p>Semua desain memiliki harga yang sama. Pilih berdasarkan selera, bukan berdasarkan harga.</p></article>
+          <article class="benefit-card"><div class="benefit-icon">⌘</div><h3>Proses pemesanan praktis</h3><p>Klik desain pilihan dan WhatsApp akan terbuka dengan kode desain yang sudah terisi.</p></article>
+          <article class="benefit-card"><div class="benefit-icon">❀</div><h3>Untuk cerita kalian</h3><p>Undangan digital yang menjadi titik awal untuk membagikan kabar bahagia kepada orang tersayang.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="desain">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Koleksi pilihan</span><h2>Desain untuk kisah kalian.</h2><p>Temukan tampilan yang paling mewakili kalian. Setiap desain memiliki kode unik untuk memudahkan pemesanan.</p></div>
+        <div class="product-toolbar"><span class="product-count" id="productCount">Menampilkan 6 desain</span><div class="filters" role="group" aria-label="Filter desain"><button class="filter-btn active" data-filter="all">Semua</button><button class="filter-btn" data-filter="classic">Classic</button><button class="filter-btn" data-filter="floral">Floral</button><button class="filter-btn" data-filter="modern">Modern</button></div></div>
+        <div class="product-grid" id="productGrid">
+          <article class="product-card" data-category="classic" data-code="RJ-CL-001" data-name="Eternal Olive">
+            <div class="product-art" style="background:#cbd2bf"><span class="product-tag">BEST SELLER</span><div class="art-paper"><span class="art-flower">❧</span><span class="art-kicker">The wedding of</span><div class="art-names">Alya<br>&amp; Arka</div><div class="art-rule"></div><span class="art-date">21 NOVEMBER 2026</span></div></div>
+            <div class="product-info"><div class="product-top"><div><h3>Eternal Olive</h3><div class="product-code">KODE: RJ-CL-001</div></div><div class="price">Rp99.000</div></div><p class="product-desc">Nuansa olive yang tenang, cocok untuk pernikahan hangat dan intimate.</p><div class="product-actions"><button class="btn-primary choose-design">Pilih desain ↗</button><button class="detail-btn" data-details>Detail</button></div></div>
+          </article>
+          <article class="product-card" data-category="floral" data-code="RJ-FL-002" data-name="Blooming Grace">
+            <div class="product-art" style="background:#e8d2cb"><span class="product-tag">FLORAL</span><div class="art-paper" style="color:#805d58;background:#fff8f3"><span class="art-flower">✿</span><span class="art-kicker">Together with love</span><div class="art-names">Nara<br>&amp; Bima</div><div class="art-rule" style="background:#c89e94"></div><span class="art-date">07 DESember 2026</span></div></div>
+            <div class="product-info"><div class="product-top"><div><h3>Blooming Grace</h3><div class="product-code">KODE: RJ-FL-002</div></div><div class="price">Rp99.000</div></div><p class="product-desc">Sentuhan bunga lembut dengan warna dusty rose yang romantis.</p><div class="product-actions"><button class="btn-primary choose-design">Pilih desain ↗</button><button class="detail-btn" data-details>Detail</button></div></div>
+          </article>
+          <article class="product-card" data-category="modern" data-code="RJ-MD-003" data-name="Modern Muse">
+            <div class="product-art" style="background:#d8d4c9"><span class="product-tag">MINIMAL</span><div class="art-paper" style="color:#33332e;background:#f6f3eb;border:1px solid #d4d0c5"><span class="art-kicker">Please join us</span><div class="art-names" style="font-size:32px">Dina<br><span style="font-size:18px">&amp;</span><br>Rafi</div><div class="art-rule" style="background:#77756a"></div><span class="art-date">DECEMBER · 2026</span></div></div>
+            <div class="product-info"><div class="product-top"><div><h3>Modern Muse</h3><div class="product-code">KODE: RJ-MD-003</div></div><div class="price">Rp99.000</div></div><p class="product-desc">Sederhana, bersih, dan timeless untuk pasangan yang menyukai minimalisme.</p><div class="product-actions"><button class="btn-primary choose-design">Pilih desain ↗</button><button class="detail-btn" data-details>Detail</button></div></div>
+          </article>
+          <article class="product-card" data-category="floral" data-code="RJ-FL-004" data-name="Garden Romance">
+            <div class="product-art" style="background:#c4cdbb"><span class="product-tag">BOTANICAL</span><div class="art-paper" style="color:#53644b;background:#f7f5ec"><span class="art-flower">❀</span><span class="art-kicker">A day to remember</span><div class="art-names">Salsa<br>&amp; Daffa</div><div class="art-rule"></div><span class="art-date">WITH LOVE, ALWAYS</span></div></div>
+            <div class="product-info"><div class="product-top"><div><h3>Garden Romance</h3><div class="product-code">KODE: RJ-FL-004</div></div><div class="price">Rp99.000</div></div><p class="product-desc">Inspirasi taman dengan detail botanical yang manis dan natural.</p><div class="product-actions"><button class="btn-primary choose-design">Pilih desain ↗</button><button class="detail-btn" data-details>Detail</button></div></div>
+          </article>
+          <article class="product-card" data-category="classic" data-code="RJ-CL-005" data-name="Golden Heirloom">
+            <div class="product-art" style="background:#d7c5a6"><span class="product-tag">TIMELESS</span><div class="art-paper" style="color:#6b5435;background:#f8f0df;border:1px solid #c6ae81"><span class="art-kicker">The beginning</span><div class="art-names">Aisha<br>&amp; Farhan</div><div class="art-rule" style="background:#b89b64"></div><span class="art-date">A LOVE CELEBRATION</span></div></div>
+            <div class="product-info"><div class="product-top"><div><h3>Golden Heirloom</h3><div class="product-code">KODE: RJ-CL-005</div></div><div class="price">Rp99.000</div></div><p class="product-desc">Palet ivory dan gold untuk kesan klasik yang anggun dan hangat.</p><div class="product-actions"><button class="btn-primary choose-design">Pilih desain ↗</button><button class="detail-btn" data-details>Detail</button></div></div>
+          </article>
+          <article class="product-card" data-category="modern" data-code="RJ-MD-006" data-name="Noir Affair">
+            <div class="product-art" style="background:#555950"><span class="product-tag">CONTEMPORARY</span><div class="art-paper" style="color:#e7e0d1;background:#343831;border:1px solid #9b9a86"><span class="art-kicker">Save the date</span><div class="art-names">Keira<br><span style="font-size:18px">&amp;</span><br>Rangga</div><div class="art-rule" style="background:#b8ae91"></div><span class="art-date">ONE LOVE · ONE DAY</span></div></div>
+            <div class="product-info"><div class="product-top"><div><h3>Noir Affair</h3><div class="product-code">KODE: RJ-MD-006</div></div><div class="price">Rp99.000</div></div><p class="product-desc">Tampilan kontras dan modern untuk pasangan yang berani tampil berbeda.</p><div class="product-actions"><button class="btn-primary choose-design">Pilih desain ↗</button><button class="detail-btn" data-details>Detail</button></div></div>
+          </article>
+        </div>
+        <p class="product-note">Harga Rp99.000 per desain · Termasuk wedding planner web · Klik “Pilih desain” untuk konsultasi via WhatsApp.</p>
+      </div>
+    </section>
+
+    <div class="planner-band">
+      <div class="container"><div class="planner-box">
+        <div><span class="eyebrow">Bonus spesial untukmu</span><h2>Persiapan nikah,<br>lebih terarah.</h2><p>Bukan cuma undangan. Setiap pembelian juga mendapatkan akses ke wedding planner web yang kami siapkan agar daftar persiapan, kebutuhan, dan rencana hari bahagiamu lebih mudah dikelola.</p><div class="planner-points"><span>✓ Checklist persiapan</span><span>✓ Rencana yang lebih rapi</span><span>✓ Bisa dibuka lewat web</span></div><a class="btn-primary" href="#desain">Pilih undanganmu ↗</a></div>
+        <div class="planner-mock"><div class="mock-header">Our Big Day</div><div class="mock-sub">WEDDING PLANNER · PREVIEW</div><div style="font-size:10px;font-weight:700">Persiapan pernikahan</div><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-line"></div><div class="mock-line short"></div><span class="mock-pill">3 dari 8 selesai ✓</span></div>
+      </div></div>
+    </div>
+
+    <section class="reseller" id="reseller">
+      <div class="container reseller-grid">
+        <div class="reseller-copy"><span class="eyebrow">Tumbuh bersama kami</span><h2>Sebarkan kabar bahagia. Dapatkan penghasilan.</h2><p>Kenal banyak calon pengantin? Kamu bisa membantu mereka menemukan undangan yang tepat sekaligus mendapatkan komisi dari setiap pesanan yang berhasil.</p><div class="reseller-note"><strong>Skema awal yang disarankan:</strong> reseller mendaftar gratis, membagikan katalog dan kode referral, lalu menerima komisi setelah pesanan terkonfirmasi. Besaran komisi dan cara pencairan bisa ditetapkan saat program resmi dibuka.</div><p style="font-size:11px">Program reseller saat ini dalam tahap pengembangan. Hubungi kami untuk masuk daftar minat—belum ada biaya pendaftaran atau komisi yang dijanjikan sebelum ketentuan resmi tersedia.</p><a class="btn-primary" href="#" id="resellerCta">Saya tertarik jadi reseller ↗</a></div>
+        <div class="steps">
+          <article class="step-card"><div class="step-num">01</div><div><h3>Daftar sebagai mitra</h3><p>Kirim pesan kepada tim kami untuk menyatakan minat dan mendapatkan informasi saat program dibuka.</p></div><span class="step-label">Segera hadir</span></article>
+          <article class="step-card"><div class="step-num">02</div><div><h3>Bagikan katalog</h3><p>Kenalkan koleksi desain kepada teman, keluarga, atau audiensmu menggunakan tautan atau kode referral khusus.</p></div><span class="step-label">Konsep</span></article>
+          <article class="step-card"><div class="step-num">03</div><div><h3>Dapatkan komisi</h3><p>Pesanan yang valid dicatat atas referral-mu. Nominal, validasi, dan jadwal pembayaran akan dijelaskan di aturan resmi.</p></div><span class="step-label">Konsep</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="container"><div class="section-heading"><span class="eyebrow">Pertanyaan umum</span><h2>Hal yang perlu kamu tahu.</h2><p>Masih ada yang ingin ditanyakan sebelum memilih desain?</p></div>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-question"><span>Berapa harga satu undangan digital?</span><span>+</span></button><div class="faq-answer">Semua desain yang ditampilkan saat ini memiliki harga Rp99.000 per desain. Harga sudah termasuk akses wedding planner web sesuai ketentuan layanan.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Apa itu wedding planner web?</span><span>+</span></button><div class="faq-answer">Wedding planner adalah bonus berupa alat berbasis web untuk membantu mengatur checklist dan persiapan pernikahan. Detail fitur, masa akses, dan cara aktivasi akan diinformasikan saat pemesanan.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Bagaimana cara memesan desain?</span><span>+</span></button><div class="faq-answer">Klik tombol “Pilih desain” pada kartu produk. WhatsApp akan terbuka dengan nama dan kode desain yang sudah terisi agar tim kami lebih mudah memproses pesananmu.</div></div>
+          <div class="faq-item"><button class="faq-question"><span>Apakah program reseller sudah dibuka?</span><span>+</span></button><div class="faq-answer">Belum. Saat ini kami sedang menyusun mekanismenya. Kamu bisa menghubungi kami untuk menyatakan minat dan mendapatkan informasi ketika program resmi tersedia.</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="kontak">
+    <div class="container">
+      <div class="footer-main"><div class="footer-brand"><a class="brand" href="#beranda"><span class="brand-mark" style="background:#e5d2c7;color:#3d4236">r.</span> ruangjanji<span style="color:var(--rose)">.</span></a><p>Merayakan cerita cinta dengan undangan digital yang personal, elegan, dan praktis. Satu langkah kecil menuju hari besar kalian.</p></div><div class="footer-links"><h4>Jelajahi</h4><a href="#keunggulan">Kenapa kami?</a><a href="#desain">Pilihan desain</a><a href="#reseller">Program reseller</a><a href="#faq">FAQ</a></div><div class="footer-links"><h4>Hubungi kami</h4><a href="#" id="footerWa">WhatsApp ↗</a><a href="#desain">Katalog desain</a></div></div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Ruang Janji. Dibuat dengan sepenuh hati.</span><span>Hari istimewa, cerita selamanya ♡</span></div>
+    </div>
+  </footer>
+  <nav class="mobile-nav" aria-label="Navigasi mobile"><a href="#beranda" class="active"><span>⌂</span><span>Beranda</span></a><a href="#keunggulan"><span>✧</span><span>Keunggulan</span></a><a href="#desain"><span>♡</span><span>Desain</span></a><a href="#reseller"><span>↗</span><span>Reseller</span></a><a href="#kontak"><span>☏</span><span>Kontak</span></a></nav>
+  <a class="wa-float" href="#" id="floatingWa" aria-label="Hubungi melalui WhatsApp" title="Chat WhatsApp">◔</a>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // PENTING: ganti dengan nomor WhatsApp bisnis, format internasional tanpa +, spasi, atau tanda strip.
+    const WHATSAPP_NUMBER = '6281234567890';
+    const BASE_MESSAGE = 'Halo Ruang Janji! Saya ingin bertanya tentang undangan digital.';
+    const waUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    const toast = (message) => { const el=document.getElementById('toast'); el.textContent=message; el.classList.add('show'); clearTimeout(window.toastTimer); window.toastTimer=setTimeout(()=>el.classList.remove('show'),2600); };
+
+    document.querySelectorAll('.choose-design').forEach(button => {
+      button.addEventListener('click', () => {
+        const card=button.closest('.product-card');
+        const message=`Halo Ruang Janji! Saya tertarik memesan desain undangan digital berikut:\n\nNama desain: ${card.dataset.name}\nKode desain: ${card.dataset.code}\nHarga: Rp99.000\n\nMohon informasi proses pemesanan dan aktivasi wedding planner web. Terima kasih!`;
+        window.open(waUrl(message),'_blank','noopener,noreferrer');
+      });
+    });
+    document.querySelectorAll('[data-details]').forEach(button => button.addEventListener('click',()=>{
+      const card=button.closest('.product-card');
+      toast(`${card.dataset.name} · ${card.dataset.code} · Rp99.000`);
+    }));
+    document.querySelectorAll('.filter-btn').forEach(button=>button.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b===button));
+      let count=0;
+      document.querySelectorAll('.product-card').forEach(card=>{
+        const show=button.dataset.filter==='all'||card.dataset.category===button.dataset.filter;
+        card.style.display=show?'':'none'; if(show)count++;
+      });
+      document.getElementById('productCount').textContent=`Menampilkan ${count} desain`;
+    }));
+    document.getElementById('menuToggle').addEventListener('click',()=>{
+      const nav=document.getElementById('desktopNav');
+      const opened=nav.classList.toggle('mobile-open');
+      document.getElementById('menuToggle').setAttribute('aria-expanded',String(opened));
+      document.getElementById('menuToggle').textContent=opened?'×':'☰';
+    });
+    document.querySelectorAll('#desktopNav a').forEach(a=>a.addEventListener('click',()=>{
+      document.getElementById('desktopNav').classList.remove('mobile-open');
+      document.getElementById('menuToggle').setAttribute('aria-expanded','false');
+      document.getElementById('menuToggle').textContent='☰';
+    }));
+    document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{
+      document.querySelectorAll('.mobile-nav a').forEach(link=>link.classList.toggle('active',link===a));
+    }));
+    document.querySelectorAll('.faq-question').forEach(button=>button.addEventListener('click',()=>button.closest('.faq-item').classList.toggle('open')));
+    ['resellerCta','footerWa','floatingWa'].forEach(id=>document.getElementById(id).addEventListener('click',e=>{
+      e.preventDefault();
+      const message=id==='resellerCta'?'Halo Ruang Janji! Saya tertarik menjadi reseller. Mohon info ketika program resmi dibuka.':BASE_MESSAGE;
+      window.open(waUrl(message),'_blank','noopener,noreferrer');
+    }));
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // Tandai menu mobile sesuai section yang paling terlihat saat halaman digulir.
+    const sections=['beranda','keunggulan','desain','reseller','kontak'].map(id=>document.getElementById(id));
+    if('IntersectionObserver' in window){
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            document.querySelectorAll('.mobile-nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));
+          }
+        });
+      },{rootMargin:'-35% 0px -55% 0px'});
+      sections.forEach(section=>section&&observer.observe(section));
+    }
+  </script>
+</body>
+</html>
