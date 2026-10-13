@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1a0913">
+<title>Agus & Wenna — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style16.css">
+</head>
+<body class="locked">
+
+<div class="stars" aria-hidden="true"></div>
+<i class="meteor" style="--l:72%;--dl:1s" aria-hidden="true"></i><i class="meteor" style="--l:40%;--dl:4.5s" aria-hidden="true"></i><i class="meteor" style="--l:92%;--dl:8s" aria-hidden="true"></i>
+
+<!-- ================= COVER: kartu tarot "The Lovers" ================= -->
+<header id="cover">
+  <div class="cv-top"><p class="eyebrow">Undangan Pernikahan</p></div>
+
+  <div class="stage" id="stage">
+    <div class="float">
+      <div class="tilt" id="tilt">
+        <div class="tcard" id="tcard" role="button" tabindex="0" aria-label="Kartu undangan, ketuk untuk membuka">
+          <div class="face back" id="back"></div>
+          <div class="face front" id="front"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-bot">
+    <p class="hint" id="hint">Ketuk kartu untuk membalik</p>
+    <p class="to">Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></p>
+    <button id="open" class="btn" type="button"><span>Buka Undangan</span></button>
+  </div>
+</header>
+
+<!-- ================= ISI: setiap bagian adalah satu kartu arcana ================= -->
+<main id="isi" hidden>
+
+  <section class="sec">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>I</span><i>✦</i></header>
+      <p class="eyebrow">Assalamu'alaikum Wr. Wb.</p>
+      <h2>Awal sebuah <em class="foil">takdir</em></h2>
+      <p class="verse">
+        Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+        agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.
+      </p>
+      <p class="cite">QS. Ar-Rum: 21</p>
+      <footer class="t-foot">Awal</footer>
+    </article>
+  </section>
+
+  <section class="sec">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>VI</span><i>✦</i></header>
+      <p class="eyebrow">The Lovers</p>
+      <h2>Sang <em class="foil">mempelai</em></h2>
+      <div class="duo">
+        <div class="who tilt2">
+          <!-- GANTI: foto dengan <img> di dalam .orb -->
+          <div class="orb" role="img" aria-label="Foto Agus"><b>A</b></div>
+          <h3>Agus Yogandi</h3>
+          <p>Putra dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </div>
+        <div class="who tilt2">
+          <div class="orb" role="img" aria-label="Foto Wenna"><b>W</b></div>
+          <h3>Wenna [Nama Lengkap]</h3>
+          <p>Putri dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </div>
+      </div>
+      <footer class="t-foot">Mempelai</footer>
+    </article>
+  </section>
+
+  <section class="sec" id="acara">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>XIX</span><i>✦</i></header>
+      <p class="eyebrow">The Sun</p>
+      <h2>Hari <em class="foil">bahagia</em></h2>
+      <div class="bigdate"><b class="foil">05</b><span>Desember 2026<small>Sabtu</small></span></div>
+      <div class="coins" aria-label="Hitung mundur">
+        <div class="coin"><b id="cd">00</b><span>hari</span></div>
+        <div class="coin"><b id="ch">00</b><span>jam</span></div>
+        <div class="coin"><b id="cm">00</b><span>menit</span></div>
+        <div class="coin"><b id="cs">00</b><span>detik</span></div>
+      </div>
+      <!-- GANTI: jam acara -->
+      <div class="events">
+        <div class="event"><time>08.00</time><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></div>
+        <div class="event"><time>11.00</time><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></div>
+      </div>
+      <footer class="t-foot">Hari bahagia</footer>
+    </article>
+  </section>
+
+  <section class="sec">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>VII</span><i>✦</i></header>
+      <p class="eyebrow">The Chariot</p>
+      <h2>Menuju <em class="foil">kami</em></h2>
+      <p class="place">Graha Yapin Jatimulya<small>Bekasi, Jawa Barat</small></p>
+      <div class="frame"><iframe title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Graha+Yapin+Jatimulya+Bekasi&output=embed"></iframe></div>
+      <div class="actions">
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Graha+Yapin+Jatimulya+Bekasi"><span>Buka Peta</span></a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Agus+%26+Wenna&dates=20261205T010000Z/20261205T070000Z&location=Graha+Yapin+Jatimulya,+Bekasi"><span>Simpan Kalender</span></a>
+      </div>
+      <footer class="t-foot">Perjalanan</footer>
+    </article>
+  </section>
+
+  <section class="sec">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>XVIII</span><i>✦</i></header>
+      <p class="eyebrow">The Moon</p>
+      <h2>Kartu <em class="foil">kenangan</em></h2>
+      <p class="muted">Ketuk sebuah kartu untuk membukanya</p>
+      <!-- GANTI: isi tiap .ff dengan <img src="..." alt="..."> -->
+      <div class="fan" id="fan">
+        <button class="fc" type="button" aria-label="Kartu foto 1"><span class="fc-in"><span class="fb"></span><span class="ff g1">I</span></span></button>
+        <button class="fc" type="button" aria-label="Kartu foto 2"><span class="fc-in"><span class="fb"></span><span class="ff g2">II</span></span></button>
+        <button class="fc" type="button" aria-label="Kartu foto 3"><span class="fc-in"><span class="fb"></span><span class="ff g3">III</span></span></button>
+        <button class="fc" type="button" aria-label="Kartu foto 4"><span class="fc-in"><span class="fb"></span><span class="ff g4">IV</span></span></button>
+        <button class="fc" type="button" aria-label="Kartu foto 5"><span class="fc-in"><span class="fb"></span><span class="ff g5">V</span></span></button>
+      </div>
+      <footer class="t-foot">Kenangan</footer>
+    </article>
+  </section>
+
+  <section class="sec">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>X</span><i>✦</i></header>
+      <p class="eyebrow">Wheel of Fortune</p>
+      <h2>Tanda <em class="foil">kasih</em></h2>
+      <p class="muted">Doa restu Anda sudah cukup bagi kami. Bila ingin berbagi kebahagiaan, dapat melalui rekening berikut.</p>
+      <!-- GANTI: data rekening -->
+      <div class="bank">
+        <p class="bank-name">Bank [Nama Bank]</p>
+        <p class="bank-no" id="rek">0000000000</p>
+        <p class="muted">a.n. Agus Yogandi</p>
+        <button class="btn sm" id="copy" type="button"><span>Salin nomor</span></button>
+      </div>
+      <footer class="t-foot">Persembahan</footer>
+    </article>
+  </section>
+
+  <section class="sec">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>XX</span><i>✦</i></header>
+      <p class="eyebrow">The Messenger</p>
+      <h2>Kabarkan <em class="foil">kehadiran</em></h2>
+      <form id="form">
+        <label>Nama<input id="nama" required></label>
+        <div class="two">
+          <label>Kehadiran<select id="hadir"><option>Insya Allah hadir</option><option>Mohon maaf, tidak bisa hadir</option></select></label>
+          <label>Jumlah<select id="jml"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        </div>
+        <label>Ucapan dan doa<textarea id="pesan" rows="3"></textarea></label>
+        <button class="btn" type="submit"><span>Kirim lewat WhatsApp</span></button>
+      </form>
+      <footer class="t-foot">Kabar</footer>
+    </article>
+  </section>
+
+  <section class="sec end" id="penutup">
+    <article class="tarot rv">
+      <header class="t-head"><i>✦</i><span>XXI</span><i>✦</i></header>
+      <p class="eyebrow">The World</p>
+      <p class="muted">Terima kasih atas doa dan kehadiran Bapak/Ibu/Saudara/i.</p>
+      <p class="closing"><span class="foil">Agus</span> <em class="foil">&amp;</em> <span class="foil">Wenna</span></p>
+      <p class="muted">Wassalamu'alaikum Wr. Wb.</p>
+      <footer class="t-foot">Penyatuan</footer>
+    </article>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var WA = "62XXXXXXXXXXX";                                   // GANTI: nomor WhatsApp (62..., tanpa +)
+  var TARGET = new Date("2026-12-05T08:00:00+07:00");
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ====== MESIN GLITTER (kanvas ringan, tidak menghalangi klik) ======
+  var FX = (function () {
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var cv = document.createElement("canvas"); cv.className = "fx"; cv.setAttribute("aria-hidden", "true"); document.body.appendChild(cv);
+    var ctx = cv.getContext("2d"), W = 0, H = 0, P = [], R = [], run = false, last = 0;
+    var cfg = { colors: ["#fff"], shapes: ["star"], gravity: .12 };
+    function size() { var d = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * d; cv.height = H * d; cv.style.width = W + "px"; cv.style.height = H + "px"; ctx.setTransform(d, 0, 0, d, 0, 0); }
+    size(); addEventListener("resize", size);
+    function star(x, y, r, rot) { ctx.beginPath(); for (var i = 0; i < 8; i++) { var a = rot + i * .7854, rr = i % 2 ? r * .3 : r; ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } ctx.closePath(); ctx.fill(); }
+    function burst(x, y, n, o) {
+      if (reduce) return; o = o || {};
+      for (var i = 0; i < n; i++) {
+        var a = Math.random() * 6.2832, s = (o.speed || 5.5) * (.3 + Math.random() * .95);
+        P.push({ x: x, y: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s - (o.lift || 1.2), r: (o.size || 7) * (.45 + Math.random() * .9), rot: Math.random() * 6.28, vr: (Math.random() - .5) * .35,
+          life: 0, max: (o.life || 60) + Math.random() * 55, c: cfg.colors[Math.random() * cfg.colors.length | 0], k: cfg.shapes[Math.random() * cfg.shapes.length | 0],
+          g: o.gravity != null ? o.gravity : cfg.gravity, tw: Math.random() * 6.28 });
+      }
+      if (P.length > 520) P.splice(0, P.length - 520);
+      if (o.ring) R.push({ x: x, y: y, r: 4, max: o.ringMax || 70, life: 0, c: o.ringColor || cfg.colors[0] });
+      kick();
+    }
+    function kick() { if (!run) { run = true; last = performance.now(); requestAnimationFrame(loop); } }
+    function loop(t) {
+      var dt = Math.min(2.2, (t - last) / 16.67); last = t; ctx.clearRect(0, 0, W, H);
+      for (var i = R.length - 1; i >= 0; i--) {
+        var q = R[i]; q.life += dt; q.r += (q.max - q.r) * .09 * dt; var k = q.life / 32;
+        if (k >= 1) { R.splice(i, 1); continue; }
+        ctx.globalAlpha = (1 - k) * .8; ctx.strokeStyle = q.c; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.2832); ctx.stroke();
+      }
+      for (var j = P.length - 1; j >= 0; j--) {
+        var p = P[j]; p.life += dt; if (p.life > p.max) { P.splice(j, 1); continue; }
+        p.vx *= .985; p.vy = p.vy * .985 + p.g * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt;
+        var f = p.life / p.max; ctx.globalAlpha = Math.max(0, (1 - f) * (.7 + .3 * Math.sin(p.tw + p.life * .45))); ctx.fillStyle = p.c;
+        if (p.k === "star") star(p.x, p.y, p.r, p.rot);
+        else if (p.k === "conf") { ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.scale(1, Math.abs(Math.cos(p.tw + p.life * .2))); ctx.fillRect(-p.r, -p.r * .5, p.r * 2, p.r); ctx.restore(); }
+        else if (p.k === "dia") { ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(.785 + p.rot); ctx.fillRect(-p.r * .5, -p.r * .5, p.r, p.r); ctx.restore(); }
+        else { ctx.beginPath(); ctx.arc(p.x, p.y, p.r * .5, 0, 6.2832); ctx.fill(); }
+      }
+      ctx.globalAlpha = 1;
+      if (P.length || R.length) requestAnimationFrame(loop); else run = false;
+    }
+    var lt = 0;   // jejak kilau mengikuti kursor (hanya mouse)
+    document.addEventListener("pointermove", function (e) {
+      if (reduce || e.pointerType !== "mouse") return;
+      var n = performance.now(); if (n - lt < 45) return; lt = n;
+      burst(e.clientX, e.clientY, 2, { speed: 1.6, size: 5, life: 34, gravity: .04, lift: 0 });
+    }, { passive: true });
+    return { burst: burst, config: function (c) { for (var k in c) cfg[k] = c[k]; }, reduce: reduce };
+  })();
+
+  FX.config({ colors: ["#f3dc8e", "#d8b45a", "#fff1b8", "#ffffff", "#e8b4c4"], shapes: ["star", "star", "dot", "dia"], gravity: .07 });
+  document.addEventListener("pointerdown", function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target.closest && e.target.closest("#tcard,#open")) return;
+    FX.burst(e.clientX, e.clientY, 30, { speed: 4.5, size: 8, lift: 2, life: 80, ring: true, ringMax: 50 });
+  });
+
+  var to = new URLSearchParams(location.search).get("to");
+  if (to) { $("#guest").textContent = to; $("#nama").value = to; }
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var s = Math.max(0, Math.floor((TARGET - new Date()) / 1000));
+    $("#cd").textContent = pad(Math.floor(s / 86400));
+    $("#ch").textContent = pad(Math.floor(s % 86400 / 3600));
+    $("#cm").textContent = pad(Math.floor(s % 3600 / 60));
+    $("#cs").textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // ====== Gambar kartu tarot (SVG dibuat lewat kode agar ringkas) ======
+  var G = "#d8b45a", G2 = "#f3dc8e";
+  function frame() {
+    return '<rect width="300" height="520" fill="url(#bg)"/><rect x="12" y="12" width="276" height="496" rx="10" fill="none" stroke="' + G + '" stroke-width="2"/>' +
+      '<rect x="22" y="22" width="256" height="476" rx="6" fill="none" stroke="' + G + '" stroke-width=".8" opacity=".7"/>';
+  }
+  function defs() { return '<defs><radialGradient id="bg" cx=".5" cy=".42" r=".8"><stop offset="0" stop-color="#5a1a30"/><stop offset="1" stop-color="#1d0a17"/></radialGradient>' +
+    '<radialGradient id="sun" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#fff1b8"/><stop offset="1" stop-color="#c79a30"/></radialGradient></defs>'; }
+  function starPoly(cx, cy, R, r, n) { var p = []; for (var i = 0; i < n * 2; i++) { var a = -Math.PI / 2 + i * Math.PI / n, rr = i % 2 ? r : R; p.push((cx + Math.cos(a) * rr).toFixed(1) + "," + (cy + Math.sin(a) * rr).toFixed(1)); } return p.join(" "); }
+  function rays(cx, cy, r1, r2, n, w, op) { var s = ""; for (var i = 0; i < n; i++) { var a = i * 2 * Math.PI / n; s += '<line x1="' + (cx + Math.cos(a) * r1).toFixed(1) + '" y1="' + (cy + Math.sin(a) * r1).toFixed(1) + '" x2="' + (cx + Math.cos(a) * r2).toFixed(1) + '" y2="' + (cy + Math.sin(a) * r2).toFixed(1) + '" stroke="' + G + '" stroke-width="' + w + '" opacity="' + op + '"/>'; } return s; }
+  function backSVG() {
+    return '<svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice">' + defs() + frame() +
+      rays(150, 260, 46, 118, 36, .8, .6) +
+      '<circle cx="150" cy="260" r="118" fill="none" stroke="' + G + '" stroke-width="1.2" opacity=".8"/><circle cx="150" cy="260" r="84" fill="none" stroke="' + G + '" stroke-width="1" opacity=".7"/>' +
+      '<circle cx="150" cy="260" r="46" fill="none" stroke="' + G + '" stroke-width="1.6"/>' +
+      '<polygon points="' + starPoly(150, 260, 40, 16, 8) + '" fill="' + G + '" opacity=".9"/><circle cx="150" cy="260" r="8" fill="#1d0a17"/>' +
+      '<polygon points="' + starPoly(150, 66, 11, 4.5, 4) + '" fill="' + G2 + '"/><polygon points="' + starPoly(150, 454, 11, 4.5, 4) + '" fill="' + G2 + '"/>' +
+      '<polygon points="' + starPoly(48, 66, 8, 3.5, 4) + '" fill="' + G + '"/><polygon points="' + starPoly(252, 66, 8, 3.5, 4) + '" fill="' + G + '"/>' +
+      '<polygon points="' + starPoly(48, 454, 8, 3.5, 4) + '" fill="' + G + '"/><polygon points="' + starPoly(252, 454, 8, 3.5, 4) + '" fill="' + G + '"/></svg>';
+  }
+  function frontSVG() {
+    return '<svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice">' + defs() + frame() +
+      '<text x="150" y="58" text-anchor="middle" font-family="Cinzel Decorative, serif" font-size="22" fill="' + G2 + '">VI</text>' +
+      rays(150, 150, 40, 62, 24, 1.4, .9) + '<circle cx="150" cy="150" r="34" fill="url(#sun)"/><circle cx="150" cy="150" r="34" fill="none" stroke="' + G + '" stroke-width="1.5"/>' +
+      '<path d="M138 146q4 -5 8 0M154 146q4 -5 8 0M140 160q10 8 20 0" fill="none" stroke="#7a4a10" stroke-width="2" stroke-linecap="round"/>' +
+      '<circle cx="128" cy="300" r="40" fill="none" stroke="' + G2 + '" stroke-width="3.5"/><circle cx="172" cy="300" r="40" fill="none" stroke="' + G + '" stroke-width="3.5"/>' +
+      '<polygon points="' + starPoly(150, 300, 10, 4, 4) + '" fill="' + G2 + '"/>' +
+      '<polygon points="' + starPoly(60, 230, 8, 3.2, 4) + '" fill="' + G + '"/><polygon points="' + starPoly(240, 230, 8, 3.2, 4) + '" fill="' + G + '"/>' +
+      '<polygon points="' + starPoly(70, 360, 6, 2.6, 4) + '" fill="' + G + '"/><polygon points="' + starPoly(230, 360, 6, 2.6, 4) + '" fill="' + G + '"/>' +
+      '<rect x="40" y="398" width="220" height="40" rx="3" fill="#1d0a17" stroke="' + G + '" stroke-width="1.2"/>' +
+      '<text x="150" y="424" text-anchor="middle" font-family="Cinzel Decorative, serif" font-size="19" fill="' + G2 + '">Agus &amp; Wenna</text>' +
+      '<text x="150" y="476" text-anchor="middle" font-family="Cinzel Decorative, serif" font-size="14" letter-spacing="5" fill="' + G + '">THE LOVERS</text></svg>';
+  }
+  $("#back").innerHTML = backSVG(); $("#front").innerHTML = frontSVG();
+
+  // Kartu cover: miring mengikuti jari / kursor
+  var cover = $("#cover"), tilt = $("#tilt"), raf = 0, rx = 0, ry = 0;
+  function applyTilt() { tilt.style.setProperty("--ry", ry.toFixed(2) + "deg"); tilt.style.setProperty("--rx", rx.toFixed(2) + "deg"); raf = 0; }
+  if (!reduce) cover.addEventListener("pointermove", function (e) {
+    ry = (e.clientX / innerWidth - .5) * 24; rx = -(e.clientY / innerHeight - .5) * 16;
+    if (!raf) raf = requestAnimationFrame(applyTilt);
+  }, { passive: true });
+
+  // Buka: balik kartu -> debu emas -> kartu melayang menembus layar
+  var opened = false, tcard = $("#tcard");
+  function openCard() {
+    if (opened) return; opened = true;
+    $("#isi").hidden = false; $("#hint").style.opacity = 0;
+    tcard.classList.add("flip");
+    var r = tcard.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    var t = reduce ? 0 : 1;
+    setTimeout(function () { FX.burst(cx, cy, 110, { speed: 8, size: 9, lift: 2, life: 90, ring: true, ringMax: 130 }); }, 450 * t);
+    setTimeout(function () { cover.classList.add("fly"); FX.burst(cx, cy, 60, { speed: 6, size: 8, life: 80 }); }, 1500 * t);
+    setTimeout(function () { cover.classList.add("gone"); document.body.classList.remove("locked"); scrollTo(0, 0); observe(); }, 2300 * t + 30);
+    setTimeout(function () { cover.style.display = "none"; }, 3300 * t + 60);
+  }
+  tcard.addEventListener("click", openCard);
+  tcard.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCard(); } });
+  $("#open").addEventListener("click", openCard);
+
+  // Reveal: setiap kartu arcana berbalik masuk
+  var io = null;
+  function observe() {
+    if (io) return;
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in"); io.unobserve(e.target);
+          if (e.target.closest("#penutup")) { var r = e.target.getBoundingClientRect(); setTimeout(function () { FX.burst(r.left + r.width / 2, r.top + r.height / 2, 80, { speed: 7, size: 8, life: 90, ring: true, ringMax: 110 }); }, 700); }
+        }
+      });
+    }, { threshold: .18 });
+    $$(".rv").forEach(function (el) { io.observe(el); });
+  }
+
+  // Mempelai miring (kursor)
+  if (!reduce) $$(".tilt2").forEach(function (c) {
+    c.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.setProperty("--tx", (x * 14).toFixed(1) + "deg"); c.style.setProperty("--ty", (-y * 14).toFixed(1) + "deg");
+    });
+    c.addEventListener("pointerleave", function () { c.style.setProperty("--tx", "0deg"); c.style.setProperty("--ty", "0deg"); });
+  });
+
+  // Galeri: ketuk kartu untuk membalik dan memperbesar
+  var fcs = $$(".fc");
+  fcs.forEach(function (c) {
+    c.addEventListener("click", function () {
+      var on = !c.classList.contains("on");
+      fcs.forEach(function (o) { o.classList.remove("on"); });
+      if (on) { c.classList.add("on"); var r = c.getBoundingClientRect(); FX.burst(r.left + r.width / 2, r.top + r.height / 2, 36, { speed: 5, size: 7, life: 70 }); }
+    });
+  });
+
+  $("#copy").addEventListener("click", function () {
+    var b = this.querySelector("span"), t = $("#rek").textContent.trim();
+    var done = function (m) { b.textContent = m; setTimeout(function () { b.textContent = "Salin nomor"; }, 2000); };
+    try { navigator.clipboard.writeText(t).then(function () { done("Tersalin"); }, function () { done("Salin manual"); }); }
+    catch (e) { done("Salin manual"); }
+  });
+
+  $("#form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var teks = "Konfirmasi kehadiran pernikahan Agus & Wenna\nNama: " + $("#nama").value +
+      "\nKehadiran: " + $("#hadir").value + "\nJumlah tamu: " + $("#jml").value +
+      ($("#pesan").value ? "\nUcapan: " + $("#pesan").value : "");
+    open("https://wa.me/" + WA + "?text=" + encodeURIComponent(teks), "_blank");
+  });
+})();
+</script>
+</body>
+</html>

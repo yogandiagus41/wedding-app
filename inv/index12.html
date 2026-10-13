@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1424">
+<title>Agus & Wenna — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style12.css">
+</head>
+<body class="locked">
+
+<!-- Simbol gunungan (kayon) dipakai ulang pada dua daun pintu -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gGun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a2c17"/><stop offset="1" stop-color="#2a140c"/></linearGradient>
+    <symbol id="gunungan" viewBox="0 0 200 340">
+      <path d="M100 6C118 50 182 82 186 170C190 255 150 312 100 334C50 312 10 255 14 170C18 82 82 50 100 6Z" fill="url(#gGun)" stroke="#d9b25f" stroke-width="2.2"/>
+      <path d="M100 26C115 62 168 90 171 170C174 245 140 296 100 316C60 296 26 245 29 170C32 90 85 62 100 26Z" fill="none" stroke="#d9b25f" stroke-width="1" opacity=".7"/>
+      <path d="M100 52C110 78 150 100 153 170C155 230 128 272 100 288C72 272 45 230 47 170C50 100 90 78 100 52Z" fill="#7a2f1d" stroke="#d9b25f" stroke-width=".8" opacity=".95"/>
+      <!-- pohon kehidupan -->
+      <path d="M100 96V224" stroke="#e8c978" stroke-width="2" fill="none"/>
+      <path d="M100 130C80 126 70 112 76 98M100 130C120 126 130 112 124 98M100 164C74 160 62 142 70 124M100 164C126 160 138 142 130 124M100 198C78 196 68 182 72 168M100 198C122 196 132 182 128 168" stroke="#e8c978" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <circle cx="100" cy="90" r="5" fill="#e8c978"/><circle cx="76" cy="98" r="3" fill="#e8c978"/><circle cx="124" cy="98" r="3" fill="#e8c978"/>
+      <!-- gapura -->
+      <path d="M78 334V252Q78 226 100 226Q122 226 122 252V334Z" fill="#150a06" stroke="#d9b25f" stroke-width="1.6"/>
+      <circle cx="64" cy="262" r="7" fill="none" stroke="#e8c978" stroke-width="1.4"/><circle cx="136" cy="262" r="7" fill="none" stroke="#e8c978" stroke-width="1.4"/>
+    </symbol>
+    <linearGradient id="gm1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3f72"/><stop offset="1" stop-color="#1c2440"/></linearGradient>
+    <linearGradient id="gm2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b5148"/><stop offset="1" stop-color="#16302b"/></linearGradient>
+  </defs>
+</svg>
+
+<!-- ================= LATAR 3D: lanskap desa Jawa (kamera maju saat scroll) ================= -->
+<div class="stage" id="stage" aria-hidden="true">
+  <div class="cam">
+    <div class="layer sky"></div>
+    <div class="layer sunwrap"><i class="sun"></i></div>
+
+    <div class="layer mtn m1"><svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMax slice"><path d="M0 500V330C80 300 140 260 220 280C300 190 340 120 420 60C470 100 520 190 560 230C640 200 720 250 800 210C880 190 940 250 1000 270V500Z" fill="url(#gm1)"/></svg></div>
+    <div class="layer mtn m2"><svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMax slice"><path d="M0 500V380C120 330 220 360 330 320C440 280 520 340 640 310C760 280 860 330 1000 300V500Z" fill="url(#gm2)"/></svg></div>
+    <div class="layer mist"></div>
+
+    <div class="layer sawah">
+      <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMax slice">
+        <path d="M0 500V150C200 118 400 170 600 138S900 126 1000 150V500Z" fill="#3f6336"/>
+        <path d="M0 500V240C250 205 450 262 700 226S900 214 1000 240V500Z" fill="#4e7544"/>
+        <path d="M0 500V330C220 296 460 348 700 316S920 304 1000 330V500Z" fill="#5f8a4f"/>
+        <path d="M0 500V410C260 380 480 428 720 398S920 388 1000 410V500Z" fill="#729a58"/>
+        <path d="M0 240C250 205 450 262 700 226S900 214 1000 240M0 330C220 296 460 348 700 316S920 304 1000 330M0 410C260 380 480 428 720 398S920 388 1000 410" fill="none" stroke="#b4d08a" stroke-width="1.6" opacity=".45"/>
+        <!-- joglo -->
+        <g transform="translate(560 40)">
+          <rect x="60" y="140" width="260" height="14" fill="#1d1410"/>
+          <rect x="76" y="96" width="228" height="44" fill="#f0b252" opacity=".55"/>
+          <g fill="#2a1a10"><rect x="76" y="92" width="8" height="48"/><rect x="132" y="92" width="8" height="48"/><rect x="240" y="92" width="8" height="48"/><rect x="296" y="92" width="8" height="48"/></g>
+          <path d="M46 96L314 96L262 56L98 56Z" fill="#26180f"/>
+          <path d="M112 56L248 56L212 18L148 18Z" fill="#2f1d12"/>
+          <path d="M176 18L180 2L184 18Z" fill="#d9b25f"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="layer palms">
+      <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMax slice">
+        <g stroke="#10180f" fill="none" stroke-linecap="round">
+          <path d="M120 500C128 420 124 340 150 250" stroke-width="9"/>
+          <path d="M150 250C120 236 96 244 70 266M150 250C176 232 206 236 232 256M150 250C140 220 150 196 172 176M150 250C132 226 110 214 84 214M150 250C170 224 196 214 224 218" stroke-width="5"/>
+          <path d="M900 500C890 430 896 360 872 290" stroke-width="8"/>
+          <path d="M872 290C846 280 822 288 800 306M872 290C898 276 924 282 946 300M872 290C866 262 876 242 896 226M872 290C852 266 828 258 806 262" stroke-width="4.5"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="layer padi pl"><svg viewBox="0 0 300 500" preserveAspectRatio="xMinYMax meet">
+      <g fill="none" stroke="#c4a94b" stroke-linecap="round" stroke-width="3.5">
+        <path d="M20 500C24 380 40 280 110 200"/><path d="M50 500C56 400 80 320 160 270"/><path d="M80 500C90 420 120 360 200 330"/><path d="M0 500C6 410 20 340 70 270"/>
+      </g>
+      <g fill="#e0c25a"><ellipse cx="112" cy="196" rx="9" ry="20" transform="rotate(35 112 196)"/><ellipse cx="162" cy="266" rx="8" ry="18" transform="rotate(55 162 266)"/><ellipse cx="202" cy="326" rx="8" ry="17" transform="rotate(70 202 326)"/><ellipse cx="72" cy="266" rx="8" ry="18" transform="rotate(25 72 266)"/></g>
+    </svg></div>
+    <div class="layer padi pr"><svg viewBox="0 0 300 500" preserveAspectRatio="xMaxYMax meet">
+      <g transform="translate(300 0) scale(-1 1)">
+        <g fill="none" stroke="#c4a94b" stroke-linecap="round" stroke-width="3.5">
+          <path d="M20 500C24 380 40 280 110 200"/><path d="M50 500C56 400 80 320 160 270"/><path d="M80 500C90 420 120 360 200 330"/><path d="M0 500C6 410 20 340 70 270"/>
+        </g>
+        <g fill="#e0c25a"><ellipse cx="112" cy="196" rx="9" ry="20" transform="rotate(35 112 196)"/><ellipse cx="162" cy="266" rx="8" ry="18" transform="rotate(55 162 266)"/><ellipse cx="202" cy="326" rx="8" ry="17" transform="rotate(70 202 326)"/><ellipse cx="72" cy="266" rx="8" ry="18" transform="rotate(25 72 266)"/></g>
+      </g>
+    </svg></div>
+  </div>
+  <div class="night"></div>
+</div>
+
+<!-- ================= COVER: gunungan yang membuka ================= -->
+<header id="cover">
+  <div class="cv-bg"></div>
+  <div class="cv-grid">
+    <div class="cv-top">
+      <p class="eyebrow">Sugeng Rawuh</p>
+      <p class="mini">Undangan Pernikahan</p>
+    </div>
+
+    <div class="doors" id="doors">
+      <div class="door l"><svg viewBox="0 0 200 340" preserveAspectRatio="none"><use href="#gunungan"/></svg></div>
+      <div class="door r"><svg viewBox="0 0 200 340" preserveAspectRatio="none"><use href="#gunungan"/></svg></div>
+    </div>
+
+    <div class="cv-bot">
+      <h1 class="names">Agus <em>&amp;</em> Wenna</h1>
+      <p class="date">Sabtu, 5 Desember 2026</p>
+      <p class="to">Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></p>
+      <button id="open" class="btn" type="button"><span>Buka Undangan</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ISI ================= -->
+<main id="isi" hidden>
+
+  <section class="sec" id="pembuka">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Assalamu'alaikum Wr. Wb.</p>
+      <h2 class="rv" style="--d:.1s">Rahayu, kami melangkah bersama</h2>
+      <span class="kawung rv" style="--d:.2s"></span>
+      <p class="verse rv" style="--d:.3s">
+        Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+        agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.
+      </p>
+      <p class="cite rv" style="--d:.4s">QS. Ar-Rum: 21</p>
+    </div>
+  </section>
+
+  <section class="sec" id="mempelai">
+    <div class="wrap wide">
+      <div class="panel">
+        <p class="eyebrow rv">Mempelai</p>
+        <h2 class="rv" style="--d:.1s">Sang pengantin</h2>
+        <div class="duo">
+          <article class="who tilt rv" style="--d:.15s">
+            <!-- GANTI: foto dengan <img> di dalam .kayon -->
+            <div class="kayon" role="img" aria-label="Foto Agus"><b>A</b></div>
+            <h3>Agus Yogandi</h3>
+            <p>Putra dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+          </article>
+          <article class="who tilt rv" style="--d:.3s">
+            <div class="kayon" role="img" aria-label="Foto Wenna"><b>W</b></div>
+            <h3>Wenna [Nama Lengkap]</h3>
+            <p>Putri dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="acara">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Simpan tanggalnya</p>
+      <div class="bigdate rv" style="--d:.1s"><b>05</b><span>Desember 2026<small>Sabtu</small></span></div>
+      <span class="kawung rv" style="--d:.2s"></span>
+      <div class="count rv" style="--d:.25s">
+        <div><b id="cd">00</b><span>hari</span></div>
+        <div><b id="ch">00</b><span>jam</span></div>
+        <div><b id="cm">00</b><span>menit</span></div>
+        <div><b id="cs">00</b><span>detik</span></div>
+      </div>
+      <!-- GANTI: jam acara -->
+      <div class="events">
+        <div class="event rv" style="--d:.3s"><time>08.00</time><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></div>
+        <div class="event rv" style="--d:.4s"><time>11.00</time><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="lokasi">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Lokasi</p>
+      <h2 class="rv" style="--d:.1s">Graha Yapin Jatimulya</h2>
+      <p class="muted rv" style="--d:.15s">Bekasi, Jawa Barat</p>
+      <div class="frame rv" style="--d:.2s"><iframe title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Graha+Yapin+Jatimulya+Bekasi&output=embed"></iframe></div>
+      <div class="actions rv" style="--d:.3s">
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Graha+Yapin+Jatimulya+Bekasi"><span>Buka Peta</span></a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Agus+%26+Wenna&dates=20261205T010000Z/20261205T070000Z&location=Graha+Yapin+Jatimulya,+Bekasi"><span>Simpan Kalender</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="galeri">
+    <div class="wrap wide">
+      <div class="panel flat">
+        <p class="eyebrow rv">Galeri</p>
+        <h2 class="rv" style="--d:.1s">Kenangan kami</h2>
+        <p class="muted rv" style="--d:.15s">Geser ke samping</p>
+      </div>
+      <!-- GANTI: tiap .ph dengan <img src="..." alt="..."> -->
+      <div class="flow rv" id="flow" style="--d:.2s" tabindex="0" aria-label="Galeri foto">
+        <figure class="fi"><div class="ph a"></div><figcaption>01</figcaption></figure>
+        <figure class="fi"><div class="ph b"></div><figcaption>02</figcaption></figure>
+        <figure class="fi"><div class="ph c"></div><figcaption>03</figcaption></figure>
+        <figure class="fi"><div class="ph d"></div><figcaption>04</figcaption></figure>
+        <figure class="fi"><div class="ph e"></div><figcaption>05</figcaption></figure>
+        <figure class="fi"><div class="ph f"></div><figcaption>06</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="hadiah">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Tanda kasih</p>
+      <h2 class="rv" style="--d:.1s">Hadiah digital</h2>
+      <p class="muted rv" style="--d:.15s">Doa restu Anda sudah cukup bagi kami. Bila ingin berbagi kebahagiaan, dapat melalui rekening berikut.</p>
+      <!-- GANTI: data rekening -->
+      <div class="bank rv" style="--d:.25s">
+        <p class="bank-name">Bank [Nama Bank]</p>
+        <p class="bank-no" id="rek">0000000000</p>
+        <p class="muted">a.n. Agus Yogandi</p>
+        <button class="btn sm" id="copy" type="button"><span>Salin nomor</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="rsvp">
+    <div class="panel wrap">
+      <p class="eyebrow rv">RSVP</p>
+      <h2 class="rv" style="--d:.1s">Konfirmasi kehadiran</h2>
+      <form id="form" class="rv" style="--d:.2s">
+        <label>Nama<input id="nama" required></label>
+        <div class="two">
+          <label>Kehadiran<select id="hadir"><option>Insya Allah hadir</option><option>Mohon maaf, tidak bisa hadir</option></select></label>
+          <label>Jumlah<select id="jml"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        </div>
+        <label>Ucapan dan doa<textarea id="pesan" rows="3"></textarea></label>
+        <button class="btn" type="submit"><span>Kirim lewat WhatsApp</span></button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="sec end">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Matur nuwun</p>
+      <p class="muted rv" style="--d:.1s">Atas doa dan kehadiran Bapak/Ibu/Saudara/i.</p>
+      <p class="closing rv" style="--d:.2s">Agus <em>&amp;</em> Wenna</p>
+      <p class="muted rv" style="--d:.3s">Wassalamu'alaikum Wr. Wb.</p>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var WA = "62XXXXXXXXXXX";                                   // GANTI: nomor WhatsApp (62..., tanpa +)
+  var TARGET = new Date("2026-12-05T08:00:00+07:00");
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var to = new URLSearchParams(location.search).get("to");
+  if (to) { $("#guest").textContent = to; $("#nama").value = to; }
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var s = Math.max(0, Math.floor((TARGET - new Date()) / 1000));
+    $("#cd").textContent = pad(Math.floor(s / 86400));
+    $("#ch").textContent = pad(Math.floor(s % 86400 / 3600));
+    $("#cm").textContent = pad(Math.floor(s % 3600 / 60));
+    $("#cs").textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Kamera lanskap 3D: progres scroll -> variabel --p
+  var stage = $("#stage"), ticking = false;
+  function cam() {
+    var max = document.documentElement.scrollHeight - innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    stage.style.setProperty("--p", p.toFixed(4));
+    ticking = false;
+  }
+  addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(cam); } }, { passive: true });
+  addEventListener("resize", cam);
+
+  // Buka undangan: gunungan membuka
+  var cover = $("#cover");
+  $("#open").addEventListener("click", function () {
+    $("#isi").hidden = false;
+    cover.classList.add("go");
+    var t = reduce ? 0 : 1;
+    setTimeout(function () { cover.classList.add("gone"); document.body.classList.remove("locked"); scrollTo(0, 0); cam(); observe(); }, 1500 * t + 30);
+    setTimeout(function () { cover.style.display = "none"; }, 2500 * t + 60);
+  });
+
+  // Reveal
+  var io = null;
+  function observe() {
+    if (io) return;
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: .15 });
+    $$(".rv").forEach(function (el) { io.observe(el); });
+  }
+
+  // Foto mempelai miring (kursor)
+  if (!reduce) $$(".tilt").forEach(function (c) {
+    c.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.setProperty("--tx", (x * 14).toFixed(1) + "deg"); c.style.setProperty("--ty", (-y * 14).toFixed(1) + "deg");
+    });
+    c.addEventListener("pointerleave", function () { c.style.setProperty("--tx", "0deg"); c.style.setProperty("--ty", "0deg"); });
+  });
+
+  // Galeri coverflow 3D: putar tiap kartu sesuai jaraknya ke tengah
+  var flow = $("#flow"), items = $$(".fi"), fr = false;
+  function coverflow() {
+    var c = flow.scrollLeft + flow.clientWidth / 2;
+    items.forEach(function (it) {
+      var d = (it.offsetLeft + it.offsetWidth / 2 - c) / it.offsetWidth;
+      var a = Math.max(-1.6, Math.min(1.6, d));
+      it.style.transform = "translateZ(" + (-Math.abs(a) * 90).toFixed(0) + "px) rotateY(" + (-a * 38).toFixed(1) + "deg) scale(" + (1 - Math.min(Math.abs(a), 1) * .1).toFixed(3) + ")";
+      it.style.opacity = (1 - Math.min(Math.abs(a), 1.6) * .28).toFixed(2);
+    });
+    fr = false;
+  }
+  flow.addEventListener("scroll", function () { if (!fr) { fr = true; requestAnimationFrame(coverflow); } }, { passive: true });
+  addEventListener("resize", coverflow); coverflow();
+
+  // Salin rekening
+  $("#copy").addEventListener("click", function () {
+    var b = this.querySelector("span"), t = $("#rek").textContent.trim();
+    var done = function (m) { b.textContent = m; setTimeout(function () { b.textContent = "Salin nomor"; }, 2000); };
+    try { navigator.clipboard.writeText(t).then(function () { done("Tersalin"); }, function () { done("Salin manual"); }); }
+    catch (e) { done("Salin manual"); }
+  });
+
+  // RSVP -> WhatsApp
+  $("#form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var teks = "Konfirmasi kehadiran pernikahan Agus & Wenna\nNama: " + $("#nama").value +
+      "\nKehadiran: " + $("#hadir").value + "\nJumlah tamu: " + $("#jml").value +
+      ($("#pesan").value ? "\nUcapan: " + $("#pesan").value : "");
+    open("https://wa.me/" + WA + "?text=" + encodeURIComponent(teks), "_blank");
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#120b0a">
+<title>Agus & Wenna — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style13.css">
+</head>
+<body class="locked">
+
+<!-- ================= COVER: diorama rumah gadang 3D ================= -->
+<header id="cover">
+  <div class="top-area">
+    <div class="cv-top">
+      <p class="eyebrow">Salamaik Datang</p>
+      <p class="mini">Undangan Pernikahan</p>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="ground" aria-hidden="true"></div>
+      <div class="sway">
+        <div class="scene" id="scene" aria-hidden="true">
+          <div class="pl glow"></div>
+
+          <div class="pl hills far"><svg viewBox="0 0 1000 300" preserveAspectRatio="none"><path d="M0 300V190C100 150 160 90 250 120C330 40 400 60 470 130C560 90 640 70 720 120C800 80 900 110 1000 150V300Z" fill="#6f8d78"/></svg></div>
+          <div class="pl hills near"><svg viewBox="0 0 1000 300" preserveAspectRatio="none"><path d="M0 300V220C120 190 220 210 330 180C440 150 540 200 660 175C780 150 900 190 1000 170V300Z" fill="#2f5d3a"/></svg></div>
+
+          <!-- pohon kelapa -->
+          <div class="pl palms"><svg viewBox="0 0 200 300" preserveAspectRatio="xMaxYMax meet">
+            <g stroke="#0e1f14" fill="none" stroke-linecap="round">
+              <path d="M120 300C128 240 122 180 146 110" stroke-width="7"/>
+              <path d="M146 110C118 100 96 106 72 124M146 110C170 94 196 98 216 116M146 110C138 84 146 62 166 44M146 110C128 88 108 78 84 80M146 110C164 86 188 78 210 82" stroke-width="4"/>
+            </g></svg></div>
+
+          <!-- rangkiang (lumbung padi) -->
+          <div class="pl rang"><svg viewBox="0 0 200 210">
+            <defs><pattern id="rb2" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0 14L7 2L14 14Z" fill="none" stroke="#d8b15a" stroke-width="1"/></pattern></defs>
+            <path d="M10 122C16 114 32 80 40 40C48 84 62 96 70 99C78 96 92 80 100 34C108 80 122 96 130 99C138 96 152 84 160 40C168 80 184 114 190 122L190 134L10 134Z" fill="#1b0f0c" stroke="#d8b15a" stroke-width="1.6"/>
+            <path d="M24 134L176 134L170 172L30 172Z" fill="#7a1d17"/><path d="M24 134L176 134L170 172L30 172Z" fill="url(#rb2)" opacity=".6"/>
+            <g fill="#2a140c"><rect x="34" y="172" width="7" height="30"/><rect x="82" y="172" width="7" height="30"/><rect x="111" y="172" width="7" height="30"/><rect x="159" y="172" width="7" height="30"/></g>
+          </svg></div>
+
+          <!-- rumah gadang: atap (gonjong) -->
+          <div class="pl roof"><svg viewBox="0 0 600 380">
+            <defs>
+              <linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1712"/><stop offset="1" stop-color="#150a08"/></linearGradient>
+              <pattern id="ijuk" width="6" height="9" patternUnits="userSpaceOnUse"><path d="M3 0V9" stroke="#4a2c1e" stroke-width="1.1"/></pattern>
+            </defs>
+            <path id="roofP" d="M20 214C30 204 57 112 75 48C93 112 135 141 145 146C155 141 197 108 215 46C233 108 290 141 300 152C310 141 367 108 385 46C403 108 445 141 455 146C465 141 507 112 525 48C543 112 570 204 580 214L580 240L20 240Z" fill="url(#rg)" stroke="#d8b15a" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M20 214C30 204 57 112 75 48C93 112 135 141 145 146C155 141 197 108 215 46C233 108 290 141 300 152C310 141 367 108 385 46C403 108 445 141 455 146C465 141 507 112 525 48C543 112 570 204 580 214L580 240L20 240Z" fill="url(#ijuk)" opacity=".7"/>
+            <path d="M24 226H576" stroke="#d8b15a" stroke-width="2"/>
+            <g fill="#e8c978"><path d="M75 48l-4 -14l8 0z"/><path d="M215 46l-4 -14l8 0z"/><path d="M385 46l-4 -14l8 0z"/><path d="M525 48l-4 -14l8 0z"/></g>
+          </svg></div>
+
+          <!-- badan rumah + pintu -->
+          <div class="pl body">
+            <svg viewBox="0 0 600 380">
+              <defs>
+                <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a2119"/><stop offset="1" stop-color="#5a130f"/></linearGradient>
+                <pattern id="rb" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16L8 3L16 16Z" fill="none" stroke="#d8b15a" stroke-width="1"/></pattern>
+                <linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd98a"/><stop offset="1" stop-color="#b8531f"/></linearGradient>
+              </defs>
+              <path d="M62 330L538 330L556 240L44 240Z" fill="url(#wg)"/>
+              <path d="M62 330L538 330L556 240L44 240Z" fill="url(#rb)" opacity=".55"/>
+              <path d="M48 262H552M58 312H542" stroke="#d8b15a" stroke-width="2"/>
+              <g fill="#1a0908" stroke="#d8b15a" stroke-width="1.4">
+                <rect x="82" y="272" width="34" height="32"/><rect x="132" y="272" width="34" height="32"/><rect x="182" y="272" width="34" height="32"/>
+                <rect x="384" y="272" width="34" height="32"/><rect x="434" y="272" width="34" height="32"/><rect x="484" y="272" width="34" height="32"/>
+              </g>
+              <rect x="268" y="262" width="64" height="68" fill="url(#dg)" stroke="#d8b15a" stroke-width="2"/>
+            </svg>
+            <div class="leaf ll"></div><div class="leaf lr"></div>
+          </div>
+
+          <!-- tiang & tangga -->
+          <div class="pl stilts"><svg viewBox="0 0 600 380">
+            <rect x="48" y="328" width="504" height="8" fill="#2a140c" stroke="#d8b15a" stroke-width="1"/>
+            <g fill="#2a140c"><rect x="70" y="336" width="9" height="40"/><rect x="115" y="336" width="9" height="40"/><rect x="160" y="336" width="9" height="40"/><rect x="205" y="336" width="9" height="40"/><rect x="386" y="336" width="9" height="40"/><rect x="431" y="336" width="9" height="40"/><rect x="476" y="336" width="9" height="40"/><rect x="521" y="336" width="9" height="40"/></g>
+            <g fill="#4a2c1e" stroke="#d8b15a" stroke-width=".8"><rect x="262" y="340" width="76" height="8"/><rect x="258" y="350" width="84" height="8"/><rect x="254" y="360" width="92" height="8"/><rect x="250" y="370" width="100" height="8"/></g>
+          </svg></div>
+
+          <div class="pl grass"><svg viewBox="0 0 600 120" preserveAspectRatio="none">
+            <defs><pattern id="gr" width="34" height="70" patternUnits="userSpaceOnUse"><path d="M0 70L7 12L14 70M12 70L22 28L30 70" fill="#173620"/></pattern></defs>
+            <rect x="0" y="40" width="600" height="80" fill="url(#gr)"/><rect x="0" y="100" width="600" height="20" fill="#173620"/>
+          </svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-bot">
+    <h1 class="names">Agus <em>&amp;</em> Wenna</h1>
+    <p class="date">Sabtu, 5 Desember 2026</p>
+    <p class="to">Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></p>
+    <button id="open" class="btn" type="button"><span>Buka Undangan</span></button>
+  </div>
+  <div class="flash" aria-hidden="true"></div>
+</header>
+
+<!-- ================= ISI ================= -->
+<main id="isi" hidden>
+
+  <section class="sec" id="pembuka">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Assalamu'alaikum Wr. Wb.</p>
+      <h2 class="rv" style="--d:.1s">Baralek kami, <em>doa Anda</em></h2>
+      <span class="rebung rv" style="--d:.2s"></span>
+      <p class="verse rv" style="--d:.3s">
+        Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+        agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.
+      </p>
+      <p class="cite rv" style="--d:.4s">QS. Ar-Rum: 21</p>
+      <p class="adage rv" style="--d:.5s">“Adat basandi syarak, syarak basandi Kitabullah.”<small>Falsafah Minangkabau</small></p>
+    </div>
+  </section>
+
+  <div class="rebung full" aria-hidden="true"></div>
+
+  <section class="sec" id="mempelai">
+    <div class="wrap wide">
+      <p class="eyebrow rv">Mempelai</p>
+      <h2 class="rv" style="--d:.1s">Marapulai &amp; Anak Daro</h2>
+      <div class="duo">
+        <article class="who tilt rv" style="--d:.15s">
+          <!-- GANTI: foto dengan <img> di dalam .gon .in -->
+          <div class="gon" role="img" aria-label="Foto Agus"><div class="in"><b>A</b></div></div>
+          <h3>Agus Yogandi</h3>
+          <p>Putra dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </article>
+        <article class="who tilt rv" style="--d:.3s">
+          <div class="gon" role="img" aria-label="Foto Wenna"><div class="in"><b>W</b></div></div>
+          <h3>Wenna [Nama Lengkap]</h3>
+          <p>Putri dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="rebung full" aria-hidden="true"></div>
+
+  <section class="sec" id="acara">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Simpan tanggalnya</p>
+      <div class="bigdate rv" style="--d:.1s"><b>05</b><span>Desember 2026<small>Sabtu</small></span></div>
+      <div class="count rv" style="--d:.2s" aria-label="Hitung mundur">
+        <div><b id="cd">00</b><span>hari</span></div>
+        <div><b id="ch">00</b><span>jam</span></div>
+        <div><b id="cm">00</b><span>menit</span></div>
+        <div><b id="cs">00</b><span>detik</span></div>
+      </div>
+      <!-- GANTI: jam acara -->
+      <ol class="line">
+        <li class="rv" style="--d:.3s"><time>08.00</time><div><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></div></li>
+        <li class="rv" style="--d:.4s"><time>11.00</time><div><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="rebung full" aria-hidden="true"></div>
+
+  <section class="sec" id="lokasi">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Lokasi</p>
+      <h2 class="rv" style="--d:.1s">Graha Yapin Jatimulya</h2>
+      <p class="muted rv" style="--d:.15s">Bekasi, Jawa Barat</p>
+      <div class="frame rv" style="--d:.2s"><iframe title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Graha+Yapin+Jatimulya+Bekasi&output=embed"></iframe></div>
+      <div class="actions rv" style="--d:.3s">
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Graha+Yapin+Jatimulya+Bekasi"><span>Buka Peta</span></a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Agus+%26+Wenna&dates=20261205T010000Z/20261205T070000Z&location=Graha+Yapin+Jatimulya,+Bekasi"><span>Simpan Kalender</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="rebung full" aria-hidden="true"></div>
+
+  <section class="sec" id="galeri">
+    <div class="wrap">
+      <p class="eyebrow rv">Galeri</p>
+      <h2 class="rv" style="--d:.1s">Empat sisi kenangan</h2>
+      <p class="muted rv" style="--d:.15s">Geser atau tekan panah untuk memutar kubus</p>
+      <!-- GANTI: tiap .ph dengan <img src="..." alt="..."> -->
+      <div class="cubewrap rv" id="cubewrap" style="--d:.2s">
+        <div class="cube" id="cube">
+          <figure class="cf" style="--i:0"><div class="ph a"></div><figcaption>I</figcaption></figure>
+          <figure class="cf" style="--i:1"><div class="ph b"></div><figcaption>II</figcaption></figure>
+          <figure class="cf" style="--i:2"><div class="ph c"></div><figcaption>III</figcaption></figure>
+          <figure class="cf" style="--i:3"><div class="ph d"></div><figcaption>IV</figcaption></figure>
+        </div>
+      </div>
+      <div class="ctrl rv" style="--d:.3s">
+        <button class="round" id="cPrev" type="button" aria-label="Putar ke kiri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m15 5-7 7 7 7"/></svg></button>
+        <button class="round" id="cNext" type="button" aria-label="Putar ke kanan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 5 7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="rebung full" aria-hidden="true"></div>
+
+  <section class="sec" id="hadiah">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Tanda kasih</p>
+      <h2 class="rv" style="--d:.1s">Hadiah digital</h2>
+      <p class="muted rv" style="--d:.15s">Doa restu Anda sudah cukup bagi kami. Bila ingin berbagi kebahagiaan, dapat melalui rekening berikut.</p>
+      <!-- GANTI: data rekening -->
+      <div class="bank rv" style="--d:.25s">
+        <p class="bank-name">Bank [Nama Bank]</p>
+        <p class="bank-no" id="rek">0000000000</p>
+        <p class="muted">a.n. Agus Yogandi</p>
+        <button class="btn sm" id="copy" type="button"><span>Salin nomor</span></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="rebung full" aria-hidden="true"></div>
+
+  <section class="sec" id="rsvp">
+    <div class="panel wrap">
+      <p class="eyebrow rv">RSVP</p>
+      <h2 class="rv" style="--d:.1s">Konfirmasi kehadiran</h2>
+      <form id="form" class="rv" style="--d:.2s">
+        <label>Nama<input id="nama" required></label>
+        <div class="two">
+          <label>Kehadiran<select id="hadir"><option>Insya Allah hadir</option><option>Mohon maaf, tidak bisa hadir</option></select></label>
+          <label>Jumlah<select id="jml"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        </div>
+        <label>Ucapan dan doa<textarea id="pesan" rows="3"></textarea></label>
+        <button class="btn" type="submit"><span>Kirim lewat WhatsApp</span></button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="sec end">
+    <div class="panel wrap">
+      <p class="eyebrow rv">Tarimo kasih</p>
+      <p class="muted rv" style="--d:.1s">Atas doa dan kehadiran Bapak/Ibu/Saudara/i.</p>
+      <p class="closing rv" style="--d:.2s">Agus <em>&amp;</em> Wenna</p>
+      <p class="muted rv" style="--d:.3s">Wassalamu'alaikum Wr. Wb.</p>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var WA = "62XXXXXXXXXXX";                                   // GANTI: nomor WhatsApp (62..., tanpa +)
+  var TARGET = new Date("2026-12-05T08:00:00+07:00");
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var to = new URLSearchParams(location.search).get("to");
+  if (to) { $("#guest").textContent = to; $("#nama").value = to; }
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var s = Math.max(0, Math.floor((TARGET - new Date()) / 1000));
+    $("#cd").textContent = pad(Math.floor(s / 86400));
+    $("#ch").textContent = pad(Math.floor(s % 86400 / 3600));
+    $("#cm").textContent = pad(Math.floor(s % 3600 / 60));
+    $("#cs").textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Diorama: miring mengikuti jari / kursor
+  var cover = $("#cover"), scene = $("#scene"), raf = 0, rx = 0, ry = 0;
+  function applyTilt() { scene.style.setProperty("--ry", ry.toFixed(2) + "deg"); scene.style.setProperty("--rx", rx.toFixed(2) + "deg"); raf = 0; }
+  if (!reduce) cover.addEventListener("pointermove", function (e) {
+    ry = (e.clientX / innerWidth - .5) * 30; rx = -(e.clientY / innerHeight - .5) * 14;
+    if (!raf) raf = requestAnimationFrame(applyTilt);
+  }, { passive: true });
+
+  // Buka undangan: pintu terbuka, kamera masuk ke dalam rumah gadang
+  var opened = false;
+  $("#open").addEventListener("click", function () {
+    if (opened) return; opened = true;
+    $("#isi").hidden = false;
+    cover.classList.add("go");
+    var t = reduce ? 0 : 1;
+    setTimeout(function () { cover.classList.add("gone"); document.body.classList.remove("locked"); scrollTo(0, 0); observe(); }, 2300 * t + 30);
+    setTimeout(function () { cover.style.display = "none"; }, 3300 * t + 60);
+  });
+
+  var io = null;
+  function observe() {
+    if (io) return;
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: .15 });
+    $$(".rv").forEach(function (el) { io.observe(el); });
+  }
+
+  if (!reduce) $$(".tilt").forEach(function (c) {
+    c.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.setProperty("--tx", (x * 14).toFixed(1) + "deg"); c.style.setProperty("--ty", (-y * 14).toFixed(1) + "deg");
+    });
+    c.addEventListener("pointerleave", function () { c.style.setProperty("--tx", "0deg"); c.style.setProperty("--ty", "0deg"); });
+  });
+
+  // Galeri: kubus 3D (geser / tombol / putar otomatis)
+  var cube = $("#cube"), wrap = $("#cubewrap"), a = 0, drag = null, vis = false, idle = 0;
+  function setA(v, smooth) { cube.style.transition = smooth ? "transform .9s cubic-bezier(.3,.7,.2,1)" : "none"; cube.style.setProperty("--a", v + "deg"); }
+  function snap(dir) { a = Math.round(a / 90) * 90 + (dir || 0) * 90; setA(a, true); idle = Date.now(); }
+  wrap.addEventListener("pointerdown", function (e) { drag = { x: e.clientX, a: a }; wrap.setPointerCapture(e.pointerId); });
+  wrap.addEventListener("pointermove", function (e) { if (!drag) return; a = drag.a + (e.clientX - drag.x) * .45; setA(a, false); });
+  function up() { if (!drag) return; drag = null; snap(0); }
+  wrap.addEventListener("pointerup", up); wrap.addEventListener("pointercancel", up);
+  $("#cPrev").addEventListener("click", function () { snap(1); });
+  $("#cNext").addEventListener("click", function () { snap(-1); });
+  new IntersectionObserver(function (es) { vis = es[0].isIntersecting; }).observe(wrap);
+  if (!reduce) setInterval(function () { if (vis && !drag && Date.now() - idle > 5000) snap(-1); }, 2500);
+  setA(0, false);
+
+  $("#copy").addEventListener("click", function () {
+    var b = this.querySelector("span"), t = $("#rek").textContent.trim();
+    var done = function (m) { b.textContent = m; setTimeout(function () { b.textContent = "Salin nomor"; }, 2000); };
+    try { navigator.clipboard.writeText(t).then(function () { done("Tersalin"); }, function () { done("Salin manual"); }); }
+    catch (e) { done("Salin manual"); }
+  });
+
+  $("#form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var teks = "Konfirmasi kehadiran pernikahan Agus & Wenna\nNama: " + $("#nama").value +
+      "\nKehadiran: " + $("#hadir").value + "\nJumlah tamu: " + $("#jml").value +
+      ($("#pesan").value ? "\nUcapan: " + $("#pesan").value : "");
+    open("https://wa.me/" + WA + "?text=" + encodeURIComponent(teks), "_blank");
+  });
+})();
+</script>
+</body>
+</html>

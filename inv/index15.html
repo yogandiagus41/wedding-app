@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#09090d">
+<title>Agus & Wenna — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style15.css">
+</head>
+<body class="locked">
+
+<div class="spotlight" id="spot" aria-hidden="true"></div>
+
+<!-- ================= COVER: bola disko cermin 3D ================= -->
+<header id="cover">
+  <canvas id="ball" aria-hidden="true"></canvas>
+  <div class="cv-top"><p class="eyebrow">Undangan Pernikahan</p></div>
+  <div class="cv-bot">
+    <h1 class="names"><span class="holo">Agus</span><span class="holo it">&amp; Wenna</span></h1>
+    <p class="date">Sabtu, 5 Desember 2026</p>
+    <p class="to">Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></p>
+    <button id="open" class="btn" type="button"><span>Buka Undangan</span></button>
+    <p class="tapfx">Ketuk di mana saja untuk glitter ✦</p>
+  </div>
+  <div class="flash" aria-hidden="true"></div>
+</header>
+
+<!-- ================= ISI ================= -->
+<main id="isi" hidden>
+
+  <div class="marq" aria-hidden="true"><div>
+    <span>✦ Agus &amp; Wenna</span><span>✦ 05.12.2026</span><span>✦ Save the date</span><span>✦ Agus &amp; Wenna</span><span>✦ 05.12.2026</span><span>✦ Save the date</span>
+    <span>✦ Agus &amp; Wenna</span><span>✦ 05.12.2026</span><span>✦ Save the date</span><span>✦ Agus &amp; Wenna</span><span>✦ 05.12.2026</span><span>✦ Save the date</span>
+  </div></div>
+
+  <section class="sec" id="pembuka">
+    <div class="wrap">
+      <p class="eyebrow rv">Assalamu'alaikum Wr. Wb.</p>
+      <h2 class="big rv" style="--d:.1s">Kami akan <span class="holo it">menikah</span></h2>
+      <p class="verse rv" style="--d:.2s">
+        Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+        agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.
+      </p>
+      <p class="cite rv" style="--d:.3s">QS. Ar-Rum: 21</p>
+    </div>
+  </section>
+
+  <section class="sec" id="mempelai">
+    <div class="wrap wide">
+      <p class="eyebrow rv">Mempelai</p>
+      <h2 class="rv" style="--d:.1s">Dua bintang, <span class="holo it">satu panggung</span></h2>
+      <div class="duo">
+        <article class="who tilt rv" style="--d:.15s">
+          <!-- GANTI: foto dengan <img> di dalam .disc -->
+          <div class="disc" role="img" aria-label="Foto Agus"><b>A</b></div>
+          <h3>Agus Yogandi</h3>
+          <p>Putra dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </article>
+        <article class="who tilt rv" style="--d:.3s">
+          <div class="disc" role="img" aria-label="Foto Wenna"><b>W</b></div>
+          <h3>Wenna [Nama Lengkap]</h3>
+          <p>Putri dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="acara">
+    <div class="wrap">
+      <p class="eyebrow rv">Simpan tanggalnya</p>
+      <div class="bigdate rv" style="--d:.1s"><b class="holo">05</b><span>Desember 2026<small>Sabtu</small></span></div>
+      <div class="led rv" style="--d:.2s" aria-label="Hitung mundur">
+        <div><b id="cd">00</b><span>hari</span></div>
+        <div><b id="ch">00</b><span>jam</span></div>
+        <div><b id="cm">00</b><span>menit</span></div>
+        <div><b id="cs">00</b><span>detik</span></div>
+      </div>
+      <!-- GANTI: jam acara -->
+      <div class="events">
+        <article class="event holo-b rv" style="--d:.3s"><time>08.00</time><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></article>
+        <article class="event holo-b rv" style="--d:.4s"><time>11.00</time><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="lokasi">
+    <div class="wrap">
+      <p class="eyebrow rv">Lokasi</p>
+      <h2 class="rv" style="--d:.1s">Graha Yapin Jatimulya</h2>
+      <p class="muted rv" style="--d:.15s">Bekasi, Jawa Barat</p>
+      <div class="frame holo-b rv" style="--d:.2s"><iframe title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Graha+Yapin+Jatimulya+Bekasi&output=embed"></iframe></div>
+      <div class="actions rv" style="--d:.3s">
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Graha+Yapin+Jatimulya+Bekasi"><span>Buka Peta</span></a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Agus+%26+Wenna&dates=20261205T010000Z/20261205T070000Z&location=Graha+Yapin+Jatimulya,+Bekasi"><span>Simpan Kalender</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="galeri">
+    <div class="wrap wide">
+      <p class="eyebrow rv">Galeri</p>
+      <h2 class="rv" style="--d:.1s">Sorotan <span class="holo it">malam ini</span></h2>
+      <p class="muted rv" style="--d:.15s">Ketuk foto untuk percikan glitter</p>
+      <!-- GANTI: tiap .tile dengan <img src="..." alt="..."> -->
+      <div class="tiles">
+        <div class="tile t1 rv"><span>01</span></div><div class="tile t2 rv" style="--d:.1s"><span>02</span></div>
+        <div class="tile t3 rv" style="--d:.15s"><span>03</span></div><div class="tile t4 rv" style="--d:.2s"><span>04</span></div>
+        <div class="tile t5 rv" style="--d:.1s"><span>05</span></div><div class="tile t6 rv" style="--d:.2s"><span>06</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="hadiah">
+    <div class="wrap">
+      <p class="eyebrow rv">Tanda kasih</p>
+      <h2 class="rv" style="--d:.1s">Hadiah digital</h2>
+      <p class="muted rv" style="--d:.15s">Doa restu Anda sudah cukup bagi kami. Bila ingin berbagi kebahagiaan, dapat melalui rekening berikut.</p>
+      <!-- GANTI: data rekening -->
+      <div class="bank holo-b rv" style="--d:.25s">
+        <p class="bank-name">Bank [Nama Bank]</p>
+        <p class="bank-no" id="rek">0000000000</p>
+        <p class="muted">a.n. Agus Yogandi</p>
+        <button class="btn sm" id="copy" type="button"><span>Salin nomor</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="rsvp">
+    <div class="wrap">
+      <p class="eyebrow rv">RSVP</p>
+      <h2 class="rv" style="--d:.1s">Konfirmasi kehadiran</h2>
+      <form id="form" class="rv" style="--d:.2s">
+        <label>Nama<input id="nama" required></label>
+        <div class="two">
+          <label>Kehadiran<select id="hadir"><option>Insya Allah hadir</option><option>Mohon maaf, tidak bisa hadir</option></select></label>
+          <label>Jumlah<select id="jml"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        </div>
+        <label>Ucapan dan doa<textarea id="pesan" rows="3"></textarea></label>
+        <button class="btn" type="submit"><span>Kirim lewat WhatsApp</span></button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="sec end" id="penutup">
+    <canvas id="ball2" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="eyebrow rv">Terima kasih</p>
+      <p class="muted rv" style="--d:.1s">Atas doa dan kehadiran Bapak/Ibu/Saudara/i.</p>
+      <p class="closing rv" style="--d:.2s"><span class="holo">Agus</span> <span class="holo it">&amp; Wenna</span></p>
+      <p class="muted rv" style="--d:.3s">Wassalamu'alaikum Wr. Wb.</p>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var WA = "62XXXXXXXXXXX";                                   // GANTI: nomor WhatsApp (62..., tanpa +)
+  var TARGET = new Date("2026-12-05T08:00:00+07:00");
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ====== MESIN GLITTER (kanvas ringan, tidak menghalangi klik) ======
+  var FX = (function () {
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var cv = document.createElement("canvas"); cv.className = "fx"; cv.setAttribute("aria-hidden", "true"); document.body.appendChild(cv);
+    var ctx = cv.getContext("2d"), W = 0, H = 0, P = [], R = [], run = false, last = 0;
+    var cfg = { colors: ["#fff"], shapes: ["star"], gravity: .12 };
+    function size() { var d = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * d; cv.height = H * d; cv.style.width = W + "px"; cv.style.height = H + "px"; ctx.setTransform(d, 0, 0, d, 0, 0); }
+    size(); addEventListener("resize", size);
+    function star(x, y, r, rot) { ctx.beginPath(); for (var i = 0; i < 8; i++) { var a = rot + i * .7854, rr = i % 2 ? r * .3 : r; ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } ctx.closePath(); ctx.fill(); }
+    function burst(x, y, n, o) {
+      if (reduce) return; o = o || {};
+      for (var i = 0; i < n; i++) {
+        var a = Math.random() * 6.2832, s = (o.speed || 5.5) * (.3 + Math.random() * .95);
+        P.push({ x: x, y: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s - (o.lift || 1.2), r: (o.size || 7) * (.45 + Math.random() * .9), rot: Math.random() * 6.28, vr: (Math.random() - .5) * .35,
+          life: 0, max: (o.life || 60) + Math.random() * 55, c: cfg.colors[Math.random() * cfg.colors.length | 0], k: cfg.shapes[Math.random() * cfg.shapes.length | 0],
+          g: o.gravity != null ? o.gravity : cfg.gravity, tw: Math.random() * 6.28 });
+      }
+      if (P.length > 520) P.splice(0, P.length - 520);
+      if (o.ring) R.push({ x: x, y: y, r: 4, max: o.ringMax || 70, life: 0, c: o.ringColor || cfg.colors[0] });
+      kick();
+    }
+    function kick() { if (!run) { run = true; last = performance.now(); requestAnimationFrame(loop); } }
+    function loop(t) {
+      var dt = Math.min(2.2, (t - last) / 16.67); last = t; ctx.clearRect(0, 0, W, H);
+      for (var i = R.length - 1; i >= 0; i--) {
+        var q = R[i]; q.life += dt; q.r += (q.max - q.r) * .09 * dt; var k = q.life / 32;
+        if (k >= 1) { R.splice(i, 1); continue; }
+        ctx.globalAlpha = (1 - k) * .8; ctx.strokeStyle = q.c; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.2832); ctx.stroke();
+      }
+      for (var j = P.length - 1; j >= 0; j--) {
+        var p = P[j]; p.life += dt; if (p.life > p.max) { P.splice(j, 1); continue; }
+        p.vx *= .985; p.vy = p.vy * .985 + p.g * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt;
+        var f = p.life / p.max; ctx.globalAlpha = Math.max(0, (1 - f) * (.7 + .3 * Math.sin(p.tw + p.life * .45))); ctx.fillStyle = p.c;
+        if (p.k === "star") star(p.x, p.y, p.r, p.rot);
+        else if (p.k === "conf") { ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.scale(1, Math.abs(Math.cos(p.tw + p.life * .2))); ctx.fillRect(-p.r, -p.r * .5, p.r * 2, p.r); ctx.restore(); }
+        else if (p.k === "dia") { ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(.785 + p.rot); ctx.fillRect(-p.r * .5, -p.r * .5, p.r, p.r); ctx.restore(); }
+        else { ctx.beginPath(); ctx.arc(p.x, p.y, p.r * .5, 0, 6.2832); ctx.fill(); }
+      }
+      ctx.globalAlpha = 1;
+      if (P.length || R.length) requestAnimationFrame(loop); else run = false;
+    }
+    var lt = 0;   // jejak kilau mengikuti kursor (hanya mouse)
+    document.addEventListener("pointermove", function (e) {
+      if (reduce || e.pointerType !== "mouse") return;
+      var n = performance.now(); if (n - lt < 45) return; lt = n;
+      burst(e.clientX, e.clientY, 2, { speed: 1.6, size: 5, life: 34, gravity: .04, lift: 0 });
+    }, { passive: true });
+    return { burst: burst, config: function (c) { for (var k in c) cfg[k] = c[k]; }, reduce: reduce };
+  })();
+
+  FX.config({ colors: ["#ffe9c9", "#ffc8dd", "#cfefff", "#e6d5ff", "#ffffff", "#f7d9a0"], shapes: ["star", "star", "dia", "dot"], gravity: .11 });
+  // Ketuk / klik di mana saja -> ledakan glitter
+  document.addEventListener("pointerdown", function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    FX.burst(e.clientX, e.clientY, 34, { speed: 6, size: 8, ring: true, ringMax: 60 });
+  });
+
+  var to = new URLSearchParams(location.search).get("to");
+  if (to) { $("#guest").textContent = to; $("#nama").value = to; }
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var s = Math.max(0, Math.floor((TARGET - new Date()) / 1000));
+    $("#cd").textContent = pad(Math.floor(s / 86400));
+    $("#ch").textContent = pad(Math.floor(s % 86400 / 3600));
+    $("#cm").textContent = pad(Math.floor(s % 3600 / 60));
+    $("#cs").textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // ====== BOLA DISKO 3D (ubin cermin dihitung per frame, lampu sorot dipantulkan ke dinding) ======
+  function makeBall(cv, o) {
+    var ctx = cv.getContext("2d"), W = 0, H = 0, rot = 0, boost = 1, target = 1, last = 0, t0 = performance.now(), alive = true, on = true;
+    var L = 14, N = 28, light = { x: -.35, y: .5, z: .79 };
+    function hash(i, j) { var x = Math.sin(i * 127.1 + j * 311.7) * 43758.5453; return x - Math.floor(x); }
+    function size() { var d = Math.min(2, devicePixelRatio || 1), r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); }
+    size(); addEventListener("resize", size);
+    function pt(cx, cy, R, phi, lam) { return [cx + R * Math.cos(phi) * Math.sin(lam), cy - R * Math.sin(phi)]; }
+    function frame(now) {
+      if (!alive) return;
+      requestAnimationFrame(frame);
+      if (!on) return;
+      var dt = Math.min(50, now - (last || now)); last = now; var t = now - t0;
+      boost += (target - boost) * .04; rot += dt * .00042 * boost;
+      var cx, cy, R;
+      if (o.cover) {
+        var len = Math.min(H * .3, 240) + 10, th = .045 * Math.sin(t * .0011);
+        R = Math.min(W * .3, 124); cx = W / 2 + Math.sin(th) * len; cy = Math.cos(th) * len;
+      } else { R = Math.min(W, H) * .42; cx = W / 2; cy = H / 2; }
+      ctx.clearRect(0, 0, W, H);
+      if (o.cover) { ctx.strokeStyle = "rgba(255,255,255,.4)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(W / 2, -4); ctx.lineTo(cx, cy - R); ctx.stroke(); }
+      var g = ctx.createRadialGradient(cx, cy, R * .6, cx, cy, R * 2.1);
+      g.addColorStop(0, "rgba(255,214,200,.30)"); g.addColorStop(1, "rgba(255,214,200,0)");
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+      var tiles = [], D = Math.max(W, H) * .95;
+      for (var i = 0; i < L; i++) {
+        var phc = -Math.PI / 2 + (i + .5) * Math.PI / L, dp = Math.PI / L * .47;
+        for (var j = 0; j < N; j++) {
+          var lac = (j + .5) * 2 * Math.PI / N + rot, dl = Math.PI / N * .94;
+          var nx = Math.cos(phc) * Math.sin(lac), ny = Math.sin(phc), nz = Math.cos(phc) * Math.cos(lac);
+          if (nz <= .02) continue;
+          var h = hash(i, j), b = Math.max(0, nx * light.x + ny * light.y + nz * light.z);
+          var fl = .5 + .5 * Math.sin(t * .004 * (.6 + h * 1.4) + h * 40);
+          tiles.push({ i: i, j: j, phc: phc, lac: lac, dp: dp, dl: dl, nx: nx, ny: ny, nz: nz, h: h, b: b, fl: fl });
+        }
+      }
+      if (o.spots) {
+        ctx.globalCompositeOperation = "lighter";
+        tiles.forEach(function (k) {
+          if (k.h < .6 || Math.hypot(k.nx, k.ny) < .32) return;
+          var hue = [38, 330, 190, 270, 52][(k.h * 50 | 0) % 5], rr = 7 + k.h * 18;
+          ctx.fillStyle = "hsla(" + hue + ",90%,72%," + (.12 + .34 * k.fl).toFixed(3) + ")";
+          ctx.beginPath(); ctx.arc(cx + k.nx * D, cy - k.ny * D, rr, 0, 6.2832); ctx.fill();
+        });
+        ctx.globalCompositeOperation = "source-over";
+      }
+      tiles.forEach(function (k) {
+        var hue = k.h < .05 ? 190 : k.h < .09 ? 320 : k.h < .14 ? 45 : 220, sat = k.h < .14 ? 85 : 6;
+        var lum = 11 + 46 * k.b + (k.b > .5 ? 40 * k.fl * k.h * 2 : 0); lum = Math.min(92, lum) * (.45 + .55 * k.nz);
+        ctx.fillStyle = "hsl(" + hue + "," + sat + "%," + lum.toFixed(1) + "%)";
+        var a = pt(cx, cy, R, k.phc - k.dp, k.lac - k.dl), b2 = pt(cx, cy, R, k.phc - k.dp, k.lac + k.dl),
+            c = pt(cx, cy, R, k.phc + k.dp, k.lac + k.dl), d = pt(cx, cy, R, k.phc + k.dp, k.lac - k.dl);
+        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b2[0], b2[1]); ctx.lineTo(c[0], c[1]); ctx.lineTo(d[0], d[1]); ctx.closePath(); ctx.fill();
+      });
+      var sp = ctx.createRadialGradient(cx - R * .35, cy - R * .4, 0, cx - R * .35, cy - R * .4, R * .9);
+      sp.addColorStop(0, "rgba(255,255,255,.45)"); sp.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.fillStyle = sp; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.2832); ctx.fill();
+    }
+    requestAnimationFrame(frame);
+    return { resize: size, boost: function (v) { target = v; }, stop: function () { alive = false; }, pause: function (v) { on = !v; }, center: function () { var r = cv.getBoundingClientRect(); return { x: r.left + W / 2, y: r.top + H / 2 }; } };
+  }
+  var ball = makeBall($("#ball"), { cover: true, spots: !reduce });
+  var ball2 = makeBall($("#ball2"), { cover: false, spots: false }); ball2.pause(true);
+
+  // Spotlight mengikuti kursor / jari
+  var spot = $("#spot"), sr = 0, sx = 50, sy = 30;
+  addEventListener("pointermove", function (e) {
+    sx = e.clientX; sy = e.clientY;
+    if (!sr) sr = requestAnimationFrame(function () { spot.style.setProperty("--mx", sx + "px"); spot.style.setProperty("--my", sy + "px"); sr = 0; });
+  }, { passive: true });
+
+  // Buka undangan: bola berputar kencang, ledakan glitter, lalu layar putih sekejap
+  var cover = $("#cover"), opened = false;
+  $("#open").addEventListener("click", function (e) {
+    e.stopPropagation(); if (opened) return; opened = true;
+    $("#isi").hidden = false;
+    cover.classList.add("go"); ball.boost(7);
+    var r = this.getBoundingClientRect();
+    FX.burst(r.left + r.width / 2, r.top + r.height / 2, 90, { speed: 9, size: 9, ring: true, ringMax: 120, life: 80 });
+    if (!reduce) [320, 640, 960].forEach(function (d, i) { setTimeout(function () { FX.burst(innerWidth * (.2 + .3 * i), innerHeight * (.3 + .1 * i), 60, { speed: 8, size: 9, ring: true, ringMax: 90 }); }, d); });
+    var t = reduce ? 0 : 1;
+    setTimeout(function () { cover.classList.add("gone"); document.body.classList.remove("locked"); scrollTo(0, 0); observe(); }, 1500 * t + 30);
+    setTimeout(function () { cover.style.display = "none"; ball.stop(); }, 2500 * t + 60);
+  });
+  document.addEventListener("pointerdown", function (e) { if (e.target.closest && e.target.closest("#open")) e.stopImmediatePropagation(); }, true);
+
+  // Reveal
+  var io = null;
+  function observe() {
+    if (io) return;
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: .15 });
+    $$(".rv").forEach(function (el) { io.observe(el); });
+    new IntersectionObserver(function (es) {
+      var v = es[0].isIntersecting; if (v) ball2.resize(); ball2.pause(!v);
+      if (v) { var c = ball2.center(); FX.burst(c.x, c.y, 70, { speed: 8, size: 8, ring: true, ringMax: 110, life: 80 }); }
+    }, { threshold: .35 }).observe($("#penutup"));
+  }
+
+  // Foto mempelai miring (kursor)
+  if (!reduce) $$(".tilt").forEach(function (c) {
+    c.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.setProperty("--tx", (x * 14).toFixed(1) + "deg"); c.style.setProperty("--ty", (-y * 14).toFixed(1) + "deg");
+    });
+    c.addEventListener("pointerleave", function () { c.style.setProperty("--tx", "0deg"); c.style.setProperty("--ty", "0deg"); });
+  });
+
+  $("#copy").addEventListener("click", function () {
+    var b = this.querySelector("span"), t = $("#rek").textContent.trim();
+    var done = function (m) { b.textContent = m; setTimeout(function () { b.textContent = "Salin nomor"; }, 2000); };
+    try { navigator.clipboard.writeText(t).then(function () { done("Tersalin"); }, function () { done("Salin manual"); }); }
+    catch (e) { done("Salin manual"); }
+  });
+
+  $("#form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var teks = "Konfirmasi kehadiran pernikahan Agus & Wenna\nNama: " + $("#nama").value +
+      "\nKehadiran: " + $("#hadir").value + "\nJumlah tamu: " + $("#jml").value +
+      ($("#pesan").value ? "\nUcapan: " + $("#pesan").value : "");
+    open("https://wa.me/" + WA + "?text=" + encodeURIComponent(teks), "_blank");
+  });
+})();
+</script>
+</body>
+</html>

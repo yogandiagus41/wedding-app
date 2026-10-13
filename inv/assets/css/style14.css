@@ -1,0 +1,188 @@
+/* =========================================================
+   Desain 14 — "Candi Bentar" (Bali)
+   3D: gapura terbelah berperspektif, lantai terasering yang bergerak,
+   kelopak kamboja berjatuhan di kedalaman berbeda,
+   dinding galeri yang menegak mengikuti scroll.
+   ========================================================= */
+:root{
+  --forest:#14291f; --forest2:#0f2217; --paper:#f6eed9; --stone:#d9ccb2; --gold:#e0b24d; --gold2:#f0cb6a; --orange:#e07a3a;
+  --ink:#1b2a21; --mute:rgba(27,42,33,.7); --soft:rgba(246,238,217,.78); --line:rgba(224,178,77,.45);
+  --display:"Prata",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--forest2)}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#1c3a2b,var(--forest2) 70%);color:var(--ink);font:300 1rem/1.8 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden;height:100svh;touch-action:none}
+h1,h2,h3,p,figure{margin:0}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+em{font-style:normal;color:var(--orange)}
+
+/* ---------- Tombol ---------- */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;padding:1rem 2.1rem;border:0;border-radius:999px;
+  background:linear-gradient(180deg,var(--gold2),#d8a23a);color:#2a1a08;font:600 .9rem/1 var(--sans);letter-spacing:.08em;text-decoration:none;cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 0 0 1px #b88420,0 8px 16px -8px rgba(0,0,0,.6);transition:transform .2s,box-shadow .3s;-webkit-tap-highlight-color:transparent}
+.btn::after{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s ease}
+.btn:hover::after,.btn:focus-visible::after{left:130%}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 0 0 1px #b88420,0 12px 20px -8px rgba(0,0,0,.6)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--forest);box-shadow:inset 0 0 0 1.5px var(--forest)}
+.btn.ghost:hover,.btn.ghost:focus-visible{background:var(--forest);color:var(--paper)}
+.btn.sm{padding:.8rem 1.5rem;font-size:.8rem}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem;margin-top:1.6rem}
+
+/* ---------- Cover ---------- */
+#cover{position:fixed;inset:0;z-index:100;overflow:hidden;touch-action:none;background:var(--forest2);transition:opacity .9s ease}
+#cover.gone{opacity:0;pointer-events:none}
+.sky{position:absolute;inset:0;background:linear-gradient(180deg,#f9dca4 0%,#f4bd72 26%,#ea9443 46%,#cd6a3a 58%,#8a4a3a 62%)}
+.sunb{position:absolute;left:50%;top:26%;width:52vmin;height:52vmin;margin-left:-26vmin;border-radius:50%;background:radial-gradient(circle,#fff6d0 0,rgba(255,216,128,.85) 34%,transparent 68%)}
+.clouds i{position:absolute;height:60px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.7),rgba(255,255,255,0) 70%);filter:blur(4px);animation:drift 40s linear infinite}
+.clouds i:nth-child(1){top:20%;left:-30%;width:55vw}
+.clouds i:nth-child(2){top:32%;left:-50%;width:70vw;animation-duration:58s;animation-delay:-20s;opacity:.7}
+.clouds i:nth-child(3){top:12%;left:-40%;width:45vw;animation-duration:50s;animation-delay:-35s;opacity:.6}
+@keyframes drift{to{transform:translateX(190vw)}}
+
+.floor{position:absolute;left:0;right:0;bottom:0;height:42%;overflow:hidden;perspective:520px;background:#183b27}
+.plane{position:absolute;inset:0;transform-origin:50% 0;transform:rotateX(62deg)}
+.plane i{position:absolute;left:-70%;right:-70%;top:-59px;bottom:-40%;animation:flow 3.2s linear infinite;will-change:transform;
+  background:repeating-linear-gradient(180deg,#2e5a3a 0 26px,#4c8a52 26px 30px,#2a4f35 30px 56px,#5d9a5a 56px 59px)}
+@keyframes flow{to{transform:translateY(59px)}}
+
+.world{position:absolute;inset:0;perspective:900px;perspective-origin:50% 58%}
+.tr{--ry:0deg;--rx:0deg;position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry));transition:transform .3s ease-out}
+#cover.go .tr{transform:translate3d(0,3%,800px);transition:transform 1.8s cubic-bezier(.65,0,.3,1)}
+.agung{position:absolute;left:50%;bottom:42%;width:min(130vw,860px);transform:translate3d(-50%,0,-320px)}
+.agung svg,.meru svg,.penjor svg{display:block;width:100%;height:100%}
+.meru{position:absolute;left:50%;bottom:calc(42% - 4px);width:min(30vw,150px);aspect-ratio:1;transform:translate3d(-50%,0,-90px)}
+.stairs{position:absolute;left:50%;bottom:30%;width:min(60vw,300px);height:11%;transform:translateX(-50%);
+  clip-path:polygon(32% 0,68% 0,100% 100%,0 100%);background:repeating-linear-gradient(180deg,#e2d6bd 0 9px,#a39478 9px 13px)}
+.half{--hw:min(36vw,176px);--gap:min(22vw,120px);position:absolute;bottom:34%;width:var(--hw);height:min(46svh,360px)}
+.half.l{left:calc(50% - var(--gap) / 2 - var(--hw))}
+.half.r{left:calc(50% + var(--gap) / 2)}
+.half svg{filter:drop-shadow(0 10px 12px rgba(0,0,0,.35))}
+.penjor{position:absolute;bottom:26%;height:min(70svh,520px);aspect-ratio:160/420;transform:translateZ(140px);transform-origin:50% 100%;animation:sway 5s ease-in-out infinite alternate}
+.pj1{left:-2%}.pj2{right:-2%;animation-delay:-2.5s}
+@keyframes sway{from{rotate:-1.6deg}to{rotate:1.6deg}}
+
+.petals{position:absolute;inset:0;z-index:4;pointer-events:none;perspective:600px;overflow:hidden}
+.petals i{position:absolute;left:50%;top:0;width:var(--s);height:calc(var(--s) * 1.3);border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;
+  background:radial-gradient(circle at 50% 78%,#f6c453 0 12%,#fff8ea 14%);box-shadow:0 1px 3px rgba(0,0,0,.25);animation:petal var(--t) linear var(--dl) infinite}
+@keyframes petal{
+  0%{transform:translate3d(var(--x),-12vh,var(--z)) rotate(0)}
+  50%{transform:translate3d(calc(var(--x) + 24px),52vh,var(--z)) rotate(260deg)}
+  100%{transform:translate3d(calc(var(--x) - 10px),112vh,var(--z)) rotate(540deg)}
+}
+#cover.go .petals,#cover.go .cv-top,#cover.go .cv-bot{opacity:0;transition:opacity .7s}
+
+.cv-top{position:absolute;top:0;left:0;right:0;z-index:5;padding:calc(1.4rem + env(safe-area-inset-top,0px)) 1.5rem 0;text-align:center}
+.eyebrow{font:600 .8rem var(--sans);letter-spacing:.3em;color:var(--orange)}
+.cv-top .eyebrow{color:#5a2c12}
+.mini{font-size:.85rem;color:#5a2c12}
+.cv-bot{position:absolute;left:0;right:0;bottom:0;z-index:5;display:flex;flex-direction:column;align-items:center;gap:.4rem;text-align:center;
+  padding:3rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,rgba(15,34,23,0),rgba(15,34,23,.92) 38%)}
+.names{font:400 clamp(2.4rem,11.5vw,3.6rem)/1.1 var(--display);color:var(--gold2);text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.names em,.closing em{color:var(--gold);font-size:.7em}
+.date{font:400 1rem var(--display);letter-spacing:.05em;color:var(--paper)}
+.to{margin:.2rem 0 .5rem;font-size:.82rem;color:var(--soft)}
+.to strong{display:block;font:400 1.25rem/1.3 var(--display);color:var(--paper)}
+
+/* ---------- Seksi ---------- */
+main{position:relative}
+.sec{padding:5rem 1.2rem;text-align:center}
+.wrap{max-width:620px;margin:0 auto}
+.wrap.wide{max-width:900px}
+.poleng{height:16px;background:repeating-conic-gradient(#14110e 0 25%,#f4ecda 0 50%) 0 0/16px 16px}
+.panel{position:relative;padding:2.8rem 1.5rem;background:var(--paper);color:var(--ink);border-radius:4px;
+  box-shadow:0 24px 40px -22px #000,inset 0 0 0 6px var(--paper),inset 0 0 0 7px rgba(224,178,77,.8)}
+.panel::before,.panel::after{content:"";position:absolute;width:30px;height:30px;border:2px solid var(--gold);pointer-events:none}
+.panel::before{top:-8px;left:-8px;border-right:0;border-bottom:0}
+.panel::after{bottom:-8px;right:-8px;border-left:0;border-top:0}
+h2{margin:.4rem 0 1rem;font:400 clamp(2rem,7.5vw,2.8rem)/1.2 var(--display);color:var(--forest)}
+.light{color:var(--gold2)}
+h2.light{color:var(--paper)}
+.eyebrow.light{color:var(--gold)}
+.muted{color:var(--mute)}.soft{color:var(--soft)}
+.verse{max-width:30rem;margin:0 auto;color:var(--mute)}
+.cite{margin-top:.8rem;font:600 .8rem var(--sans);letter-spacing:.2em;color:var(--orange)}
+.orn{display:block;width:130px;height:14px;margin:.7rem auto;background:
+  linear-gradient(var(--gold),var(--gold)) left center/48px 1.5px no-repeat,linear-gradient(var(--gold),var(--gold)) right center/48px 1.5px no-repeat,
+  radial-gradient(circle,var(--orange) 0 3px,transparent 3.5px) center/14px 14px no-repeat}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- Mempelai: bingkai batu bertingkat ---------- */
+.duo{display:grid;gap:2.6rem;margin-top:1.8rem;justify-items:center}
+@media(min-width:700px){.duo{grid-template-columns:1fr 1fr}}
+.who{perspective:900px;color:var(--paper)}
+.stone{position:relative;width:min(60vw,220px);aspect-ratio:3/4;margin:0 auto 1.4rem;background:var(--gold);
+  clip-path:polygon(0 100%,0 30%,8% 30%,8% 20%,16% 20%,16% 10%,24% 10%,24% 0,76% 0,76% 10%,84% 10%,84% 20%,92% 20%,92% 30%,100% 30%,100% 100%);
+  transform:rotateX(var(--ty,0deg)) rotateY(var(--tx,0deg));transition:transform .25s ease-out;filter:drop-shadow(0 14px 14px rgba(0,0,0,.6))}
+.stone .in{position:absolute;inset:2.5px;display:grid;place-items:center;background:linear-gradient(170deg,#2c5a3f,#143024);
+  clip-path:polygon(0 100%,0 30%,8% 30%,8% 20%,16% 20%,16% 10%,24% 10%,24% 0,76% 0,76% 10%,84% 10%,84% 20%,92% 20%,92% 30%,100% 30%,100% 100%)}
+.stone b{margin-top:12%;font:400 4.2rem/1 var(--display);color:var(--gold2)}
+.who h3{font:400 1.6rem/1.2 var(--display)}
+.who p{margin-top:.4rem;font-size:.92rem;color:var(--soft)}
+
+/* ---------- Acara ---------- */
+.bigdate{display:flex;align-items:center;justify-content:center;gap:1rem}
+.bigdate b{font:400 clamp(5.5rem,24vw,8rem)/.9 var(--display);color:var(--forest)}
+.bigdate span{text-align:left;font:400 1.45rem/1.2 var(--display);color:var(--forest)}
+.bigdate small{display:block;font:600 .78rem var(--sans);letter-spacing:.3em;color:var(--orange)}
+.rings{display:flex;justify-content:center;gap:.7rem;margin:1.8rem 0 2.2rem}
+.ring{--pct:0;position:relative;display:grid;place-content:center;width:72px;height:72px;border-radius:50%;text-align:center;
+  background:conic-gradient(var(--orange) calc(var(--pct) * 1%),rgba(20,41,31,.12) 0)}
+.ring::before{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--paper)}
+.ring b,.ring span{position:relative}
+.ring b{font:400 1.35rem/1 var(--display);font-variant-numeric:tabular-nums}
+.ring span{font-size:.58rem;letter-spacing:.08em;color:var(--mute)}
+@media(max-width:380px){.ring{width:64px;height:64px}.ring b{font-size:1.15rem}}
+.events{display:grid;gap:1rem}
+@media(min-width:640px){.events{grid-template-columns:1fr 1fr}}
+.event{padding:1.6rem 1rem;border:1px solid var(--line);background:rgba(224,178,77,.1)}
+.event time{display:block;font:400 2.1rem/1 var(--display);color:var(--orange)}
+.event h3{margin:.5rem 0 .1rem;font:400 1.3rem var(--display)}
+.event p{font-size:.9rem;color:var(--mute)}
+
+/* ---------- Lokasi ---------- */
+.frame{margin:1.6rem 0 0;padding:8px;border:1px solid var(--gold);background:rgba(224,178,77,.15)}
+.frame iframe{display:block;width:100%;height:270px;border:0;filter:saturate(.85) sepia(.15)}
+
+/* ---------- Galeri: dinding 3D ---------- */
+.wall{margin-top:2rem;perspective:1100px}
+.wall-in{--wx:34deg;--wy:-16deg;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;transform-style:preserve-3d;transform:rotateX(var(--wx)) rotateY(var(--wy))}
+@media(min-width:700px){.wall-in{grid-template-columns:repeat(3,1fr)}}
+.tl{display:grid;place-items:center;aspect-ratio:3/4;border:1px solid var(--gold);border-radius:6px;box-shadow:0 14px 20px -12px #000;transform:translateZ(var(--tz,0px));transition:transform .4s}
+.tl span{font:400 1.8rem var(--display);color:rgba(246,238,217,.85)}
+.tl:nth-child(1){background:linear-gradient(150deg,#2c5a3f,#e0b24d);--tz:20px}
+.tl:nth-child(2){background:linear-gradient(150deg,#e07a3a,#5a2c12);--tz:50px}
+.tl:nth-child(3){background:linear-gradient(150deg,#143024,#4c8a52);--tz:10px}
+.tl:nth-child(4){background:linear-gradient(150deg,#e0b24d,#2c5a3f);--tz:40px}
+.tl:nth-child(5){background:linear-gradient(150deg,#4c8a52,#e07a3a);--tz:0px}
+.tl:nth-child(6){background:linear-gradient(150deg,#5a2c12,#e0b24d);--tz:30px}
+.tl:hover{transform:translateZ(80px)}
+
+/* ---------- Hadiah & RSVP ---------- */
+.bank{max-width:24rem;margin:1.8rem auto 0;padding:1.6rem 1.2rem;border:1px solid var(--line);background:rgba(224,178,77,.1)}
+.bank-name{font-weight:600}
+.bank-no{margin:.2rem 0;font:400 1.8rem/1.3 var(--display);letter-spacing:.05em;color:var(--forest)}
+.bank .btn{margin-top:1rem}
+form{display:grid;gap:1.1rem;margin-top:1.6rem;text-align:left}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:.8rem}
+label{display:grid;gap:.3rem;font-size:.78rem;font-weight:600;letter-spacing:.14em;color:var(--orange)}
+input,select,textarea{width:100%;padding:.8rem .9rem;border:1px solid rgba(20,41,31,.3);border-radius:4px;background:#fffaf0;color:var(--ink);font:300 1rem var(--sans)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,122,58,.22)}
+form .btn{justify-self:center;margin-top:.6rem}
+
+/* ---------- Penutup ---------- */
+.end{position:relative;overflow:hidden;padding:5.5rem 1.2rem 11rem;text-align:center;
+  background:linear-gradient(180deg,var(--forest2) 0%,#3a3a3a 50%,#8a4a3a 80%,#e07a3a 100%)}
+.end .wrap{position:relative;z-index:2}
+.closing{margin:.5rem 0;font:400 clamp(2.8rem,12vw,4.2rem)/1.1 var(--display);color:var(--gold2)}
+.end-meru{position:absolute;left:50%;bottom:-8px;width:min(52vw,230px);aspect-ratio:1;margin-left:calc(min(52vw,230px) / -2);opacity:.9;z-index:1}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .clouds i,.plane i,.penjor,.petals i{animation:none}
+  .rv{opacity:1;transform:none;transition:none}
+  #cover,.tr{transition-duration:.01s}
+}

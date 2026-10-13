@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2a1530">
+<title>Agus & Wenna — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style10.css">
+</head>
+<body class="locked">
+
+<!-- ================= COVER: matahari terbit 70-an + lantai grid 3D ================= -->
+<header id="cover">
+  <div class="scene" id="scene">
+    <div class="rig">
+      <div class="rise">
+        <div class="arcs" aria-hidden="true"><i class="a4"></i><i class="a3"></i><i class="a2"></i><i class="a1"></i></div>
+        <div class="sun" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="floor" aria-hidden="true"><div class="plane"><i></i></div></div>
+  </div>
+
+  <div class="cover-in">
+    <div class="top">
+      <p class="eyebrow">Undangan Pernikahan</p>
+      <h1 class="names">Agus <span>&amp;</span> Wenna</h1>
+      <p class="date">Sabtu, 5 Desember 2026</p>
+    </div>
+    <div class="bottom">
+      <p class="to">Kepada Yth.<strong id="guest">Bapak/Ibu/Saudara/i</strong></p>
+      <button id="open" class="btn" type="button">Buka Undangan</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ISI ================= -->
+<main id="isi" hidden>
+
+  <section class="sec cream" id="pembuka">
+    <div class="wrap">
+      <p class="eyebrow rv">Assalamu'alaikum Wr. Wb.</p>
+      <h2 class="rv" style="--d:.1s">Dua hati, <em>satu</em> irama</h2>
+      <p class="verse rv" style="--d:.2s">
+        Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+        agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.
+      </p>
+      <p class="cite rv" style="--d:.3s">QS. Ar-Rum: 21</p>
+    </div>
+  </section>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <section class="sec dark" id="mempelai">
+    <div class="wrap wide">
+      <p class="eyebrow rv">Mempelai</p>
+      <h2 class="rv" style="--d:.1s">Yang berbahagia</h2>
+      <div class="duo">
+        <article class="person rv" style="--d:.15s">
+          <!-- GANTI: foto dengan <img> di dalam .window -->
+          <div class="window tilt" role="img" aria-label="Foto Agus"><b>A</b></div>
+          <h3>Agus Yogandi</h3>
+          <p>Putra dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </article>
+        <article class="person rv" style="--d:.3s">
+          <div class="window tilt w2" role="img" aria-label="Foto Wenna"><b>W</b></div>
+          <h3>Wenna [Nama Lengkap]</h3>
+          <p>Putri dari Bapak [Nama Ayah]<br>dan Ibu [Nama Ibu]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <section class="sec cream" id="acara">
+    <div class="wrap">
+      <p class="eyebrow rv">Simpan tanggalnya</p>
+      <div class="bigdate rv" style="--d:.1s"><b>05</b><span>Desember 2026<small>Sabtu</small></span></div>
+
+      <div class="clock rv" style="--d:.2s" aria-label="Hitung mundur">
+        <div><b id="cd">00</b><span>hari</span></div>
+        <div><b id="ch">00</b><span>jam</span></div>
+        <div><b id="cm">00</b><span>menit</span></div>
+        <div><b id="cs">00</b><span>detik</span></div>
+      </div>
+
+      <!-- GANTI: jam acara -->
+      <div class="events">
+        <article class="event rv" style="--d:.25s"><time>08.00</time><div><h3>Akad Nikah</h3><p>Selesai pukul 10.00 WIB</p></div></article>
+        <article class="event rv" style="--d:.35s"><time>11.00</time><div><h3>Resepsi</h3><p>Hingga pukul 14.00 WIB</p></div></article>
+      </div>
+    </div>
+  </section>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <section class="sec dark" id="lokasi">
+    <div class="wrap">
+      <p class="eyebrow rv">Lokasi</p>
+      <h2 class="rv" style="--d:.1s">Graha Yapin Jatimulya</h2>
+      <p class="muted rv" style="--d:.15s">Bekasi, Jawa Barat</p>
+      <div class="tv rv" style="--d:.2s"><iframe title="Peta lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Graha+Yapin+Jatimulya+Bekasi&output=embed"></iframe></div>
+      <div class="actions rv" style="--d:.3s">
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Graha+Yapin+Jatimulya+Bekasi">Buka Peta</a>
+        <a class="btn alt" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Agus+%26+Wenna&dates=20261205T010000Z/20261205T070000Z&location=Graha+Yapin+Jatimulya,+Bekasi">Simpan Kalender</a>
+      </div>
+    </div>
+  </section>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <section class="sec cream" id="galeri">
+    <div class="wrap wide">
+      <p class="eyebrow rv">Galeri</p>
+      <h2 class="rv" style="--d:.1s">Album kenangan</h2>
+      <p class="muted rv" style="--d:.15s">Geser untuk memutar</p>
+      <!-- GANTI: tiap .photo dengan <img src="..." alt="..."> -->
+      <div class="carousel rv" id="carousel" style="--d:.2s" aria-label="Galeri foto 3D">
+        <div class="ring" id="ring">
+          <figure class="pol" style="--k:0"><div class="photo p1"></div><figcaption>01</figcaption></figure>
+          <figure class="pol" style="--k:1"><div class="photo p2"></div><figcaption>02</figcaption></figure>
+          <figure class="pol" style="--k:2"><div class="photo p3"></div><figcaption>03</figcaption></figure>
+          <figure class="pol" style="--k:3"><div class="photo p4"></div><figcaption>04</figcaption></figure>
+          <figure class="pol" style="--k:4"><div class="photo p5"></div><figcaption>05</figcaption></figure>
+          <figure class="pol" style="--k:5"><div class="photo p6"></div><figcaption>06</figcaption></figure>
+        </div>
+      </div>
+      <div class="ctrl rv" style="--d:.3s">
+        <button class="round" id="gPrev" type="button" aria-label="Foto sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 5-7 7 7 7"/></svg></button>
+        <button class="round" id="gNext" type="button" aria-label="Foto berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 5 7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </section>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <section class="sec dark" id="hadiah">
+    <div class="wrap">
+      <p class="eyebrow rv">Tanda kasih</p>
+      <h2 class="rv" style="--d:.1s">Hadiah digital</h2>
+      <p class="muted rv" style="--d:.15s">Doa restu Anda sudah cukup bagi kami. Bila ingin berbagi kebahagiaan, dapat melalui rekening berikut.</p>
+      <!-- GANTI: data rekening -->
+      <div class="bank rv" style="--d:.25s">
+        <p class="bank-name">Bank [Nama Bank]</p>
+        <p class="bank-no" id="rek">0000000000</p>
+        <p>a.n. Agus Yogandi</p>
+        <button class="btn sm" id="copy" type="button">Salin nomor</button>
+      </div>
+    </div>
+  </section>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <section class="sec cream" id="rsvp">
+    <div class="wrap">
+      <p class="eyebrow rv">RSVP</p>
+      <h2 class="rv" style="--d:.1s">Konfirmasi kehadiran</h2>
+      <form id="form" class="rv" style="--d:.2s">
+        <label>Nama<input id="nama" required></label>
+        <div class="two">
+          <label>Kehadiran<select id="hadir"><option>Insya Allah hadir</option><option>Mohon maaf, tidak bisa hadir</option></select></label>
+          <label>Jumlah<select id="jml"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        </div>
+        <label>Ucapan dan doa<textarea id="pesan" rows="3"></textarea></label>
+        <button class="btn" type="submit">Kirim lewat WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="end">
+    <div class="wrap">
+      <p class="rv">Terima kasih atas doa dan kehadiran Anda.</p>
+      <p class="closing rv" style="--d:.1s">Agus <span>&amp;</span> Wenna</p>
+      <p class="rv" style="--d:.2s">Wassalamu'alaikum Wr. Wb.</p>
+    </div>
+    <div class="setsun" aria-hidden="true"></div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var WA = "62XXXXXXXXXXX";                                   // GANTI: nomor WhatsApp (62..., tanpa +)
+  var TARGET = new Date("2026-12-05T08:00:00+07:00");
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var to = new URLSearchParams(location.search).get("to");
+  if (to) { $("#guest").textContent = to; $("#nama").value = to; }
+
+  // Hitung mundur ala jam flip: angka "jatuh" tiap berubah
+  var last = {};
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function setUnit(id, v) {
+    var el = $(id), t = pad(v);
+    if (last[id] === t) return;
+    el.textContent = t;
+    if (last[id] !== undefined && !reduce) { el.classList.remove("flip"); void el.offsetWidth; el.classList.add("flip"); }
+    last[id] = t;
+  }
+  function tick() {
+    var s = Math.max(0, Math.floor((TARGET - new Date()) / 1000));
+    setUnit("#cd", Math.floor(s / 86400)); setUnit("#ch", Math.floor(s % 86400 / 3600));
+    setUnit("#cm", Math.floor(s % 3600 / 60)); setUnit("#cs", s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Sampul: parallax mengikuti jari / kursor
+  var cover = $("#cover"), scene = $("#scene"), raf = 0, px = 0, py = 0;
+  function par() { scene.style.setProperty("--px", px.toFixed(3)); scene.style.setProperty("--py", py.toFixed(3)); raf = 0; }
+  if (!reduce) cover.addEventListener("pointermove", function (e) {
+    px = (e.clientX / innerWidth - .5) * 2; py = (e.clientY / innerHeight - .5) * 2;
+    if (!raf) raf = requestAnimationFrame(par);
+  }, { passive: true });
+
+  // Buka undangan: matahari naik, busur melebar
+  $("#open").addEventListener("click", function () {
+    $("#isi").hidden = false;
+    cover.classList.add("go");
+    setTimeout(function () { cover.classList.add("gone"); document.body.classList.remove("locked"); scrollTo(0, 0); }, reduce ? 50 : 1100);
+    setTimeout(function () { cover.style.display = "none"; }, reduce ? 80 : 2000);
+    setTimeout(observe, reduce ? 60 : 900);
+  });
+
+  // Reveal
+  var io = null;
+  function observe() {
+    if (io) return;
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: .15 });
+    $$(".rv").forEach(function (el) { io.observe(el); });
+  }
+
+  // Jendela mempelai: miring 3D
+  if (!reduce) $$(".tilt").forEach(function (c) {
+    c.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.transform = "perspective(800px) rotateY(" + (x * 18).toFixed(1) + "deg) rotateX(" + (-y * 18).toFixed(1) + "deg)";
+    });
+    c.addEventListener("pointerleave", function () { c.style.transform = ""; });
+  });
+
+  // Galeri: karusel cincin 3D (geser / tombol / putar otomatis)
+  var car = $("#carousel"), ring = $("#ring"), R = 190, a = 0, vel = 0, drag = false, lx = 0, pause = 0, target = null, vis = false;
+  function render() { ring.style.transform = "translateZ(-" + R + "px) rotateY(" + a.toFixed(2) + "deg)"; }
+  function loop() {
+    if (vis) {
+      if (target !== null) { a += (target - a) * .09; if (Math.abs(target - a) < .05) { a = target; target = null; } }
+      else if (!drag) { a += vel; vel *= .93; if (!reduce && Date.now() > pause) a += .16; }
+      render();
+    }
+    requestAnimationFrame(loop);
+  }
+  new IntersectionObserver(function (es) { vis = es[0].isIntersecting; }).observe(car);
+  car.addEventListener("pointerdown", function (e) { drag = true; lx = e.clientX; vel = 0; target = null; car.setPointerCapture(e.pointerId); });
+  car.addEventListener("pointermove", function (e) { if (!drag) return; var dx = e.clientX - lx; lx = e.clientX; a += dx * .38; vel = dx * .38; });
+  function up() { if (!drag) return; drag = false; pause = Date.now() + 3500; }
+  car.addEventListener("pointerup", up); car.addEventListener("pointercancel", up);
+  function step(dir) { target = Math.round(a / 60) * 60 + dir * 60; pause = Date.now() + 4000; }
+  $("#gPrev").addEventListener("click", function () { step(1); });
+  $("#gNext").addEventListener("click", function () { step(-1); });
+  render(); requestAnimationFrame(loop);
+
+  // Salin rekening
+  $("#copy").addEventListener("click", function () {
+    var b = this, t = $("#rek").textContent.trim();
+    var done = function (m) { b.textContent = m; setTimeout(function () { b.textContent = "Salin nomor"; }, 2000); };
+    try { navigator.clipboard.writeText(t).then(function () { done("Tersalin"); }, function () { done("Salin manual"); }); }
+    catch (e) { done("Salin manual"); }
+  });
+
+  // RSVP -> WhatsApp
+  $("#form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var teks = "Konfirmasi kehadiran pernikahan Agus & Wenna\nNama: " + $("#nama").value +
+      "\nKehadiran: " + $("#hadir").value + "\nJumlah tamu: " + $("#jml").value +
+      ($("#pesan").value ? "\nUcapan: " + $("#pesan").value : "");
+    open("https://wa.me/" + WA + "?text=" + encodeURIComponent(teks), "_blank");
+  });
+})();
+</script>
+</body>
+</html>
