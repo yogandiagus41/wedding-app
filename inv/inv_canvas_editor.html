@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitation Canvas — Ruang Janji</title>
+<style>
+:root{--ink:#29352e;--muted:#798078;--line:#e7e7e0;--paper:#f7f7f2;--accent:#56664f;--accent2:#d7c7a3}
+*{box-sizing:border-box}body{margin:0;background:#f2f3ef;color:var(--ink);font:14px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.topbar{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px;position:sticky;top:0;z-index:5}.brand{font-family:Georgia,serif;font-size:22px;letter-spacing:.2px}.brand small{display:block;font:9px/1.3 Arial,sans-serif;letter-spacing:2px;color:var(--muted)}.steps{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px}.step{display:flex;align-items:center;gap:7px}.num{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#e9ebe5;color:#53614d;font-weight:700}.step.active{color:var(--ink);font-weight:700}.step.active .num{background:var(--accent);color:#fff}.top-actions{display:flex;gap:8px}.btn{border:1px solid var(--line);background:white;border-radius:10px;padding:10px 14px;color:var(--ink);font-weight:650}.btn.primary{background:var(--accent);border-color:var(--accent);color:white}.app{display:grid;grid-template-columns:360px minmax(0,1fr);min-height:calc(100vh - 68px)}.sidebar{background:#fff;border-right:1px solid var(--line);padding:20px 18px 30px;overflow:auto;max-height:calc(100vh - 68px);position:sticky;top:68px}.back{color:var(--muted);font-size:12px;margin-bottom:17px}.design-current{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}.thumb{width:68px;height:88px;border-radius:9px;background:linear-gradient(145deg,#e9e3d3,#b8c0aa);display:grid;place-items:center;color:#46513f;font-family:Georgia,serif;font-size:21px;border:1px solid #ddd}.design-current strong{display:block;font-size:14px}.design-current small{color:var(--muted);font-size:11px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:15px 0}.tab{border:0;background:#f6f7f3;padding:10px 4px;border-radius:9px;color:#697066;font-size:12px;font-weight:650}.tab.active{background:#e9ede5;color:#3f5039;box-shadow:inset 0 -2px var(--accent)}.panel{display:none}.panel.active{display:block}.section{padding:14px 0;border-bottom:1px solid var(--line)}.section h3{font-size:12px;margin:0 0 12px;display:flex;align-items:center;gap:8px}.section h3 span{width:27px;height:27px;display:grid;place-items:center;background:#f0f2ec;border-radius:8px}.field{display:block;margin:10px 0}.field label{display:block;color:#697066;font-size:11px;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid #dedfd8;border-radius:8px;background:#fff;padding:10px 11px;color:#333;outline:none}.field input:focus,.field textarea:focus{border-color:#829078;box-shadow:0 0 0 3px #e9ede5}.field textarea{min-height:76px;resize:vertical}.hint{color:#92978e;font-size:10px;margin-top:5px}.swatches{display:flex;gap:10px;flex-wrap:wrap}.swatch{width:33px;height:33px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 1px #d5d8d0;position:relative}.swatch.selected{box-shadow:0 0 0 2px var(--accent)}.color-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0}.color-row label{font-size:12px;color:#5e655b}.color-row input[type=color]{width:43px;height:34px;border:1px solid var(--line);background:white;padding:3px;border-radius:7px}.design-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.design-option{border:1px solid var(--line);border-radius:10px;background:#fff;padding:7px;text-align:left;position:relative;color:var(--ink)}.design-option.selected{border:2px solid var(--accent);padding:6px;box-shadow:0 0 0 2px #e6ebe2}.design-mini{height:116px;border-radius:6px;margin-bottom:7px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px;background:var(--mini-bg,#f6f0e5);color:var(--mini-ink,#52604a);border:1px solid #00000008}.design-mini .floral{font-size:19px;margin-bottom:5px}.design-mini .mini-script{font:italic 18px Georgia,serif}.design-mini small{font-size:7px;letter-spacing:2px}.design-option b{display:block;font-size:11px}.design-option small{font-size:10px;color:var(--muted)}.select-design{width:100%;margin-top:14px}.workspace{padding:24px;min-width:0;background:radial-gradient(ellipse at 50% 35%,#fff 0,#f2f3ef 65%);display:flex;flex-direction:column;align-items:center}.workspace-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.workspace-head p{margin:0;color:var(--muted);font-size:12px}.device-switch{display:flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:4px}.device-switch button{border:0;background:transparent;padding:8px 13px;border-radius:24px;font-size:12px;color:var(--muted)}.device-switch button.active{background:var(--accent);color:#fff}.preview-wrap{width:100%;display:flex;justify-content:center;align-items:flex-start;flex:1;min-height:620px}.phone{width:300px;height:min(820px,calc(100vh - 170px));min-height:650px;border:9px solid #20231f;border-radius:43px;background:#fff;box-shadow:0 20px 50px #27302425, inset 0 0 0 2px #8b8d87;overflow:hidden;position:relative;transition:width .2s}.phone:before{content:"";position:absolute;z-index:3;top:8px;left:50%;transform:translateX(-50%);width:86px;height:19px;border-radius:20px;background:#171916}.phone iframe{width:100%;height:100%;border:0;background:white}.phone.desktop{width:min(1040px,100%);height:min(680px,calc(100vh - 210px));min-height:520px;border-width:7px;border-radius:14px;min-height:520px}.phone.desktop:before{display:none}.preview-note{font-size:11px;color:var(--muted);text-align:center;margin:13px 0 0}.bottom-features{display:flex;gap:28px;margin-top:20px;color:#71786e;font-size:11px}.bottom-features span{display:flex;align-items:center;gap:7px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#27352c;color:white;padding:11px 17px;border-radius:10px;box-shadow:0 8px 30px #0002;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-bottom{display:none}
+@media(max-width:900px){.steps{display:none}.app{grid-template-columns:310px minmax(0,1fr)}.sidebar{padding:16px 13px}.workspace{padding:18px 12px}.phone{width:270px;height:min(760px,calc(100vh - 190px));min-height:590px}.phone.desktop{width:100%;height:min(600px,calc(100vh - 230px));min-height:450px}.bottom-features{gap:10px;flex-wrap:wrap;justify-content:center}}
+@media(max-width:650px){.topbar{height:60px;padding:0 13px}.brand{font-size:19px}.top-actions .btn:first-child{display:none}.top-actions .btn{padding:8px 10px;font-size:11px}.app{display:flex;flex-direction:column-reverse;min-height:calc(100vh - 60px)}.workspace{padding:15px 10px 22px;min-height:720px}.workspace-head{margin-bottom:12px}.workspace-head p{max-width:125px}.preview-wrap{min-height:640px}.phone{width:245px;height:610px;min-height:0;border-width:7px;border-radius:34px}.phone.desktop{width:100%;height:400px;min-height:0}.phone:before{top:5px;width:70px;height:15px}.bottom-features{display:none}.sidebar{position:relative;top:auto;max-height:none;overflow:visible;border-right:0;border-top:1px solid var(--line);padding:18px}.mobile-bottom{display:block;color:var(--muted);font-size:11px;margin-top:12px}.design-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.design-mini{height:100px}.tabs{position:sticky;top:0;background:#fff;z-index:2;padding:4px 0}}
+</style>
+
+<style>
+#templateFeatures .feature-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.feature-tag{display:inline-block;padding:5px 9px;border:1px solid #dfe3da;border-radius:999px;background:#f6f7f2;color:#526149;font-size:11px}.hint{color:#798078;font-size:12px;line-height:1.5}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Ruang Janji<small>INVITATION & EVENT SOLUTION</small></div>
+  <div class="steps"><div class="step"><span class="num">1</span> Pilih Desain</div><span>—</span><div class="step active"><span class="num">2</span> Edit Konten & Warna</div><span>—</span><div class="step"><span class="num">3</span> Preview & Simpan</div></div>
+  <div class="top-actions"><button class="btn" id="resetBtn">Reset</button><button class="btn primary" id="saveBtn">Simpan Draft ↗</button></div>
+</header>
+<div class="app">
+  <aside class="sidebar">
+    <div class="back">← Kembali ke Katalog Undangan</div>
+    <div class="design-current"><div class="thumb" id="currentThumb">A & R</div><div><strong id="currentName">Eternal Olive</strong><small id="currentCode">Template index3.html</small><div class="hint">Preview template lokal</div></div></div>
+    <div class="tabs">
+      <button class="tab active" data-tab="design">▦<br>Pilih Desain</button>
+      <button class="tab" data-tab="colors">◉<br>Warna</button>
+      <button class="tab" data-tab="content">Aa<br>Konten</button>
+    </div>
+    <section class="panel active" id="panel-design">
+      <div class="section"><h3><span>▦</span> Pilih desain undangan</h3><p class="hint">Pilih desain untuk melihat preview di sebelah kanan. Desain diambil dari file index3.html sampai index20.html.</p>
+        <div class="design-grid" id="designGrid"></div>
+        <button class="btn primary select-design" id="applyDesign">Gunakan desain ini</button>
+      </div>
+    </section>
+    <section class="panel" id="panel-colors">
+      <div class="section"><h3><span>◉</span> Palet warna</h3><p class="hint">Preset ini menimpa warna umum pada preview. Efek bergantung pada struktur CSS template.</p>
+        <div class="swatches">
+          <button class="swatch selected" data-preset="olive" style="background:linear-gradient(135deg,#f7f3e8 50%,#526149 50%)" aria-label="Olive"></button>
+          <button class="swatch" data-preset="rose" style="background:linear-gradient(135deg,#fff5f4 50%,#a65f6a 50%)" aria-label="Rose"></button>
+          <button class="swatch" data-preset="blue" style="background:linear-gradient(135deg,#f1f5f7 50%,#4b6478 50%)" aria-label="Blue"></button>
+          <button class="swatch" data-preset="terracotta" style="background:linear-gradient(135deg,#fbf1e8 50%,#a85e43 50%)" aria-label="Terracotta"></button>
+          <button class="swatch" data-preset="black" style="background:linear-gradient(135deg,#f5f4f0 50%,#282a29 50%)" aria-label="Monochrome"></button>
+        </div>
+      </div>
+      <div class="section"><h3><span>✎</span> Atur warna sendiri</h3>
+        <div class="color-row"><label for="bgColor">Warna latar</label><input type="color" id="bgColor" value="#f7f3e8"></div>
+        <div class="color-row"><label for="textColor">Warna teks</label><input type="color" id="textColor" value="#526149"></div>
+        <div class="color-row"><label for="accentColor">Warna aksen</label><input type="color" id="accentColor" value="#c4a66a"></div>
+        <button class="btn" id="applyColors">Terapkan warna</button><p class="hint">Perubahan warna saat ini hanya diterapkan pada elemen preview yang dapat dikenali. Untuk kontrol 100% presisi, tiap template perlu mendukung variabel warna.</p>
+      </div>
+    </section>
+    <section class="panel" id="panel-content">
+      <div class="section"><h3><span>⌁</span> Tamu undangan</h3><div class="field"><label for="guestName">Nama tamu pada sampul</label><input id="guestName" value="Bapak/Ibu/Saudara/i"></div></div><div class="section"><h3><span>♡</span> Informasi mempelai</h3>
+        <div class="field"><label for="groom">Nama mempelai pria</label><input id="groom" value="Aditya Pratama"></div>
+        <div class="field"><label for="bride">Nama mempelai wanita</label><input id="bride" value="Rania Putri"></div>
+        <div class="field"><label for="parents">Nama orang tua (opsional)</label><input id="parents" placeholder="Nama orang tua kedua mempelai"></div>
+      </div>
+      <div class="section"><h3><span>▦</span> Tanggal & waktu</h3>
+        <div class="field"><label for="dateText">Tanggal acara</label><input id="dateText" value="Minggu, 20 Desember 2026"></div>
+        <div class="field"><label for="akad">Waktu akad</label><input id="akad" value="08.00 WIB"></div>
+        <div class="field"><label for="resepsi">Waktu resepsi</label><input id="resepsi" value="11.00 – 15.00 WIB"></div>
+      </div>
+      <div class="section"><h3><span>⌖</span> Lokasi acara</h3>
+        <div class="field"><label for="venue">Nama tempat</label><input id="venue" value="The Alana Hotel & Convention Center"></div>
+        <div class="field"><label for="address">Alamat</label><textarea id="address">Jl. Palagan Tentara Pelajar, Yogyakarta</textarea></div>
+      </div>
+      <div class="section"><h3><span>✉</span> Pesan undangan</h3>
+        <div class="field"><label for="message">Kata-kata pembuka</label><textarea id="message">Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.</textarea></div>
+      </div>
+      <div class="section"><h3><span>▤</span> Wedding gift (opsional)</h3><div class="field"><label for="bankNumber">Nomor rekening</label><input id="bankNumber" placeholder="Nomor rekening / e-wallet"></div></div><div class="section"><h3><span>↗</span> Foto sampul (opsional)</h3><div class="field"><label for="coverUrl">URL gambar</label><input id="coverUrl" placeholder="https://..."><div class="hint">Untuk prototipe ini, gunakan URL gambar yang dapat diakses publik.</div></div></div>
+      <div id="templateFeatures"></div><p class="hint" id="templateSummary"></p><button class="btn primary" id="applyContent">Perbarui preview</button>
+      <div class="mobile-bottom">Catatan: editor ini adalah prototipe frontend. Penyimpanan database belum terhubung.</div>
+    </section>
+  </aside>
+  <main class="workspace">
+    <div class="workspace-head"><div><strong>Live Preview</strong><p>Perubahan akan terlihat pada preview undangan.</p></div><div class="device-switch"><button class="active" data-device="mobile">▯ Mobile</button><button data-device="desktop">▭ Desktop</button></div></div>
+    <div class="preview-wrap"><div class="phone" id="phone"><iframe id="previewFrame" title="Preview undangan digital" src="index3.html"></iframe></div></div>
+    <p class="preview-note">Preview mobile dibuat lebih ramping dan tinggi; mode desktop memakai kanvas lebar. Preview menggunakan file desain asli di folder inv.</p>
+    <div class="bottom-features"><span>▧ Template undangan</span><span>↗ Preview langsung</span><span>▢ Tampilan responsif</span></div>
+  </main>
+</div>
+<div class="toast" id="toast">Draft tersimpan di browser.</div>
+<script>
+(() => {
+  const designs = [
+    {id:3,name:'Eternal Olive',desc:'Botanical · Classic',bg:'#f7f3e8',ink:'#526149',accent:'#c4a66a'},
+    {id:4,name:'Elegant Bloom',desc:'Floral · Romantic',bg:'#fff5f4',ink:'#a65f6a',accent:'#d9a7a2'},
+    {id:5,name:'Royal Minimal',desc:'Minimal · Modern',bg:'#f7f4ee',ink:'#3e403b',accent:'#b69b69'},
+    {id:6,name:'Blue Serenity',desc:'Soft · Elegant',bg:'#f1f5f7',ink:'#4b6478',accent:'#b8c7d0'},
+    {id:7,name:'Golden Classic',desc:'Classic · Gold',bg:'#fbf7ed',ink:'#6b5735',accent:'#c6a45b'},
+    {id:8,name:'Terracotta Love',desc:'Warm · Earthy',bg:'#fbf1e8',ink:'#a85e43',accent:'#d4a080'},
+    {id:9,name:'Pure White',desc:'Clean · Minimal',bg:'#ffffff',ink:'#414141',accent:'#c4b7a0'},
+    {id:10,name:'Sage Garden',desc:'Botanical · Calm',bg:'#f0f2e9',ink:'#56664f',accent:'#c0aa7b'},
+    {id:11,name:'Dusty Rose',desc:'Romantic · Soft',bg:'#fbf0f1',ink:'#925b68',accent:'#c99ba3'},
+    {id:12,name:'Midnight Navy',desc:'Formal · Modern',bg:'#f0f2f7',ink:'#293e62',accent:'#b4a16b'},
+    {id:13,name:'Lavender Dream',desc:'Soft · Floral',bg:'#f5f0f8',ink:'#746084',accent:'#c3b1d4'},
+    {id:14,name:'Earthy Neutral',desc:'Natural · Warm',bg:'#f3eee6',ink:'#625344',accent:'#b9a38b'},
+    {id:15,name:'Modern Charcoal',desc:'Modern · Bold',bg:'#f2f2f0',ink:'#333a39',accent:'#a6aaa4'},
+    {id:16,name:'Peach Garden',desc:'Fresh · Floral',bg:'#fff3eb',ink:'#a66e58',accent:'#e5b69d'},
+    {id:17,name:'Emerald Luxe',desc:'Luxury · Green',bg:'#f2f4ee',ink:'#315c4c',accent:'#c6ad73'},
+    {id:18,name:'Champagne',desc:'Elegant · Neutral',bg:'#faf5eb',ink:'#77634b',accent:'#c9ac78'},
+    {id:19,name:'Burgundy Grace',desc:'Formal · Classic',bg:'#f8f0f0',ink:'#773f4a',accent:'#c5a1a0'},
+    {id:20,name:'Modern Beige',desc:'Minimal · Warm',bg:'#f5f0e8',ink:'#675a4b',accent:'#bba68b'}
+  ];
+  const $ = id => document.getElementById(id);
+  let selected = designs[0], applied = designs[0];
+  const grid = $('designGrid');
+  designs.forEach(d => {
+    const b = document.createElement('button');
+    b.className = 'design-option' + (d.id===3?' selected':'');
+    b.dataset.id = d.id;
+    b.innerHTML = `<div class="design-mini" style="--mini-bg:${d.bg};--mini-ink:${d.ink}"><small>THE WEDDING OF</small><div class="floral">❧</div><div class="mini-script">A & R</div><div style="height:5px"></div><small>20 · 12 · 2026</small></div><b>${d.name}</b><small>index${d.id}.html</small>`;
+    b.addEventListener('click', () => chooseDesign(d));
+    grid.appendChild(b);
+  });
+  function chooseDesign(d) {
+    selected = d;
+    document.querySelectorAll('.design-option').forEach(el => el.classList.toggle('selected', Number(el.dataset.id)===d.id));
+    $('currentName').textContent = d.name;
+    $('currentCode').textContent = `Template index${d.id}.html`;
+    $('currentThumb').textContent = 'A & R';
+    $('previewFrame').src = `index${d.id}.html`;
+    setColors(d);
+  }
+  function setColors(d) {
+    $('bgColor').value=d.bg; $('textColor').value=d.ink; $('accentColor').value=d.accent;
+    document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('selected'));
+  }
+  $('applyDesign').addEventListener('click', () => { applied=selected; toast(`Desain ${selected.name} dipilih.`); applyColors(); applyContent(); });
+  document.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>{
+    document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b===btn));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===`panel-${btn.dataset.tab}`));
+  }));
+  document.querySelectorAll('[data-preset]').forEach(btn=>btn.addEventListener('click',()=>{
+    const presets={olive:['#f7f3e8','#526149','#c4a66a'],rose:['#fff5f4','#a65f6a','#d9a7a2'],blue:['#f1f5f7','#4b6478','#b8c7d0'],terracotta:['#fbf1e8','#a85e43','#d4a080'],black:['#f5f4f0','#282a29','#aaa18f']};
+    const c=presets[btn.dataset.preset]; $('bgColor').value=c[0];$('textColor').value=c[1];$('accentColor').value=c[2];
+    document.querySelectorAll('.swatch').forEach(s=>s.classList.toggle('selected',s===btn)); applyColors();
+  }));
+  function injectPreview(css, replacements={}) {
+    try {
+      const doc=$('previewFrame').contentDocument;
+      if(!doc || !doc.body) return;
+      let style=doc.getElementById('ruang-janji-canvas-overrides');
+      if(!style){style=doc.createElement('style');style.id='ruang-janji-canvas-overrides';doc.head.appendChild(style);}
+      style.textContent=css;
+      if(Object.keys(replacements).length) {
+        const walker=doc.createTreeWalker(doc.body,NodeFilter.SHOW_TEXT);
+        const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(node=>{
+          let value=node.nodeValue;
+          Object.entries(replacements).forEach(([oldText,newText])=>{
+            if(oldText && value.includes(oldText)) value=value.split(oldText).join(newText);
+          });
+          node.nodeValue=value;
+        });
+      }
+      const cover=$('coverUrl').value.trim();
+      if(cover){const firstImg=doc.querySelector('img'); if(firstImg) firstImg.src=cover;}
+    } catch(e) { console.warn('Preview template tidak bisa dimodifikasi:',e); }
+  }
+  function applyColors(){
+    const bg=$('bgColor').value, ink=$('textColor').value, accent=$('accentColor').value;
+    const css=`:root{--primary-color:${ink}!important;--accent-color:${accent}!important;--background-color:${bg}!important;--theme-color:${ink}!important;--main-color:${ink}!important}body{background-color:${bg}!important;color:${ink}!important}h1,h2,h3,h4,p,a,button,span{border-color:${accent}55}a,button,.btn,.button{background-color:${ink};border-color:${ink}}`;
+    injectPreview(css);
+  }
+  function templateDoc(){try{return $('previewFrame').contentDocument;}catch(e){return null;}}
+  function scanTemplate(){
+    const doc=templateDoc(); if(!doc || !doc.body) return;
+    const featureBox=$('templateFeatures');
+    if(featureBox){
+      const sections=[...doc.querySelectorAll('main section[id], main footer[id], main > section[id]')];
+      const seen=new Set();
+      const labels=sections.map(s=>{
+        const id=s.id.toLowerCase();
+        let label=s.dataset.chap||s.dataset.title||id.replace(/[-_]/g,' ');
+        if(/story|cerita|kisah/.test(id+' '+label)) label='Love Story';
+        else if(/galeri|gallery/.test(id+' '+label)) label='Galeri';
+        else if(/acara|event|akad|resepsi/.test(id+' '+label)) label='Acara';
+        else if(/hadiah|gift|bank/.test(id+' '+label)) label='Wedding Gift';
+        else if(/rsvp|ucapan/.test(id+' '+label)) label='RSVP & Ucapan';
+        else if(/mempelai|couple/.test(id+' '+label)) label='Mempelai';
+        else if(/lokasi|location|maps/.test(id+' '+label)) label='Lokasi';
+        else if(/penutup|closing|end/.test(id+' '+label)) label='Penutup';
+        else if(/pembuka|salam|intro/.test(id+' '+label)) label='Pembuka';
+        label=label.charAt(0).toUpperCase()+label.slice(1);
+        seen.add(label); return {id:s.id,label};
+      });
+      const unique=[...new Map(labels.map(x=>[x.label,x])).values()];
+      featureBox.innerHTML='<div class="section"><h3>Bagian yang tersedia di desain ini</h3><div class="hint">Canvas membaca struktur HTML template terpilih. Bagian yang tidak ada tidak akan ditampilkan.</div><div class="feature-tags">'+unique.map(x=>'<span class="feature-tag">'+x.label+'</span>').join('')+'</div></div>';
+    }
+    const story=!!doc.querySelector('#cerita,.story,.story-sec,[id*="story"],[id*="kisah"]');
+    const gallery=!!doc.querySelector('#galeri,#gallery,.gallery,[id*="galeri"]');
+    const event=!!doc.querySelector('#acara,#lokasi,.events,.event,[id*="acara"]');
+    const gift=!!doc.querySelector('#hadiah,.gift,[id*="hadiah"]');
+    document.querySelectorAll('[data-requires]').forEach(el=>{
+      const req=el.dataset.requires;
+      el.style.display=({story,gallery,event,gift})[req]?'':'none';
+    });
+    const count=$('templateSummary'); if(count) count.textContent=`Fitur terdeteksi: ${[story&&'Love Story',gallery&&'Galeri',event&&'Acara',gift&&'Wedding Gift'].filter(Boolean).join(' · ')||'bagian dasar'}`;
+  }
+  function setText(doc, selectors, value){
+    if(!value) return;
+    for(const sel of selectors){
+      const el=doc.querySelector(sel);
+      if(el){ if(['INPUT','TEXTAREA'].includes(el.tagName)) el.value=value; else el.textContent=value; return; }
+    }
+  }
+  function replaceTextInSection(doc, selectors, oldHints, value){
+    if(!value) return;
+    const section=doc.querySelector(selectors);
+    if(!section) return;
+    const nodes=[...section.querySelectorAll('h1,h2,h3,h4,p,span,strong,b,small,div')].filter(el=>el.children.length===0 && el.textContent.trim());
+    const target=nodes.find(el=>oldHints.some(h=>el.textContent.toLowerCase().includes(h)));
+    if(target) target.textContent=value;
+  }
+  function applyContent(){
+    const doc=templateDoc(); if(!doc || !doc.body) return;
+    const groom=$('groom').value.trim(), bride=$('bride').value.trim();
+    // Shared stable IDs found across most templates.
+    setText(doc,['#guest'], $('guestName')?.value.trim() || 'Bapak/Ibu/Saudara/i');
+    // Update name labels by template section context instead of relying on one demo name.
+    const couple=doc.querySelector('#mempelai,#s2,#s3,.couple');
+    if(couple){
+      const leaves=[...couple.querySelectorAll('h1,h2,h3,h4,p,span,strong,b,div')].filter(el=>el.children.length===0 && el.textContent.trim());
+      const nameLike=leaves.filter(el=>el.textContent.trim().length<55 && !/mempelai|putra|putri|anak|dari|the bride|the groom/i.test(el.textContent));
+      if(groom && nameLike[0]) nameLike[0].textContent=groom;
+      if(bride && nameLike[1]) nameLike[1].textContent=bride;
+    }
+    const date=$('dateText').value.trim();
+    setText(doc,['.cover-date','.date-big','[data-date]'],date);
+    replaceTextInSection(doc,'#acara,#lokasi,.events',['akad','pukul','jam'], $('akad').value.trim());
+    const venue=$('venue').value.trim(), address=$('address').value.trim();
+    replaceTextInSection(doc,'#acara,#lokasi,.events',['akad','resepsi','wib','pukul','jam'], $('resepsi').value.trim());
+    replaceTextInSection(doc,'#acara,#lokasi,.events',['tempat','hotel','gedung','venue'],venue);
+    replaceTextInSection(doc,'#acara,#lokasi,.events',['alamat','jalan','jl.'],address);
+    replaceTextInSection(doc,'#salam,#pembuka,#cerita,.intro',['mengundang','syukur','bahagia'], $('message').value.trim());
+    const cover=$('coverUrl').value.trim();
+    if(cover){ const img=doc.querySelector('#cover img,.cover-img,header#cover img,header img, .hero img'); if(img) img.src=cover; }
+    const bank=doc.querySelector('#rek,#rek1,.bank-no');
+    if(bank && $('bankNumber')) bank.textContent=$('bankNumber').value;
+    scanTemplate();
+  }
+  $('applyColors').addEventListener('click',applyColors);
+  $('applyContent').addEventListener('click',()=>{applyContent();toast('Konten preview diperbarui.');});
+  $('previewFrame').addEventListener('load',()=>{scanTemplate();applyColors();applyContent();});
+  document.querySelectorAll('[data-device]').forEach(btn=>btn.addEventListener('click',()=>{
+    document.querySelectorAll('[data-device]').forEach(b=>b.classList.toggle('active',b===btn));
+    $('phone').classList.toggle('desktop',btn.dataset.device==='desktop');
+  }));
+  $('saveBtn').addEventListener('click',()=>{
+    const draft={template:selected.id,colors:{background:$('bgColor').value,text:$('textColor').value,accent:$('accentColor').value},content:{groom:$('groom').value,bride:$('bride').value,parents:$('parents').value,date:$('dateText').value,akad:$('akad').value,resepsi:$('resepsi').value,venue:$('venue').value,address:$('address').value,message:$('message').value,coverUrl:$('coverUrl').value,guestName:$('guestName').value,bankNumber:$('bankNumber').value}};
+    try{localStorage.setItem('ruangJanjiInvitationDraft',JSON.stringify(draft));toast('Draft tersimpan di browser.');}catch(e){toast('Browser tidak mengizinkan penyimpanan draft.');}
+  });
+  $('resetBtn').addEventListener('click',()=>{
+    if(!confirm('Reset perubahan dan kembali ke nilai awal?'))return;
+    $('groom').value='Aditya Pratama';$('bride').value='Rania Putri';$('parents').value='';$('dateText').value='Minggu, 20 Desember 2026';$('akad').value='08.00 WIB';$('resepsi').value='11.00 – 15.00 WIB';$('venue').value='The Alana Hotel & Convention Center';$('address').value='Jl. Palagan Tentara Pelajar, Yogyakarta';$('message').value='Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.';$('coverUrl').value='';$('guestName').value='Bapak/Ibu/Saudara/i';$('bankNumber').value='';
+    chooseDesign(designs[0]); applyColors(); applyContent(); toast('Perubahan direset.');
+  });
+  let toastTimer;
+  function toast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2400);}
+  // Restore browser draft if one exists.
+  try {
+    const saved=JSON.parse(localStorage.getItem('ruangJanjiInvitationDraft')||'null');
+    if(saved){
+      const d=designs.find(x=>x.id===Number(saved.template)); if(d) chooseDesign(d);
+      if(saved.colors){$('bgColor').value=saved.colors.background||$('bgColor').value;$('textColor').value=saved.colors.text||$('textColor').value;$('accentColor').value=saved.colors.accent||$('accentColor').value;}
+      if(saved.content) Object.entries({groom:'groom',bride:'bride',parents:'parents',date:'dateText',akad:'akad',resepsi:'resepsi',venue:'venue',address:'address',message:'message',coverUrl:'coverUrl',guestName:'guestName',bankNumber:'bankNumber'}).forEach(([k,id])=>{if(saved.content[k]!==undefined)$(id).value=saved.content[k];});
+    }
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
