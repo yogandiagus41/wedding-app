@@ -2,9 +2,9 @@
   "use strict";
 
   // ====== PENGATURAN (ganti sesuai kebutuhan) ======
-  var WEDDING_DATE = new Date("2026-12-19T08:00:00+07:00"); // tanggal dummy untuk hitung mundur
-  var PHOTO_DIR = "assets/img/bayu/";
-  var PHOTO_COUNT = 10;                                     // 1.jpeg ... 10.jpeg
+  var WEDDING_DATE = new Date("2026-12-11T08:00:00+07:00"); // tanggal dummy untuk hitung mundur
+  var PHOTO_DIR = "assets/img/bayu/galery/";
+  var PHOTO_COUNT = 5;                                     // 1.jpeg ... 10.jpeg
   // ==================================================
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -29,20 +29,44 @@
   }
   tick(); setInterval(tick, 1000);
 
-  // ---------- Galeri: 10 foto, 2 foto besar ----------
-  var gallery = $("#gallery"), photos = [];
-  var bigAt = { 1: true, 7: true };            // urutan foto yang dibuat besar (agar grid 4x4 penuh)
-  for (var i = 1; i <= PHOTO_COUNT; i++) {
-    var src = PHOTO_DIR + i + ".jpeg";
+// ---------- Galeri: 20 foto dengan ukuran bervariasi ----------
+var gallery = $("#gallery");
+var photos = [];
+
+// Foto yang dibuat lebih besar
+var bigAt = {
+    1: true,
+    8: true,
+    17: true,
+    16: true
+};
+
+for (var i = 1; i <= PHOTO_COUNT; i++) {
+    // Gunakan .jpg, bukan .jpeg
+    var src = PHOTO_DIR + i + ".jpg";
+
     photos.push(src);
+
     var t = document.createElement("button");
     t.type = "button";
     t.className = "tile" + (bigAt[i] ? " big" : "");
     t.setAttribute("aria-label", "Buka foto " + i);
     t.dataset.i = i - 1;
-    t.innerHTML = '<img src="' + src + '" alt="Foto galeri ' + i + '" loading="lazy" decoding="async">';
+
+    var img = document.createElement("img");
+    img.src = src;
+    img.alt = "Foto galeri " + i;
+    img.loading = "lazy";
+    img.decoding = "async";
+
+    // Tampilkan pesan di console jika file tidak ditemukan
+    img.onerror = function () {
+        console.error("Foto gagal dimuat:", this.src);
+    };
+
+    t.appendChild(img);
     gallery.appendChild(t);
-  }
+}
 
   // ---------- Lightbox ----------
   var lb = $("#lb"), lbImg = $("#lbImg"), lbCount = $("#lbCount"), cur = 0, lastFocus = null;

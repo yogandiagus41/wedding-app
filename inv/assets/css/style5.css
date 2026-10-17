@@ -96,7 +96,7 @@ a{color:inherit}
   transform:scale(1.14);transition:transform 2.8s cubic-bezier(.2,.6,.2,1)}
 .screen.in .bg-img{transform:scale(1)}
 .veil{position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(9,10,13,.5) 0%,rgba(9,10,13,.08) 30%,rgba(9,10,13,.78) 72%,rgba(9,10,13,.94) 100%)}
+  linear-gradient(180deg,rgba(0, 0, 0, 0.5) 100%,rgba(9,10,13,.78) 100%,rgba(9,10,13,.78) 82%,rgba(9,10,13,.94) 100%)}
 .veil.flat{background:rgba(9,10,13,.55)}
 /* foto 8 & 9 lebih terang -> digelapkan lagi */
 .screen.dim .bg-img{filter:brightness(.5) saturate(.85)}
