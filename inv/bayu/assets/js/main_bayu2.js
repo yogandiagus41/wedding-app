@@ -3,7 +3,7 @@
 
   // ===== PENGATURAN =====
   var WEDDING_DATE = new Date("2026-12-11T08:00:00+07:00");
-  var PHOTO_DIR = "assets/img/bayu/galery/";
+  var PHOTO_DIR = "assets/img/bayu/gallery/";
   var PHOTO_COUNT = 20; // Contoh 6 foto dahulu agar ringan saat testing
   // =====================
 
