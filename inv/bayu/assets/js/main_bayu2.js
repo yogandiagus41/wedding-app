@@ -214,7 +214,7 @@
     alamat: {
       title: "Alamat",
       description: "Alamat lokasi acara:",
-      value: "Ciketing Asem, Mustikajaya, Kota Bekasi",
+      value: "TKQ Al Afkaar, Jl. Galaksi I Atas No.23, RT.003/RW.006, Mustikasari, Kec. Mustika Jaya, Kota Bks, Jawa Barat 17157",
       extra: "Silakan ganti dengan alamat lengkap jika diperlukan."
     }
   };
