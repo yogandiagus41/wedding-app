@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan Rafi &amp; Alya</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style2.css">
+</head>
+
+<body class="lock" data-scene="video">
+
+<audio id="musik" loop preload="auto">
+    <source src="assets/music/1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- LAYER LATAR -->
+<div class="bg">
+    <video id="vid" autoplay muted loop playsinline preload="auto">
+        <source src="assets/vidio/1.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="vis">
+    <img id="p2" alt="">
+    <img id="p6" alt="">
+</div>
+
+<!-- 1. COVER (VIDEO) -->
+<div id="cover">
+    <div class="cover-inner">
+        <p class="kicker">The Wedding of</p>
+        <h1 class="names" id="coverNames"></h1>
+        <p class="cover-date" id="coverDate"></p>
+
+        <p class="to">
+            Kepada Yth. Bapak/Ibu/Saudara/i
+            <b id="guest">Tamu Undangan</b>
+        </p>
+
+        <button class="btn" id="openBtn" type="button">
+            <span>Buka Undangan</span>
+        </button>
+    </div>
+</div>
+
+<button class="music" id="musicBtn" type="button" aria-label="Putar atau jeda musik">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>
+    </svg>
+</button>
+
+<main id="main">
+
+    <!-- 2. PEMBUKA (FOTO 2) -->
+    <section class="hero" id="home" data-scene="p2">
+        <div class="wrap">
+            <p class="kicker rv">Kami akan menikah</p>
+            <h1 class="names rv" id="heroNames"></h1>
+            <p class="date rv" id="heroDate"></p>
+
+            <p class="quote rv">
+                Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
+                menciptakan pasangan untukmu dari jenismu sendiri,
+                agar kamu merasa tenteram kepadanya, dan Dia
+                menjadikan di antaramu rasa kasih dan sayang.
+                <small>QS. Ar-Rum: 21</small>
+            </p>
+
+            <div class="scroll rv">
+                GULIR
+                <i></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MEMPELAI PRIA (VIDEO + FOTO 3) -->
+    <section id="mempelaiPria" class="photo-sec" data-scene="video">
+        <div class="wrap">
+            <div class="portrait rv">
+                <img id="f3" alt="Mempelai Pria">
+                <div class="portrait-cap">
+                    <p class="kicker">Mempelai Pria</p>
+                    <h2 class="pname">Rafi Pratama, S.T.</h2>
+                    <a class="ig" id="igGroom" target="_blank" rel="noopener"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MEMPELAI WANITA (VIDEO + FOTO 4) -->
+    <section id="mempelaiWanita" class="photo-sec" data-scene="video">
+        <div class="wrap">
+            <div class="portrait rv">
+                <img id="f4" alt="Mempelai Wanita">
+                <div class="portrait-cap">
+                    <p class="kicker">Mempelai Wanita</p>
+                    <h2 class="pname">Alya Safitri, S.Ds.</h2>
+                    <a class="ig" id="igBride" target="_blank" rel="noopener"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. OUR LOVE STORY (FOTO 6, GELAP) -->
+    <section id="loveStory" class="story" data-scene="p6">
+        <div class="wrap">
+            <p class="kicker rv">Perjalanan Kami</p>
+            <h2 class="title rv">Our Love Story</h2>
+
+            <div class="timeline">
+                <div class="tl-item rv">
+                    <span class="dot"></span>
+                    <small>Pertemuan</small>
+                    <p>Sebuah pertemuan sederhana yang membuat kami ingin saling mengenal lebih jauh.</p>
+                </div>
+                <div class="tl-item rv">
+                    <span class="dot"></span>
+                    <small>Perjalanan</small>
+                    <p>Bertumbuh bersama dalam kepercayaan, pengertian, dan setiap keadaan.</p>
+                </div>
+                <div class="tl-item rv">
+                    <span class="dot"></span>
+                    <small>Menuju Selamanya</small>
+                    <p>Dengan doa dan restu keluarga, kami melangkah memulai babak baru.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WAKTU DAN TEMPAT (VIDEO) -->
+    <section id="acara" data-scene="video">
+        <div class="wrap">
+            <p class="kicker rv">Catat Tanggalnya</p>
+            <h2 class="title rv">Waktu dan Tempat</h2>
+
+            <div class="count rv" id="count">
+                <div class="glass"><b id="d">00</b><span>HARI</span></div>
+                <div class="glass"><b id="h">00</b><span>JAM</span></div>
+                <div class="glass"><b id="m">00</b><span>MENIT</span></div>
+                <div class="glass"><b id="s">00</b><span>DETIK</span></div>
+            </div>
+
+            <div class="grid">
+                <div class="glass rv">
+                    <h3>Akad Nikah</h3>
+                    <p class="when">Sabtu, 12 Desember 2026</p>
+                    <p class="acc">08.00 WIB</p>
+                    <p>Masjid Al-Ikhlas<br>Jl. Raya Cikarang No. 12, Bekasi</p>
+                    <a class="btn soft small"
+                       href="https://maps.google.com/?q=Masjid+Al-Ikhlas+Cikarang+Bekasi"
+                       target="_blank" rel="noopener"><span>Lihat Lokasi</span></a>
+                </div>
+
+                <div class="glass rv">
+                    <h3>Resepsi</h3>
+                    <p class="when">Sabtu, 12 Desember 2026</p>
+                    <p class="acc">11.00 WIB</p>
+                    <p>Gedung Graha Permata<br>Jl. Industri Raya No. 8, Bekasi</p>
+                    <a class="btn soft small"
+                       href="https://maps.google.com/?q=Gedung+Graha+Permata+Bekasi"
+                       target="_blank" rel="noopener"><span>Lihat Lokasi</span></a>
+                </div>
+            </div>
+
+            <button class="btn rv mt" id="calBtn" type="button"><span>Simpan ke Kalender</span></button>
+        </div>
+    </section>
+
+    <!-- 7. HADIAH PERNIKAHAN (VIDEO) -->
+    <section id="hadiah" data-scene="video">
+        <div class="wrap">
+            <p class="kicker rv">Tanda Kasih</p>
+            <h2 class="title rv">Hadiah Pernikahan</h2>
+            <p class="lead rv">
+                Doa restu Anda adalah hadiah terbaik. Jika ingin memberi
+                tanda kasih, dapat melalui rekening berikut.
+            </p>
+
+            <div class="grid">
+                <div class="glass rv">
+                    <h3>Bank BCA</h3>
+                    <p class="acc">1234 567 890</p>
+                    <p>a.n. Rafi Pratama</p>
+                    <button class="btn soft small copy" data-v="1234567890" type="button"><span>Salin Nomor</span></button>
+                </div>
+
+                <div class="glass rv">
+                    <h3>Bank Mandiri</h3>
+                    <p class="acc">0987 654 321</p>
+                    <p>a.n. Alya Safitri</p>
+                    <button class="btn soft small copy" data-v="0987654321" type="button"><span>Salin Nomor</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GALERI (TANPA BACKGROUND) -->
+    <section id="galeri" class="gallery" data-scene="video">
+        <div class="gal-head">
+            <p class="kicker rv">Galeri</p>
+            <h2 class="title rv">Momen Kami</h2>
+        </div>
+
+        <div class="gal" id="gal">
+            <div class="row r1"><img data-i="1" alt="Galeri 1"></div>
+            <div class="row r2"><img data-i="2" alt="Galeri 2"><img data-i="3" alt="Galeri 3"></div>
+            <div class="row r1"><img data-i="4" alt="Galeri 4"></div>
+            <div class="row r2"><img data-i="5" alt="Galeri 5"><img data-i="6" alt="Galeri 6"></div>
+            <div class="row r1"><img data-i="7" alt="Galeri 7"></div>
+            <div class="row r2"><img data-i="8" alt="Galeri 8"><img data-i="3" alt="Galeri 9"></div>
+            <div class="row r1"><img data-i="1" alt="Galeri 10"></div>
+        </div>
+    </section>
+
+    <!-- 9. PENUTUP (VIDEO + FOTO 5) -->
+    <footer id="penutup" data-scene="video">
+        <div class="wrap">
+            <div class="closing rv">
+                <img id="f5" alt="Rafi dan Alya">
+                <div class="closing-cap">
+                    <p class="kicker">Terima kasih</p>
+                    <p class="closing-text">
+                        Merupakan kebahagiaan bagi kami apabila
+                        Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+                    </p>
+                    <p class="names" id="footNames"></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</main>
+
+<nav id="nav">
+    <a href="#home">Awal</a>
+    <a href="#mempelaiPria">Mempelai</a>
+    <a href="#loveStory">Kisah</a>
+    <a href="#acara">Acara</a>
+    <a href="#hadiah">Hadiah</a>
+    <a href="#galeri">Galeri</a>
+</nav>
+
+<div class="toast" id="toast"></div>
+<script src="assets/js/main2.js"></script>
+</body>
+</html>
