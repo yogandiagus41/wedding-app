@@ -4,7 +4,7 @@
   // ===== PENGATURAN =====
   var WEDDING_DATE = new Date("2026-12-11T08:00:00+07:00");
   var PHOTO_DIR = "assets/img/bayu/gallery/";
-  var PHOTO_COUNT = 20; // Contoh 6 foto dahulu agar ringan saat testing
+  var PHOTO_COUNT = 8; // Contoh 6 foto dahulu agar ringan saat testing
   // =====================
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -285,14 +285,19 @@
     dotBtns.forEach(function (dot, k) { dot.classList.toggle("on", k === i); });
   }
 
-  // Observer 1: memicu animasi masuk (sekali saja per layar -> lebih ringan)
+  // Observer 1: animasi masuk BERULANG.
+  // - kelas "in" ditambahkan saat layar terlihat >= 15%
+  // - kelas "in" dilepas saat layar benar-benar keluar dari tampilan,
+  //   sehingga animasi jalan lagi ketika pengunjung kembali ke layar itu
   var ioReveal = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("in");
-      ioReveal.unobserve(entry.target);
+      if (entry.intersectionRatio >= 0.15) {
+        entry.target.classList.add("in");
+      } else if (!entry.isIntersecting) {
+        entry.target.classList.remove("in");
+      }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: [0, 0.15] });
 
   // Observer 2: indikator titik, aktif saat layar melewati garis tengah layar
   var ioDots = new IntersectionObserver(function (entries) {
