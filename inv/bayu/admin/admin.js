@@ -120,21 +120,22 @@ if (sendButton) {
 
 
 
-        const message =
+const message = `Kepada Yth.
+Bapak/Ibu/Saudara/i ${name}
 
-            `Assalamu'alaikum Wr. Wb.
+Dengan penuh rasa bahagia, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami:
 
-Tanpa mengurangi rasa hormat, kami mengundang:
+Shania & Bayu
 
-*${name} & Partner *
+Besar harapan kami atas kehadiran dan doa restu Bapak/Ibu/Saudara/i untuk mengiringi awal perjalanan baru kami.
 
-untuk hadir pada acara pernikahan kami.
-
-Silakan buka undangan:
+Informasi lengkap mengenai acara dapat dilihat melalui tautan berikut:
 
 ${BASE_URL}
 
-Terima kasih.`;
+Merupakan kebahagiaan bagi kami dapat berbagi momen istimewa ini bersama Anda.
+
+Terima kasih atas perhatian dan doa restunya. 🤍`;
 
 
 

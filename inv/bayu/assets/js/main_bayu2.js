@@ -208,8 +208,8 @@
     rekening: {
       title: "Nomor Rekening",
       description: "Transfer hadiah untuk:",
-      value: "0000000000",
-      extra: "Bank [Nama Bank] · a.n. Shania [Nama Lengkap]"
+      value: "1570014146196",
+      extra: "Bank Mandiri · a.n. Shania Azzahra"
     },
     alamat: {
       title: "Alamat",
