@@ -7,7 +7,7 @@ const STORAGE_KEY = "wedding_guest_list";
 
 const BASE_URL =
     window.location.origin +
-    "/index_bayu2.html";
+    "/inv/bayu/index_bayu2.html";
 
 
 
