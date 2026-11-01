@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan Agus &amp; Wenna</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="lock" data-scene="video">
+
+<audio id="musik" loop preload="auto">
+    <source src="assets/music/1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- LAYER LATAR -->
+<div class="bg">
+    <video id="vid" autoplay muted loop playsinline preload="auto">
+        <source src="assets/vidio/vid1.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="vis">
+    <img id="p2" alt="">
+    <img id="p6" alt="">
+</div>
+
+<!-- 1. COVER (VIDEO) -->
+<div id="cover">
+    <div class="cover-inner">
+        <p class="kicker">The Wedding of</p>
+        <h1 class="names" id="coverNames"></h1>
+        <p class="cover-date" id="coverDate"></p>
+<br>
+        <p class="kicker">
+            To Our Dearest <br> <b>Family and Friends</b>
+        </p>
+<br>
+        <button class="btn" id="openBtn" type="button">
+            <span>Open Invitation</span>
+        </button>
+    </div>
+</div>
+
+<button class="music" id="musicBtn" type="button" aria-label="Putar atau jeda musik">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>
+    </svg>
+</button>
+
+<main id="main">
+
+    <!-- 2A. PEMBUKA: KAMI AKAN MENIKAH (FOTO, TEKS DI BAWAH) -->
+    <section class="hero hero-open" id="home" data-scene="p2">
+        <div class="wrap">
+            <p class="kicker rv">We Will Getting Married</p>
+            <h1 class="names rv" id="heroNames"></h1>
+            <p class="date rv" id="heroDate"></p>
+
+            <div class="scroll rv">
+                Scroll Down
+                <i></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2B. PEMBUKA: AYAT SUCI (FOTO SAMA, TEKS DI BAWAH) -->
+    <section class="hero hero-ayat" id="ayat" data-scene="p2">
+        <div class="wrap">
+            <p class="quote rv">
+                Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
+                menciptakan pasangan untukmu dari jenismu sendiri,
+                agar kamu merasa tenteram kepadanya, dan Dia
+                menjadikan di antaramu rasa kasih dan sayang.
+                <small>QS. Ar-Rum: 21</small>
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. MEMPELAI PRIA (FULLSCREEN, TANPA OVERLAY) -->
+    <section id="mempelaiPria" class="full" data-scene="dark">
+        <img class="bgimg" id="f3" alt="Mempelai Pria">
+        <div class="cap rv">
+            <p class="kicker">The Handsome Groom</p>
+            <h2 class="pname">Agus Yogandi</h2>
+            <p>The first son of Mr. Mochammad Daelani and Mrs. Armiyati</p>
+            <a class="ig" id="igGroom" target="_blank" rel="noopener"></a>
+        </div>
+    </section>
+
+    <!-- 4. MEMPELAI WANITA (FULLSCREEN, TANPA OVERLAY) -->
+    <section id="mempelaiWanita" class="full" data-scene="dark">
+        <img class="bgimg" id="f4" alt="Mempelai Wanita">
+        <div class="cap rv">
+            <p class="kicker">The Beautiful Bride</p>
+            <h2 class="pname">Wenna Olivia Shafa Ichramsyah</h2>
+            <p>The first daughter of Mr. Budi Ichramsyah and Mrs. Melli</p>
+            <a class="ig" id="igBride" target="_blank" rel="noopener"></a>
+        </div>
+    </section>
+
+    <!-- 5. WAKTU DAN TEMPAT (VIDEO) -->
+    <section id="acara" data-scene="video">
+        <div class="wrap">
+            <p class="kicker rv">Save the Date</p>
+<br>
+            <div class="count rv" id="count">
+                <div class="glass"><b id="d">00</b><span>Day</span></div>
+                <div class="glass"><b id="h">00</b><span>Hour</span></div>
+                <div class="glass"><b id="m">00</b><span>Minute</span></div>
+                <div class="glass"><b id="s">00</b><span>Second</span></div>
+            </div>
+
+            <!-- 1 CARD: AKAD + RECEPTION -->
+            <div class="glass card-one rv">
+                <p class="when">Saturday, December 5, 2026</p>
+
+                <div class="times">
+                    <div>
+                        <h3>AKAD</h3>
+                        <p class="acc">08:00 AM WIB</p>
+                    </div>
+                    <div class="sep"></div>
+                    <div>
+                        <h3>RECEPTION</h3>
+                        <p class="acc">12:00 PM WIB</p>
+                    </div>
+                </div>
+
+                <p>Graha Yapin<br>Jl. Toyogiri Sel., Jatimulya, Kec. Tambun Sel., Kabupaten Bekasi, West Java 17510</p>
+                <a class="btn soft small"
+                   href="https://maps.app.goo.gl/z8seTk9b7K2sh7tRA"
+                   target="_blank" rel="noopener"><span>View Location</span></a>
+            </div>
+
+            <button class="btn rv mt" id="calBtn" type="button"><span>Save to Calendar</span></button>
+        </div>
+    </section>
+
+    <!-- 6. HADIAH PERNIKAHAN (VIDEO) -->
+    <section id="hadiah" data-scene="video">
+        <div class="wrap">
+            <p class="kicker rv">Wedding Gifts</p>
+            <br>
+            <p class="lead rv">
+                Your blessing is the best gift. If you wish to give a token of your love, you can do so through the following bank account.
+            </p>
+
+            <div class="grid">
+                <div class="glass rv">
+                    <h3>Bank Mandiri</h3>
+                    <p class="acc">0987 654 321</p>
+                    <p>Budi Ichramsyah</p>
+                    <button class="btn soft small copy" data-v="0987654321" type="button"><span>Salin Nomor</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GALERI (VIDEO, 12 FOTO: 9 - 20) -->
+    <section id="galeri" class="gallery" data-scene="video">
+        <div class="gal-head">
+            <p class="kicker rv">Gallery</p>
+            <h2 class="title rv">Our Moments</h2>
+        </div>
+
+        <div class="gal" id="gal">
+            <div class="row r1"><img data-i="9" alt="Gallery 1"></div>
+            <div class="row r2"><img data-i="10" alt="Gallery 2"><img data-i="11" alt="Gallery 3"></div>
+            <div class="row r1"><img data-i="12" alt="Gallery 4"></div>
+            <div class="row r2"><img data-i="13" alt="Gallery 5"><img data-i="14" alt="Gallery 6"></div>
+            <div class="row r1"><img data-i="15" alt="Gallery 7"></div>
+            <div class="row r2"><img data-i="16" alt="Gallery 8"><img data-i="17" alt="Gallery 9"></div>
+            <div class="row r1"><img data-i="18" alt="Gallery 10"></div>
+            <div class="row r2"><img data-i="19" alt="Gallery 11"><img data-i="20" alt="Gallery 12"></div>
+        </div>
+    </section>
+
+    <!-- 8. PENUTUP (FULLSCREEN, TANPA OVERLAY) -->
+    <footer id="penutup" class="full" data-scene="dark">
+        <img class="bgimg" id="f5" alt="Agus dan Wenna">
+        <div class="cap rv">
+            <p class="kicker">Thank You</p>
+            <p class="closing-text">
+                For Being Part of Our Story <br> With Love and Blessings
+            </p>
+            <p class="names" id="footNames"></p>
+        </div>
+    </footer>
+
+</main>
+
+<nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#mempelaiPria">Bride &amp; Groom</a>
+    <a href="#acara">Event</a>
+    <a href="#hadiah">Wedding Gifts</a>
+    <a href="#galeri">Gallery</a>
+</nav>
+
+<div class="toast" id="toast"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
