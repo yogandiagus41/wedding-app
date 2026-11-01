@@ -8,7 +8,7 @@ const CFG = {
     igBride: "wenolll",
     musicStart: 0,
     imgDir: "assets/img/",
-    imgExt: "jpg"
+    imgExt: "JPG"
 };
 
 const $ = s => document.querySelector(s);
