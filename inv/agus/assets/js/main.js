@@ -161,6 +161,33 @@ $$('.copy').forEach(button => {
     };
 });
 
+/* ===== SALIN AlAMAT ===== */
+$$('.copy-ad').forEach(button => {
+    button.onclick = () => {
+        const number = button.dataset.v;
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(number)
+                .then(() => toast('Alamat  disalin'))
+                .catch(() => toast('Salin manual: ' + number));
+            return;
+        }
+
+        const temp = document.createElement('textarea');
+        temp.value = number;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+
+        let copied = false;
+        try { copied = document.execCommand('copy'); } catch (e) {}
+        temp.remove();
+
+        toast(copied ? 'Nomor rekening disalin' : 'Salin manual: ' + number);
+    };
+});
+
 /* ===== SIMPAN KE KALENDER ===== */
 $('#calBtn').onclick = () => {
     const fmt = d => d.toISOString().replace(/[-:]|\.\d{3}/g, '');
